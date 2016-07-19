@@ -20,3 +20,12 @@ here("DESCRIPTION")
 here("R/here.R")
 #> [1] "/home/muelleki/git/R/here/R/here.R"
 ```
+
+Installation
+------------
+
+`here` isn't on CRAN yet, install from GitHub via
+
+``` r
+devtools::install_github("krlmlr/here")
+```

@@ -12,5 +12,10 @@ here(...)
 \description{
 Uses a reasonable heuristics to find your project's files, based on the
 current working directory when the package is loaded.
+Use \code{\link[rprojroot]{has_file}} or the other functions in
+the \pkg{rprojroot} package for more control.
+}
+\examples{
+here()
 }
 

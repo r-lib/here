@@ -11,3 +11,4 @@ LazyData: true
 Date: 2016-07-19
 BugReports: https://github.com/krlmlr/here
 RoxygenNote: 5.0.1
+Remotes: krlmlr/rprojroot

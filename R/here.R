@@ -19,7 +19,9 @@ here <- function(...) {
 .onLoad <- function(libname, pkgname) {
   crit <- is_rstudio_project | is_r_package
 
-  f <- crit$make_fix_file()
-  packageStartupMessage("here() starts at ", f())
-  .root_env$f <- f
+  .root_env$f <- crit$make_fix_file()
+}
+
+.onAttach <- function(libname, pkgname) {
+  packageStartupMessage("here() starts at ", .root_env$f())
 }

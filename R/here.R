@@ -5,7 +5,8 @@
 #' Use \code{\link[rprojroot]{has_file}} or the other functions in
 #' the \pkg{rprojroot} package for more control.
 #'
-#' @param ... Path components below the project root, can be empty.
+#' @param ... \code{[character]}\cr
+#'   Path components below the project root, can be empty.
 #' @export
 #' @examples
 #' here()

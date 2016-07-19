@@ -3,7 +3,7 @@
 #' Uses a reasonable heuristics to find your project's files, based on the
 #' current working directory when the package is loaded.
 #'
-#' @inheritParams base::file.path
+#' @param ... Path components below the project root, can be empty.
 #' @export
 here <- function(...) {
   .root_env$f(...)

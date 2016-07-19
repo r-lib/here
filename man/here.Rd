@@ -7,7 +7,7 @@
 here(...)
 }
 \arguments{
-\item{...}{character vectors.}
+\item{...}{Path components below the project root, can be empty.}
 }
 \description{
 Uses a reasonable heuristics to find your project's files, based on the

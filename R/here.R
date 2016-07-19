@@ -2,9 +2,13 @@
 #'
 #' Uses a reasonable heuristics to find your project's files, based on the
 #' current working directory when the package is loaded.
+#' Use \code{\link[rprojroot]{has_file}} or the other functions in
+#' the \pkg{rprojroot} package for more control.
 #'
 #' @param ... Path components below the project root, can be empty.
 #' @export
+#' @examples
+#' here()
 here <- function(...) {
   .root_env$f(...)
 }
@@ -16,6 +20,6 @@ here <- function(...) {
   crit <- is_rstudio_project | is_r_package
 
   f <- crit$make_fix_file()
-  message("here() starts at ", f())
+  packageStartupMessage("here() starts at ", f())
   .root_env$f <- f
 }

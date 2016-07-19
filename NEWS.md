@@ -1,3 +1,9 @@
+# here 0.0-3 (2016-07-19)
+
+- Install `rprojroot` from GitHub.
+- Show message only when attaching.
+
+
 # here 0.0-2 (2016-07-19)
 
 - Better argument documentation.

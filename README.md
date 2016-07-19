@@ -1,0 +1,22 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+here
+====
+
+A simple interface to [`rprojroot`](https://github.com/krlmlr/rprojroot).
+
+Motivation
+----------
+
+The logic to find a project root based on certain criteria is packaged in the `rprojroot` package. Many project might not need the full power, and the complexity that comes with it. Meet `here`:
+
+``` r
+library(here)
+#> here() starts at /home/muelleki/git/R/here
+here()
+#> [1] "/home/muelleki/git/R/here"
+here("DESCRIPTION")
+#> [1] "/home/muelleki/git/R/here/DESCRIPTION"
+here("R/here.R")
+#> [1] "/home/muelleki/git/R/here/R/here.R"
+```

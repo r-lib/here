@@ -1,0 +1,32 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# here
+
+A simple interface to [`rprojroot`](https://github.com/krlmlr/rprojroot).
+
+
+## Motivation
+
+The logic to find a project root based on certain criteria is packaged in the
+`rprojroot` package.
+Many project might not need the full power, and the complexity that comes with it.
+Meet `here`:
+
+```{r}
+library(here)
+here()
+here("DESCRIPTION")
+here("R/here.R")
+```

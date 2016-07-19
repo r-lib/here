@@ -28,7 +28,7 @@ Meet `here`:
 library(here)
 here()
 here("DESCRIPTION")
-here("R/here.R")
+here("R", "here.R")
 ```
 
 

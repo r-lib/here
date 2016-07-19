@@ -17,7 +17,7 @@ here()
 #> [1] "/home/muelleki/git/R/here"
 here("DESCRIPTION")
 #> [1] "/home/muelleki/git/R/here/DESCRIPTION"
-here("R/here.R")
+here("R", "here.R")
 #> [1] "/home/muelleki/git/R/here/R/here.R"
 ```
 

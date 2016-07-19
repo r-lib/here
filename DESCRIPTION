@@ -1,6 +1,6 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 0.0-0
+Version: 0.0-1
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Constructs paths to your project's files.
 Imports:

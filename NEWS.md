@@ -1,3 +1,9 @@
+# here 0.0-2 (2016-07-19)
+
+- Better argument documentation.
+- README.
+
+
 # here 0.0-1 (2016-07-19)
 
 - A single function `here()`

@@ -3,8 +3,7 @@ Title: A Simpler Way to Find Your Files
 Version: 0.0-4
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Constructs paths to your project's files.
-Imports:
-    rprojroot
+Imports: rprojroot (>= 1.1)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

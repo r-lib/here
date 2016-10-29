@@ -7,7 +7,8 @@
 here(...)
 }
 \arguments{
-\item{...}{Path components below the project root, can be empty.}
+\item{...}{\code{[character]}\cr
+Path components below the project root, can be empty.}
 }
 \description{
 Uses a reasonable heuristics to find your project's files, based on the

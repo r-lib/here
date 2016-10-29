@@ -24,7 +24,7 @@ matrix:
     - r: release
       env:
         - DEPLOY_PAGES=true
-      after_install:
+      before_script:
         - scripts/deploy-pages.sh install
     - r: oldrel
     - r: devel

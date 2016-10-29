@@ -16,6 +16,9 @@ if [ "$DEPLOY_PAGES" ] && [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_PULL_RE
   R -q -e "travis::deploy(tasks = c('travis::task_install_ssh_keys()'))"
   ssh git@github.com || true
 
+  # Install package
+  R CMD INSTALL .
+
   # Query name and e-mail of current author
   # https://gist.github.com/l15n/3103708
   user_email=$(git show --format="%ae" | head -n 1)
@@ -24,8 +27,15 @@ if [ "$DEPLOY_PAGES" ] && [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_PULL_RE
   rm -rf $doc_dir
   mkdir -p $doc_dir
 
+  clone_cmd="git clone --quiet git@github.com:${TRAVIS_REPO_SLUG}.git $doc_dir"
+
   # Clone the current docs.
-  git clone --quiet --branch=gh-pages git@github.com:${TRAVIS_REPO_SLUG}.git $doc_dir > /dev/null
+  if ! $clone_cmd --branch=gh-pages --single-branch; then
+    $clone_cmd
+    pushd $doc_dir
+    git checkout --orphan gh-pages
+    popd
+  fi
 
   # Clean current docs and build anew.
   echo -e "Building pkgdown...\n"

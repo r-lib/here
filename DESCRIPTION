@@ -8,6 +8,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Date: 2016-10-29
-BugReports: https://github.com/krlmlr/here
+URL: https://github.com/krlmlr/here, http://krlmlr.github.io/here
+BugReports: https://github.com/krlmlr/here/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 5.0.1.9000

@@ -9,5 +9,6 @@ Encoding: UTF-8
 LazyData: true
 Date: 2016-10-29
 BugReports: https://github.com/krlmlr/here
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 5.0.1.9000
 Remotes: krlmlr/rprojroot

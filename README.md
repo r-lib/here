@@ -1,4 +1,3 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 here [![Travis-CI Build Status](https://travis-ci.org/krlmlr/here.svg?branch=master)](https://travis-ci.org/krlmlr/here)
 ========================================================================================================================

@@ -1,21 +1,27 @@
+## here 0.0-5 (2016-10-29)
+
+- `remake` projects are also recognized by default.
+- Silently falling back to current working directory if no root found.
+
+
 ## here 0.0-4 (2016-10-29)
 
 - `pkgdown`.
 
 
-# here 0.0-3 (2016-07-19)
+## here 0.0-3 (2016-07-19)
 
 - Install `rprojroot` from GitHub.
 - Show message only when attaching.
 
 
-# here 0.0-2 (2016-07-19)
+## here 0.0-2 (2016-07-19)
 
 - Better argument documentation.
 - README.
 
 
-# here 0.0-1 (2016-07-19)
+## here 0.0-1 (2016-07-19)
 
 - A single function `here()`
 - Uses a fixed root that can be either an RStudio project, or an R package

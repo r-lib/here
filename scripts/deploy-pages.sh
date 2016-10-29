@@ -16,6 +16,9 @@ if [ "$DEPLOY_PAGES" ] && [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_PULL_RE
   R -q -e "travis::deploy(tasks = c('travis::task_install_ssh_keys()'))"
   ssh git@github.com || true
 
+  # Install package
+  R CMD INSTALL .
+
   # Query name and e-mail of current author
   # https://gist.github.com/l15n/3103708
   user_email=$(git show --format="%ae" | head -n 1)

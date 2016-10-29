@@ -24,12 +24,8 @@ matrix:
     - r: release
       env:
         - DEPLOY_PAGES=true
-      r_github_packages:
-        - hadley/pkgdown
-        - krlmlr/travis@develop
-      r_packages:
-        - covr
-        - roxygen2
+      before_script:
+        - scripts/deploy-pages.sh install
     - r: oldrel
     - r: devel
     - os: osx

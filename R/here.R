@@ -2,7 +2,7 @@
 #'
 #' Uses a reasonable heuristics to find your project's files, based on the
 #' current working directory when the package is loaded.
-#' Use \code{\link[rprojroot]{has_file}} or the other functions in
+#' Use [rprojroot::has_file()] or the other functions in
 #' the \pkg{rprojroot} package for more control.
 #'
 #' @param ... \code{[character]}\cr
@@ -18,7 +18,7 @@ here <- function(...) {
 
 #' @import rprojroot
 .onLoad <- function(libname, pkgname) {
-  crit <- is_rstudio_project | is_r_package
+  crit <- is_rstudio_project | is_r_package | is_remake_project | from_wd
 
   .root_env$f <- crit$make_fix_file()
 }

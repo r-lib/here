@@ -7,7 +7,7 @@ A simple interface to [`rprojroot`](https://github.com/krlmlr/rprojroot).
 Motivation
 ----------
 
-The logic to find a project root based on certain criteria is packaged in the `rprojroot` package. Many project might not need the full power, and the complexity that comes with it. Meet `here`:
+The logic to find a project root based on certain criteria is packaged in the `rprojroot` package. Many projects might not need the full power, and the complexity that comes with it. Meet `here`:
 
 ``` r
 library(here)

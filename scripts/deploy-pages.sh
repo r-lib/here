@@ -12,8 +12,14 @@ doc_dir=docs
 # For local testing use:
 # TRAVIS_OS_NAME=linux TRAVIS_PULL_REQUEST=false TRAVIS_BRANCH=production TRAVIS_REPO_SLUG=rstats-db/DBI TRAVIS_COMMIT=$(git rev-parse HEAD) GITHUB_PAT=<your-PAT> scripts/deploy-pages.sh
 
+command=$1
+
 if [ "$DEPLOY_PAGES" ] && [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "production" ]; then
-  R -q -e "travis::deploy(tasks = c('travis::task_install_ssh_keys()'))"
+ if [ "$command" == "install" ]; then
+  R -q -e 'devtools::install_github(c("hadley/pkgdown", "krlmlr/travis@develop"))'
+  R -q -e 'install.packages("roxygen2")'
+ else
+  R -q -e 'travis::deploy(tasks = c("travis::task_install_ssh_keys()"))'
   ssh git@github.com || true
 
   # Install package
@@ -65,4 +71,5 @@ EOF
   git push --quiet origin gh-pages
 
   echo -e "Published pkgdown to gh-pages.\n"
+ fi
 fi

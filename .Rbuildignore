@@ -3,3 +3,5 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^\.travis\.yml$
+^\.deploy_key\.pub$
+^\.deploy_key\.enc$

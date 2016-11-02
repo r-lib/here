@@ -33,10 +33,6 @@ matrix:
     r: release
     latex: false
 
-#after_success (deploy to gh-pages)
-after_success:
-- R -e 'travis::deploy()'
-
 #notifications
 notifications:
   email:
@@ -61,3 +57,7 @@ before_install:
 #before_script
 before_script:
 - R -e 'travis::install_deploy_dependencies()'
+
+#after_success (deploy to gh-pages)
+after_success:
+- R -e 'travis::deploy()'

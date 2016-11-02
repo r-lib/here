@@ -25,7 +25,7 @@ matrix:
   include:
   - r: release
     env:
-    - RTRAVIS_TASKS="${R_TRAVIS_TASKS} pkgdown::build_site(); task_install_ssh_keys()"
+    - RTRAVIS_TASKS="${RTRAVIS_TASKS} pkgdown::build_site(); task_install_ssh_keys()"
   - r: oldrel
   - r: devel
   - os: osx

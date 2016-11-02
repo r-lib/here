@@ -16,7 +16,7 @@ command=$1
 
 if [ "$DEPLOY_PAGES" ] && [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "production" ]; then
  if [ "$command" == "install" ]; then
-  R -q -e 'devtools::install_github(c("hadley/pkgdown", "krlmlr/travis@develop"))'
+  R -q -e 'devtools::install_github(c("hadley/pkgdown", "ropenscilabs/travis"))'
  else
   R -q -e 'travis::deploy(tasks = c("travis::task_install_ssh_keys()"))'
   ssh git@github.com || true

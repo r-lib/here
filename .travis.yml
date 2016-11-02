@@ -6,19 +6,20 @@ sudo: false
 cache: packages
 warnings_are_errors: true
 
+#env
 env:
   global:
   - _R_CHECK_FORCE_SUGGESTS_=false
   - MAKEFLAGS="-j 2"
 
-# Linux
+#addons
 addons:
   apt:
     packages:
     - libmagick++-dev
     - libssh2-1-dev
 
-# Matrix: 3x Linux, 1x OS X
+#matrix: 3x Linux, 1x OS X
 matrix:
   include:
   - r: release
@@ -26,10 +27,6 @@ matrix:
       - DEPLOY_PAGES=true
     before_script:
       - scripts/deploy-pages.sh install
-    r_github_packages:
-      - hadley/pkgdown
-      - ropenscilabs/travis
-      - jimhester/covr
   - r: oldrel
   - r: devel
   - os: osx
@@ -37,16 +34,13 @@ matrix:
     r: release
     latex: false
 
-#r_packages
-r_packages:
-
 #notifications
 notifications:
   email:
     on_success: change
     on_failure: change
 
-# deploy (to gh-pages)
+#deploy (to gh-pages)
 deploy:
   provider: script
   script: scripts/deploy-pages.sh
@@ -59,19 +53,18 @@ after_success:
 
 # Custom parts:
 
-#r_github_packages (also need to add to the matrix definition above)
+#r_github_packages
 r_github_packages:
 - jimhester/covr
 
-#r_packages (need to copy packages included above, and add to the matrix definition)
+#r_packages
+r_packages:
 
-#env (need to copy settings from above)
-
-# services
+#services
 services:
 
 #before_install
 before_install:
 
-# before_script
+#before_script
 before_script:

@@ -22,20 +22,20 @@ addons:
 matrix:
   include:
   - r: release
-      env:
+    env:
       - DEPLOY_PAGES=true
-      before_script:
+    before_script:
       - scripts/deploy-pages.sh install
-      r_github_packages:
+    r_github_packages:
       - hadley/pkgdown
       - ropenscilabs/travis
       - jimhester/covr
   - r: oldrel
   - r: devel
   - os: osx
-      osx_image: xcode7.2
-      r: release
-      latex: false
+    osx_image: xcode7.2
+    r: release
+    latex: false
 
 #r_packages
 r_packages:

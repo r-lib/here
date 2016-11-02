@@ -8,31 +8,31 @@ warnings_are_errors: true
 
 env:
   global:
-    - _R_CHECK_FORCE_SUGGESTS_=false
-    - MAKEFLAGS="-j 2"
+  - _R_CHECK_FORCE_SUGGESTS_=false
+  - MAKEFLAGS="-j 2"
 
 # Linux
 addons:
   apt:
     packages:
-      - libmagick++-dev
-      - libssh2-1-dev
+    - libmagick++-dev
+    - libssh2-1-dev
 
 # Matrix: 3x Linux, 1x OS X
 matrix:
   include:
-    - r: release
+  - r: release
       env:
-        - DEPLOY_PAGES=true
+      - DEPLOY_PAGES=true
       before_script:
-        - scripts/deploy-pages.sh install
+      - scripts/deploy-pages.sh install
       r_github_packages:
-        - hadley/pkgdown
-        - ropenscilabs/travis
-        - jimhester/covr
-    - r: oldrel
-    - r: devel
-    - os: osx
+      - hadley/pkgdown
+      - ropenscilabs/travis
+      - jimhester/covr
+  - r: oldrel
+  - r: devel
+  - os: osx
       osx_image: xcode7.2
       r: release
       latex: false
@@ -55,13 +55,13 @@ deploy:
 
 #after_success (run covr)
 after_success:
-  - R -e 'covr::codecov()'
+- R -e 'covr::codecov()'
 
 # Custom parts:
 
 #r_github_packages (also need to add to the matrix definition above)
 r_github_packages:
-  - jimhester/covr
+- jimhester/covr
 
 #r_packages (need to copy packages included above, and add to the matrix definition)
 

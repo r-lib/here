@@ -44,7 +44,7 @@ if [ "$DEPLOY_PAGES" ] && [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_PULL_RE
 
   # Clean current docs and build anew.
   echo -e "Building pkgdown...\n"
-  rm -r $doc_dir/*
+  rm -rf $doc_dir/*
   R -q -e "pkgdown::build_site()"
 
   echo -e "Publishing pkgdown...\n"

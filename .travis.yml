@@ -43,11 +43,11 @@ notifications:
 #deploy (to gh-pages)
 deploy:
 - provider: script
-  script: false
+  script: /bin/false
   on:
     branch: production
 - provider: script
-  script: true
+  script: /bin/true
   on:
     branch: production
 

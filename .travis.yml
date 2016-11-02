@@ -26,6 +26,10 @@ matrix:
         - DEPLOY_PAGES=true
       before_script:
         - scripts/deploy-pages.sh install
+      r_github_packages:
+        - hadley/pkgdown
+        - ropenscilabs/travis
+        - jimhester/covr
     - r: oldrel
     - r: devel
     - os: osx
@@ -35,7 +39,6 @@ matrix:
 
 #r_packages
 r_packages:
-  - covr
 
 #notifications
 notifications:
@@ -57,13 +60,18 @@ after_success:
 # Custom parts:
 
 #r_github_packages (also need to add to the matrix definition above)
+r_github_packages:
+  - jimhester/covr
 
 #r_packages (need to copy packages included above, and add to the matrix definition)
 
 #env (need to copy settings from above)
 
 # services
+services:
 
 #before_install
+before_install:
 
 # before_script
+before_script:

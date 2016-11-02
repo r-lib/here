@@ -33,8 +33,8 @@ matrix:
     r: release
     latex: false
 
-#before_script
-before_script:
+#before_install
+before_install:
 - R -e 'travis::install_deploy_dependencies()'
 
 #after_success (deploy to gh-pages)

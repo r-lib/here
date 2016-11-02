@@ -30,10 +30,6 @@ matrix:
     #deploy (to gh-pages)
     deploy:
     - provider: script
-      script: /bin/false
-      on:
-        branch: production
-    - provider: script
       script: /bin/true
       on:
         branch: production

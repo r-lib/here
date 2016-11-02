@@ -27,6 +27,16 @@ matrix:
       - DEPLOY_PAGES=true
     before_script:
       - scripts/deploy-pages.sh install
+    #deploy (to gh-pages)
+    deploy:
+    - provider: script
+      script: /bin/true
+      on:
+        branch: production
+    - provider: script
+      script: /bin/false
+      on:
+        branch: production
   - r: oldrel
   - r: devel
   - os: osx
@@ -39,17 +49,6 @@ notifications:
   email:
     on_success: change
     on_failure: change
-
-#deploy (to gh-pages)
-deploy:
-- provider: script
-  script: /bin/true
-  on:
-    branch: production
-- provider: script
-  script: /bin/false
-  on:
-    branch: production
 
 #after_success (run covr)
 after_success:

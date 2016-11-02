@@ -24,21 +24,28 @@ matrix:
   include:
   - r: release
     env:
-      - DEPLOY_PAGES=true
-    before_script:
-      - scripts/deploy-pages.sh install
-    #deploy (to gh-pages)
-    deploy:
-    - provider: script
-      script: /bin/true
-      on:
-        branch: production
+    - RTRAVIS_TASKS="covr::codecov(); pkgdown::build_site(); task_install_ssh_keys()"
   - r: oldrel
+    env:
+    - RTRAVIS_TASKS="covr::codecov()"
   - r: devel
+    env:
+    - RTRAVIS_TASKS="covr::codecov()"
   - os: osx
     osx_image: xcode7.2
+    env:
+    - RTRAVIS_TASKS="covr::codecov()"
     r: release
     latex: false
+
+#before_script
+before_script:
+- R -e 'travis::install_deploy_dependencies()'
+
+#deploy (to gh-pages)
+deploy:
+- provider: script
+  script: travis::deploy()
 
 #notifications
 notifications:
@@ -46,15 +53,11 @@ notifications:
     on_success: change
     on_failure: change
 
-#after_success (run covr)
-after_success:
-- R -e 'covr::codecov()'
-
 # Custom parts:
 
 #r_github_packages
 r_github_packages:
-- jimhester/covr
+- ropenscilabs/travis@f-42-config
 
 #r_packages
 r_packages:

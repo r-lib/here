@@ -41,7 +41,7 @@ notifications:
 
 #before_script
 before_script:
-- R -q -e 'devtools::install_github("krlmlr/tic"); tic::before_script()'
+- R -q -e 'devtools::install_github("ropenscilabs/tic"); tic::before_script()'
 
 #after_success (deploy to gh-pages)
 after_success:

@@ -11,7 +11,7 @@ env:
   global:
   - _R_CHECK_FORCE_SUGGESTS_=false
   - MAKEFLAGS="-j 2"
-  - RTRAVIS_TASKS="covr::codecov();"
+  - RTRAVIS_AFTER_SUCCESS_TASKS="task_run_covr();"
 
 #addons
 addons:
@@ -25,7 +25,7 @@ matrix:
   include:
   - r: release
     env:
-    - RTRAVIS_TASKS='${RTRAVIS_TASKS} devtools::install_github("hadley/pkgdown"); pkgdown::build_site(); task_install_ssh_keys()'
+    - RTRAVIS_DEPLOY_TASKS="task_build_pkgdown(); task_install_ssh_keys(); task_test_ssh(); task_push_deploy(path = 'docs', branch = 'gh-pages', on_branch = 'production')"
   - r: oldrel
   - r: devel
   - os: osx
@@ -39,11 +39,25 @@ notifications:
     on_success: change
     on_failure: change
 
+#before_script
+before_script:
+- R -q -e 'devtools::install_github("krlmlr/tic"); tic::before_script()'
+
+#after_success (deploy to gh-pages)
+after_success:
+- R -q -e 'tic::after_success()'
+
+#deploy // https://github.com/travis-ci/travis-build/blob/85ef7108/lib/travis/build/addons/deploy/script.rb#L100-L107
+deploy:
+  provider: script
+  script: R -q -e 'tic::deploy()'
+  on:
+    all_branches: true
+
 # Custom parts:
 
 #r_github_packages
 r_github_packages:
-- ropenscilabs/travis@f-42-config
 
 #r_packages
 r_packages:
@@ -53,11 +67,3 @@ services:
 
 #before_install
 before_install:
-
-#before_script
-before_script:
-- R -e 'travis::install_deploy_dependencies()'
-
-#after_success (deploy to gh-pages)
-after_success:
-- R -e 'travis::deploy()'

@@ -11,7 +11,6 @@ env:
   global:
   - _R_CHECK_FORCE_SUGGESTS_=false
   - MAKEFLAGS="-j 2"
-  - RTRAVIS_AFTER_SUCCESS_TASKS="task_run_covr"
 
 #addons
 addons:
@@ -25,7 +24,7 @@ matrix:
   include:
   - r: release
     env:
-    - RTRAVIS_DEPLOY_TASKS="task_build_pkgdown; task_install_ssh_keys; task_test_ssh; task_push_deploy(path = 'docs', branch = 'gh-pages', on_branch = 'production')"
+    - BUILD_PKGDOWN=true
   - r: oldrel
   - r: devel
   - os: osx

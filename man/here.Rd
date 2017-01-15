@@ -13,10 +13,11 @@ Path components below the project root, can be empty.}
 \description{
 Uses a reasonable heuristics to find your project's files, based on the
 current working directory when the package is loaded.
+Intended for interactive use only.
 Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
-the \pkg{rprojroot} package for more control.
+the \pkg{rprojroot} package for more control,
+or for package development.
 }
 \examples{
 here()
 }
-

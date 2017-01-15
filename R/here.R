@@ -18,7 +18,7 @@ here <- function(...) {
 
 #' @import rprojroot
 .onLoad <- function(libname, pkgname) {
-  .root_env$crit <- is_rstudio_project | is_r_package | is_remake_project
+  .root_env$crit <- is_rstudio_project | is_r_package | is_remake_project | is_projectile_project | is_vcs_root
   .root_env$f <- .root_env$crit$make_fix_file()
 }
 

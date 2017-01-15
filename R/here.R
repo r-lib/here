@@ -18,11 +18,11 @@ here <- function(...) {
 
 #' @import rprojroot
 .onLoad <- function(libname, pkgname) {
-  crit <- is_rstudio_project | is_r_package | is_remake_project
-
-  .root_env$f <- crit$make_fix_file()
+  .root_env$crit <- is_rstudio_project | is_r_package | is_remake_project
+  .root_env$f <- .root_env$crit$make_fix_file()
 }
 
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("here() starts at ", .root_env$f())
+  root <- .root_env$f()
+  packageStartupMessage("here() starts at ", root)
 }

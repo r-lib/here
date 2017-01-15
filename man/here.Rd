@@ -2,21 +2,31 @@
 % Please edit documentation in R/here.R
 \name{here}
 \alias{here}
+\alias{dr_here}
 \title{Find your files}
 \usage{
 here(...)
+
+dr_here(show_reason = TRUE)
 }
 \arguments{
 \item{...}{\code{[character]}\cr
 Path components below the project root, can be empty.}
+
+\item{show_reason}{Include reason in output of \code{dr_here()}, defaults to
+\code{TRUE}.}
 }
 \description{
-Uses a reasonable heuristics to find your project's files, based on the
-current working directory when the package is loaded.
+\code{here()} uses a reasonable heuristics to find your project's files, based on
+the current working directory when the package is loaded.
 Intended for interactive use only.
 Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
 the \pkg{rprojroot} package for more control,
 or for package development.
+
+\code{dr_here()} shows a message that by default also includes the
+reason why \code{here()} is set to a particular directory.  Use this function
+if \code{here()} gives unexpected results.
 }
 \examples{
 here()

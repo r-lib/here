@@ -1,7 +1,7 @@
 #' Find your files
 #'
-#' Uses a reasonable heuristics to find your project's files, based on the
-#' current working directory when the package is loaded.
+#' `here()` uses a reasonable heuristics to find your project's files, based on
+#' the current working directory when the package is loaded.
 #' Intended for interactive use only.
 #' Use [rprojroot::has_file()] or the other functions in
 #' the \pkg{rprojroot} package for more control,
@@ -16,6 +16,27 @@ here <- function(...) {
   .root_env$f(...)
 }
 
+#' @rdname here
+#' @description `dr_here()` shows a message that by default also includes the
+#'   reason why `here()` is set to a particular directory.  Use this function
+#'   if `here()` gives unexpected results.
+#' @param show_reason Include reason in output of `dr_here()`, defaults to
+#'   `TRUE`.
+#' @export
+dr_here <- function(show_reason = TRUE) {
+  message(format_dr_here(show_reason = show_reason))
+}
+
+format_dr_here <- function(show_reason) {
+  root <- .root_env$f()
+  paste0(
+    "here() starts at ", root,
+    if (show_reason) {
+      paste0(", because it ", get_root_desc(.root_env$crit, root))
+    }
+  )
+}
+
 .root_env <- new.env(parent = emptyenv())
 
 #' @import rprojroot
@@ -25,6 +46,5 @@ here <- function(...) {
 }
 
 .onAttach <- function(libname, pkgname) {
-  root <- .root_env$f()
-  packageStartupMessage("here() starts at ", root)
+  packageStartupMessage(format_dr_here(show_reason = FALSE))
 }

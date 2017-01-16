@@ -85,4 +85,4 @@ Here are the criteria. The order doesn't really matter because all of them are c
   * Is this a [projectile](http://projectile.readthedocs.io/en/latest/) project? Does it have a file named `.projectile`?
   * Is this a checkout from a version control system? Does it have a directory named `.git` or `.svn`? Currently, only Git and Subversion are supported.
 
-If no criteria match, loading the package will fail. Use `here::set_here()` to create an empty `.here` file that will stop the search if none of the other criteria apply. `here::dr_here()` will attempt to explain why `here` decided the root location the way it did.
+If no criteria match, loading the package will fail. Use `set_here()` to create an empty `.here` file that will stop the search if none of the other criteria apply. `dr_here()` will attempt to explain why `here` decided the root location the way it did.

@@ -2,4 +2,5 @@
 
 export(dr_here)
 export(here)
+export(set_here)
 import(rprojroot)

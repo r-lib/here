@@ -37,11 +37,37 @@ format_dr_here <- function(show_reason) {
   )
 }
 
+#' @rdname here
+#' @description `set_here()` creates an empty file named `.here`, by default
+#'   in the current directory.  When `here` encounters such a file, it uses the
+#'   directory that contains this file as root.  This is useful if none of the
+#'   default criteria apply.
+#' @export
+set_here <- function(path = ".", verbose = TRUE) {
+  path <- normalizePath(path)
+  file_path <- file.path(path, ".here")
+
+  if (file.exists(file_path)) {
+    if (verbose) {
+      message("File .here already exists in ", path)
+    }
+  } else {
+    writeLines(character(), file_path)
+    if (verbose) {
+      message("Created file .here in ", path)
+    }
+  }
+
+  invisible(file_path)
+}
+
+is_here <- has_file(".here")
+
 .root_env <- new.env(parent = emptyenv())
 
 #' @import rprojroot
 .onLoad <- function(libname, pkgname) {
-  .root_env$crit <- is_rstudio_project | is_r_package | is_remake_project | is_projectile_project | is_vcs_root
+  .root_env$crit <- is_here | is_rstudio_project | is_r_package | is_remake_project | is_projectile_project | is_vcs_root
   .root_env$f <- .root_env$crit$make_fix_file()
 }
 

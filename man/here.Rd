@@ -3,11 +3,14 @@
 \name{here}
 \alias{here}
 \alias{dr_here}
+\alias{set_here}
 \title{Find your files}
 \usage{
 here(...)
 
 dr_here(show_reason = TRUE)
+
+set_here(path = ".", verbose = TRUE)
 }
 \arguments{
 \item{...}{\code{[character]}\cr
@@ -27,6 +30,11 @@ or for package development.
 \code{dr_here()} shows a message that by default also includes the
 reason why \code{here()} is set to a particular directory.  Use this function
 if \code{here()} gives unexpected results.
+
+\code{set_here()} creates an empty file named \code{.here}, by default
+in the current directory.  When \code{here} encounters such a file, it uses the
+directory that contains this file as root.  This is useful if none of the
+default criteria apply.
 }
 \examples{
 here()

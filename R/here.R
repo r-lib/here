@@ -1,8 +1,11 @@
 #' Find your files
 #'
 #' `here()` uses a reasonable heuristics to find your project's files, based on
-#' the current working directory when the package is loaded.
-#' Intended for interactive use only.
+#' the current working directory at the time when the package is loaded.
+#' Use it as a drop-in replacement for [file.path()], it will always locate the
+#' files relative to your project root.
+#'
+#' This package is intended for interactive use only.
 #' Use [rprojroot::has_file()] or the other functions in
 #' the \pkg{rprojroot} package for more control,
 #' or for package development.
@@ -12,6 +15,7 @@
 #' @export
 #' @examples
 #' here()
+#' \dontrun{here("some/path/below/your/project/root.txt")}
 here <- function(...) {
   .root_env$f(...)
 }

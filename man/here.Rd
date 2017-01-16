@@ -24,11 +24,9 @@ Verbose output, defaults to \code{TRUE}.}
 }
 \description{
 \code{here()} uses a reasonable heuristics to find your project's files, based on
-the current working directory when the package is loaded.
-Intended for interactive use only.
-Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
-the \pkg{rprojroot} package for more control,
-or for package development.
+the current working directory at the time when the package is loaded.
+Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}}, it will always locate the
+files relative to your project root.
 
 \code{dr_here()} shows a message that by default also includes the
 reason why \code{here()} is set to a particular directory.  Use this function
@@ -39,6 +37,13 @@ in the current directory.  When \code{here} encounters such a file, it uses the
 directory that contains this file as root.  This is useful if none of the
 default criteria apply.
 }
+\details{
+This package is intended for interactive use only.
+Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
+the \pkg{rprojroot} package for more control,
+or for package development.
+}
 \examples{
 here()
+\dontrun{here("some/path/below/your/project/root.txt")}
 }

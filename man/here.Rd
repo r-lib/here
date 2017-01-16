@@ -2,21 +2,65 @@
 % Please edit documentation in R/here.R
 \name{here}
 \alias{here}
+\alias{dr_here}
+\alias{set_here}
 \title{Find your files}
 \usage{
 here(...)
+
+dr_here(show_reason = TRUE)
+
+set_here(path = ".", verbose = TRUE)
 }
 \arguments{
 \item{...}{\code{[character]}\cr
 Path components below the project root, can be empty.}
+
+\item{show_reason}{\code{[logical(1)]}\cr
+Include reason in output of \code{dr_here()}, defaults to \code{TRUE}.}
+
+\item{path}{\code{[character(1)]}\cr
+Directory where to create \code{.here} file, defaults to the current directory.}
+
+\item{verbose}{\code{[logical(1)]}\cr
+Verbose output, defaults to \code{TRUE}.}
 }
 \description{
-Uses a reasonable heuristics to find your project's files, based on the
-current working directory when the package is loaded.
+\code{here()} uses a reasonable heuristics to find your project's files, based on
+the current working directory at the time when the package is loaded.
+Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}}, it will always locate the
+files relative to your project root.
+
+\code{dr_here()} shows a message that by default also includes the
+reason why \code{here()} is set to a particular directory.  Use this function
+if \code{here()} gives unexpected results.
+
+\code{set_here()} creates an empty file named \code{.here}, by default
+in the current directory.  When \code{here} encounters such a file, it uses the
+directory that contains this file as root.  This is useful if none of the
+default criteria apply.
+}
+\details{
+This package is intended for interactive use only.
 Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
-the \pkg{rprojroot} package for more control.
+the \pkg{rprojroot} package for more control,
+or for package development.
 }
 \examples{
 here()
+\dontrun{here("some/path/below/your/project/root.txt")}
+}
+\section{Project root}{
+Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:
+\itemize{
+\item contains a file \code{.here}
+\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version:} in the first line
+\item contains a file \code{DESCRIPTION} with contents matching \code{^Package:}
+\item contains a file \code{remake.yml}
+\item contains a file \code{.projectile}
+\item contains a directory \code{.git}
+\item contains a directory \code{.svn}
 }
 
+Once established, the root directory doesn't change during the active R session. \code{here()} then appends the arguments to the root directory.
+}

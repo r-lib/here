@@ -47,3 +47,17 @@ or for package development.
 here()
 \dontrun{here("some/path/below/your/project/root.txt")}
 }
+\section{Project root}{
+Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds ome that satisfies at least one of the following conditions:
+\itemize{
+\item contains a file \code{.here}
+\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version:} in the first line
+\item contains a file \code{DESCRIPTION} with contents matching \code{^Package:}
+\item contains a file \code{remake.yml}
+\item contains a file \code{.projectile}
+\item contains a directory \code{.git}
+\item contains a directory \code{.svn}
+}
+
+Once established, the root directory doesn't change during the active R session. \code{here()} then appends the arguments to the root directory.
+}

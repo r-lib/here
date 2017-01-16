@@ -1,14 +1,15 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 0.0-5
+Version: 0.0-6
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Constructs paths to your project's files.
 Imports: rprojroot (>= 1.2)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Date: 2016-10-29
+Date: 2017-01-16
 URL: https://github.com/krlmlr/here, http://krlmlr.github.io/here
 BugReports: https://github.com/krlmlr/here/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 5.0.1.9000
+Remotes: krlmlr/rprojroot@r-1.2

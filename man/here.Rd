@@ -19,6 +19,9 @@ Path components below the project root, can be empty.}
 \item{show_reason}{\code{[logical(1)]}\cr
 Include reason in output of \code{dr_here()}, defaults to \code{TRUE}.}
 
+\item{path}{\code{[character(1)]}\cr
+Directory where to create \code{.here} file, defaults to the current directory.}
+
 \item{verbose}{\code{[logical(1)]}\cr
 Verbose output, defaults to \code{TRUE}.}
 }

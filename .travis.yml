@@ -3,39 +3,35 @@
 # Header
 language: r
 sudo: false
+dist: trusty
 cache: packages
 warnings_are_errors: true
 
+#env
 env:
   global:
-    - _R_CHECK_FORCE_SUGGESTS_=false
-    - MAKEFLAGS="-j 2"
+  - _R_CHECK_FORCE_SUGGESTS_=false
+  - MAKEFLAGS="-j 2"
 
-# Linux
+#addons
 addons:
   apt:
     packages:
-      - libmagick++-dev
-      - libssh2-1-dev
+    - libmagick++-dev
+    - libssh2-1-dev
 
-# Matrix: 3x Linux, 1x OS X
+#matrix: 3x Linux, 1x OS X
 matrix:
   include:
-    - r: release
-      env:
-        - DEPLOY_PAGES=true
-      before_script:
-        - scripts/deploy-pages.sh install
-    - r: oldrel
-    - r: devel
-    - os: osx
-      osx_image: xcode7.2
-      r: release
-      latex: false
-
-#r_packages
-r_packages:
-  - covr
+  - r: release
+    env:
+    - BUILD_PKGDOWN=true
+  - r: oldrel
+  - r: devel
+  - os: osx
+    osx_image: xcode7.3
+    r: release
+    latex: false
 
 #notifications
 notifications:
@@ -43,27 +39,31 @@ notifications:
     on_success: change
     on_failure: change
 
-# deploy (to gh-pages)
+#before_script
+before_script:
+- R -q -e 'devtools::install_github("ropenscilabs/tic"); tic::prepare_all_stages()'
+
+#after_success
+after_success:
+- R -q -e 'tic::after_success()'
+
+#deploy // https://github.com/travis-ci/travis-build/blob/85ef7108/lib/travis/build/addons/deploy/script.rb#L100-L107
 deploy:
   provider: script
-  script: scripts/deploy-pages.sh
+  script: R -q -e 'tic::deploy()'
   on:
-    branch: production
-
-#after_success (run covr)
-after_success:
-  - R -e 'covr::codecov()'
+    all_branches: true
 
 # Custom parts:
 
-#r_github_packages (also need to add to the matrix definition above)
+#r_github_packages
+r_github_packages:
 
-#r_packages (need to copy packages included above, and add to the matrix definition)
+#r_packages
+r_packages:
 
-#env (need to copy settings from above)
-
-# services
+#services
+services:
 
 #before_install
-
-# before_script
+before_install:

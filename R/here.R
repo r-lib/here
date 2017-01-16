@@ -86,7 +86,7 @@ is_here <- has_file(".here")
 format_root_section <- function() {
   paste(
     "\\section{Project root}{",
-    "Starting with the current working directory during package load time, `here` will walk the directory hierarchy upwards until it finds ome that satisfies at least one of the following conditions:",
+    "Starting with the current working directory during package load time, `here` will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:",
     paste(format(.root_env$crit)[-1], collapse = "\n"),
     "",
     "Once established, the root directory doesn't change during the active R session. `here()` then appends the arguments to the root directory.",

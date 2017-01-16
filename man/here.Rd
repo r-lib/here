@@ -48,7 +48,7 @@ here()
 \dontrun{here("some/path/below/your/project/root.txt")}
 }
 \section{Project root}{
-Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds ome that satisfies at least one of the following conditions:
+Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:
 \itemize{
 \item contains a file \code{.here}
 \item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version:} in the first line

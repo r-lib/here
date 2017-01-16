@@ -48,6 +48,8 @@ format_dr_here <- function(show_reason) {
 #'   in the current directory.  When `here` encounters such a file, it uses the
 #'   directory that contains this file as root.  This is useful if none of the
 #'   default criteria apply.
+#' @param path \code{[character(1)]}\cr
+#'   Directory where to create `.here` file, defaults to the current directory.
 #' @param verbose \code{[logical(1)]}\cr
 #'   Verbose output, defaults to `TRUE`.
 #' @export

@@ -53,16 +53,16 @@ What does here think the top-level of current project is? The package displays t
 
 ``` r
 library(here)
-#> here() starts at /Users/jenny/rrr/here_here
+#> here() starts at /home/muelleki/git/R/here_here
 here()
-#> [1] "/Users/jenny/rrr/here_here"
+#> [1] "/home/muelleki/git/R/here_here"
 ```
 
 Build a path to something in a subdirectory and use it.
 
 ``` r
 here("one", "two", "awesome.txt")
-#> [1] "/Users/jenny/rrr/here_here/one/two/awesome.txt"
+#> [1] "/home/muelleki/git/R/here_here/one/two/awesome.txt"
 cat(readLines(here("one", "two", "awesome.txt")))
 #> OMG this is so awesome!
 ```
@@ -72,7 +72,7 @@ Don't try this at home, folks! But let me set working directory to a subdirector
 ``` r
 setwd(here("one"))
 getwd()
-#> [1] "/Users/jenny/rrr/here_here/one"
+#> [1] "/home/muelleki/git/R/here_here/one"
 cat(readLines(here("one", "two", "awesome.txt")))
 #> OMG this is so awesome!
 ```
@@ -82,10 +82,13 @@ The fine print
 
 `here::here()` figures out the top-level of your current project using some sane heuristics. It looks at working directory, checks a criterion and, if not satisfied, moves up to parent directory and checks again. Lather, rinse, repeat.
 
-Here are the criteria, in order of precedence:
+Here are the criteria. The order doesn't really matter because all of them are checked for each directory before moving up to the parent directory:
 
+-   Is a file named `.here` present?
 -   Is this an RStudio Project? Literally, can I find a file named something like `foo.Rproj`?
 -   Is this an R package? Does it have a `DESCRIPTION` file?
 -   Is this a [remake](https://github.com/richfitz/remake#readme) project? Does it have a file named `remake.yml`?
+-   Is this a [projectile](http://projectile.readthedocs.io/en/latest/) project? Does it have a file named `.projectile`?
+-   Is this a checkout from a version control system? Does it have a directory named `.git` or `.svn`? Currently, only Git and Subversion are supported.
 
-The fallback position is to build path relative to current working directory.
+If no criteria match, loading the package will fail. Use `here::set_here()` to create an empty `.here` file that will stop the search if none of the other criteria apply. `here::dr_here()` will attempt to explain why `here` decided the root location the way it did.

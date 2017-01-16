@@ -8,3 +8,4 @@
 ^scripts/deploy-pages\.sh$
 ^_pkgdown\.yml$
 ^tic\.R$
+^one$

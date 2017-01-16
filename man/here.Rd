@@ -16,8 +16,11 @@ set_here(path = ".", verbose = TRUE)
 \item{...}{\code{[character]}\cr
 Path components below the project root, can be empty.}
 
-\item{show_reason}{Include reason in output of \code{dr_here()}, defaults to
-\code{TRUE}.}
+\item{show_reason}{\code{[logical(1)]}\cr
+Include reason in output of \code{dr_here()}, defaults to \code{TRUE}.}
+
+\item{verbose}{\code{[logical(1)]}\cr
+Verbose output, defaults to \code{TRUE}.}
 }
 \description{
 \code{here()} uses a reasonable heuristics to find your project's files, based on

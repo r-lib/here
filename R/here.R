@@ -20,8 +20,8 @@ here <- function(...) {
 #' @description `dr_here()` shows a message that by default also includes the
 #'   reason why `here()` is set to a particular directory.  Use this function
 #'   if `here()` gives unexpected results.
-#' @param show_reason Include reason in output of `dr_here()`, defaults to
-#'   `TRUE`.
+#' @param show_reason \code{[logical(1)]}\cr
+#'   Include reason in output of `dr_here()`, defaults to `TRUE`.
 #' @export
 dr_here <- function(show_reason = TRUE) {
   message(format_dr_here(show_reason = show_reason))
@@ -42,6 +42,8 @@ format_dr_here <- function(show_reason) {
 #'   in the current directory.  When `here` encounters such a file, it uses the
 #'   directory that contains this file as root.  This is useful if none of the
 #'   default criteria apply.
+#' @param verbose \code{[logical(1)]}\cr
+#'   Verbose output, defaults to `TRUE`.
 #' @export
 set_here <- function(path = ".", verbose = TRUE) {
   path <- normalizePath(path)

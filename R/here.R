@@ -91,7 +91,6 @@ is_here <- has_file(".here")
   tryCatch(
     .root_env$f <- .root_env$crit$make_fix_file(),
     error = function(e) {
-      warning(conditionMessage(e), call. = FALSE)
       .root_env$f <- from_wd$make_fix_file()
     }
   )

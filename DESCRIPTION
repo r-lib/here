@@ -3,6 +3,10 @@ Title: A Simpler Way to Find Your Files
 Version: 0.0-6
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Constructs paths to your project's files.
+    The 'here()' function uses a reasonable heuristics to find your project's
+    files, based on the current working directory at the time when the package
+    is loaded. Use it as a drop-in replacement for 'file.path()', it will always
+    locate the files relative to your project root.
 Imports: rprojroot (>= 1.2)
 License: GPL-3
 Encoding: UTF-8

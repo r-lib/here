@@ -10,7 +10,7 @@
 #' the \pkg{rprojroot} package for more control,
 #' or for package development.
 #'
-#' @evalRd format_root_section()
+#' @evalRd roxygen2:::full_markdown(format_root_section())
 #'
 #' @param ... \code{[character]}\cr
 #'   Path components below the project root, can be empty.

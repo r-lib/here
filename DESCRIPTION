@@ -15,4 +15,4 @@ Date: 2017-05-27
 URL: https://github.com/krlmlr/here, http://krlmlr.github.io/here
 BugReports: https://github.com/krlmlr/here/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 6.0.1

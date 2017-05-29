@@ -12,7 +12,7 @@
 #'
 #' @evalRd roxygen2:::full_markdown(format_root_section())
 #'
-#' @param ... \code{[character]}\cr
+#' @param ... `[character]`\cr
 #'   Path components below the project root, can be empty.
 #' @export
 #' @examples
@@ -26,7 +26,7 @@ here <- function(...) {
 #' @description `dr_here()` shows a message that by default also includes the
 #'   reason why `here()` is set to a particular directory.  Use this function
 #'   if `here()` gives unexpected results.
-#' @param show_reason \code{[logical(1)]}\cr
+#' @param show_reason `[logical(1)]`\cr
 #'   Include reason in output of `dr_here()`, defaults to `TRUE`.
 #' @export
 dr_here <- function(show_reason = TRUE) {
@@ -58,9 +58,9 @@ format_reason <- function() {
 #'   in the current directory.  When `here` encounters such a file, it uses the
 #'   directory that contains this file as root.  This is useful if none of the
 #'   default criteria apply.
-#' @param path \code{[character(1)]}\cr
+#' @param path `[character(1)]`\cr
 #'   Directory where to create `.here` file, defaults to the current directory.
-#' @param verbose \code{[logical(1)]}\cr
+#' @param verbose `[logical(1)]`\cr
 #'   Verbose output, defaults to `TRUE`.
 #' @export
 set_here <- function(path = ".", verbose = TRUE) {

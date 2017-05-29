@@ -8,3 +8,5 @@
 ^scripts/deploy-pages\.sh$
 ^_pkgdown\.yml$
 ^tic\.R$
+^cran-comments\.md$
+^docs$

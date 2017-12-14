@@ -14,7 +14,9 @@ set_here(path = ".", verbose = TRUE)
 }
 \arguments{
 \item{...}{\code{[character]}\cr
-Path components below the project root, can be empty.}
+Path components below the project root, can be empty.
+Each argument should be a string containing one or more
+path components separated by a forward slash \code{"/"}.}
 
 \item{show_reason}{\code{[logical(1)]}\cr
 Include reason in output of \code{dr_here()}, defaults to \code{TRUE}.}
@@ -48,7 +50,10 @@ or for package development.
 }
 \examples{
 here()
-\dontrun{here("some/path/below/your/project/root.txt")}
+\dontrun{
+here("some", "path", "below", "your", "project", "root.txt")
+here("some/path/below/your/project/root.txt")
+}
 }
 \section{Project root}{
 Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:

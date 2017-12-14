@@ -14,10 +14,15 @@
 #'
 #' @param ... `[character]`\cr
 #'   Path components below the project root, can be empty.
+#'   Each argument should be a string containing one or more
+#'   path components separated by a forward slash `"/"`.
 #' @export
 #' @examples
 #' here()
-#' \dontrun{here("some/path/below/your/project/root.txt")}
+#' \dontrun{
+#' here("some", "path", "below", "your", "project", "root.txt")
+#' here("some/path/below/your/project/root.txt")
+#' }
 here <- function(...) {
   .root_env$f(...)
 }

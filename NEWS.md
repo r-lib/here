@@ -1,3 +1,8 @@
+## here 0.1-10 (2017-12-14)
+
+- More explicit documentation for the `...` argument to `here()` (#7).
+
+
 # here 0.1 (2017-01-25)
 
 Initial CRAN release.

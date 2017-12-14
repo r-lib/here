@@ -64,6 +64,7 @@ Starting with the current working directory during package load time, \code{here
 \item contains a file \code{remake.yml}
 \item contains a file \code{.projectile}
 \item contains a directory \code{.git}
+\item contains a file \code{.git} with contents matching \code{^gitdir:}
 \item contains a directory \code{.svn}
 }
 

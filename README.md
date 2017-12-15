@@ -23,8 +23,12 @@ here("R", "here.R")
 Installation
 ------------
 
-`here` isn't on CRAN yet, install from GitHub via
+Install from CRAN via
+``` r
+install.packages("here")
+```
 
+Install from GitHub via
 ``` r
 devtools::install_github("krlmlr/here")
 ```

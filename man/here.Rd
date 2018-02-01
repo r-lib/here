@@ -40,7 +40,8 @@ if \code{here()} gives unexpected results.
 \code{set_here()} creates an empty file named \code{.here}, by default
 in the current directory.  When \code{here} encounters such a file, it uses the
 directory that contains this file as root.  This is useful if none of the
-default criteria apply.
+default criteria apply.  You need to restart the R session so that \code{here()}
+picks up the newly created file.
 }
 \details{
 This package is intended for interactive use only.

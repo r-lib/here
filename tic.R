@@ -1,14 +1,18 @@
-get_stage("after_success") %>%
-  add_step(step_hello_world()) %>%
-  add_step(step_run_code(covr::codecov()))
+add_package_checks()
 
 get_stage("deploy") %>%
-  add_step(step_add_to_known_hosts("github.com")) %>%
-  add_step(step_install_ssh_keys()) %>%
-  add_step(step_test_ssh())
+  add_step(step_build_pkgdown())
 
-if (ci()$get_branch() == "production" && Sys.getenv("BUILD_PKGDOWN") != "") {
+if (Sys.getenv("BUILD_PKGDOWN") != "" && Sys.getenv("id_rsa") != "") {
+  get_stage("before_deploy") %>%
+    add_step(step_setup_ssh()) %>%
+    add_step(step_test_ssh())
+
+  # pkgdown documentation can be built optionally. Other example criteria:
+  # - `inherits(ci(), "TravisCI")`: Only for Travis CI
+  # - `ci()$is_tag()`: Only for tags, not for branches
+  # - `Sys.getenv("BUILD_PKGDOWN") != ""`: If the env var "BUILD_PKGDOWN" is set
+  # - `Sys.getenv("TRAVIS_EVENT_TYPE") == "cron"`: Only for Travis cron jobs
   get_stage("deploy") %>%
-    add_step(step_build_pkgdown()) %>%
-    add_step(step_push_deploy(path = "docs", branch = "gh-pages"))
+    add_step(step_push_deploy())
 }

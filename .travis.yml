@@ -1,11 +1,32 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+# Default configuration for use with tic package
+# Usually you shouldn't need to change the first part of the file
+
+# DO NOT CHANGE THE CODE BELOW
+before_install: R -q -e 'install.packages(c("remotes", "curl")); remotes::install_github("ropenscilabs/tic"); tic::prepare_all_stages(); tic::before_install()'
+install: R -q -e 'tic::install()'
+after_install: R -q -e 'tic::after_install()'
+before_script: R -q -e 'tic::before_script()'
+script: R -q -e 'tic::script()'
+after_success: R -q -e 'tic::after_success()'
+after_failure: R -q -e 'tic::after_failure()'
+before_deploy: R -q -e 'tic::before_deploy()'
+deploy:
+  provider: script
+  script: R -q -e 'tic::deploy()'
+  on:
+    all_branches: true
+after_deploy: R -q -e 'tic::after_deploy()'
+after_script: R -q -e 'tic::after_script()'
+# DO NOT CHANGE THE CODE ABOVE
+
+# Custom parts:
 
 # Header
 language: r
 sudo: false
-dist: trusty
 cache: packages
-warnings_are_errors: true
+latex: false
 
 #env
 env:
@@ -39,31 +60,7 @@ notifications:
     on_success: change
     on_failure: change
 
-#before_script
-before_script:
-- R -q -e 'devtools::install_github("ropenscilabs/tic"); tic::prepare_all_stages()'
-
-#after_success
-after_success:
-- R -q -e 'tic::after_success()'
-
-#deploy // https://github.com/travis-ci/travis-build/blob/85ef7108/lib/travis/build/addons/deploy/script.rb#L100-L107
-deploy:
-  provider: script
-  script: R -q -e 'tic::deploy()'
-  on:
-    all_branches: true
-
 # Custom parts:
-
-#r_github_packages
-r_github_packages:
-
-#r_packages
-r_packages:
 
 #services
 services:
-
-#before_install
-before_install:

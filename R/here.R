@@ -59,10 +59,12 @@ format_reason <- function() {
 }
 
 #' @rdname here
-#' @description `set_here()` creates an empty file named `.here`, by default
+#' @description
+#'   `set_here()` creates an empty file named `.here`, by default
 #'   in the current directory.  When `here` encounters such a file, it uses the
 #'   directory that contains this file as root.  This is useful if none of the
-#'   default criteria apply.
+#'   default criteria apply.  You need to restart the R session so that `here()`
+#'   picks up the newly created file.
 #' @param path `[character(1)]`\cr
 #'   Directory where to create `.here` file, defaults to the current directory.
 #' @param verbose `[logical(1)]`\cr
@@ -79,7 +81,10 @@ set_here <- function(path = ".", verbose = TRUE) {
   } else {
     writeLines(character(), file_path)
     if (verbose) {
-      message("Created file .here in ", path)
+      message(
+        "Created file .here in ", path, " . ",
+        "Please restart your R session."
+      )
     }
   }
 

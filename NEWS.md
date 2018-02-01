@@ -1,3 +1,8 @@
+## here 0.1-11 (2018-02-01)
+
+- Updated documentation and success message for `set_here()`, now suggests to restart the R session (#12).
+
+
 ## here 0.1-10 (2017-12-14)
 
 - More explicit documentation for the `...` argument to `here()` (#7).

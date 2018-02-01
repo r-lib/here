@@ -12,13 +12,13 @@ The logic to find a project root based on certain criteria is packaged in the `r
 
 ``` r
 library(here)
-#> here() starts at /Users/travis/build/krlmlr/here
+#> here() starts at /home/travis/build/krlmlr/here
 here()
-#> [1] "/Users/travis/build/krlmlr/here"
+#> [1] "/home/travis/build/krlmlr/here"
 here("DESCRIPTION")
-#> [1] "/Users/travis/build/krlmlr/here/DESCRIPTION"
+#> [1] "/home/travis/build/krlmlr/here/DESCRIPTION"
 here("R", "here.R")
-#> [1] "/Users/travis/build/krlmlr/here/R/here.R"
+#> [1] "/home/travis/build/krlmlr/here/R/here.R"
 ```
 
 Installation

@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-here [![Travis-CI Build Status](https://travis-ci.org/krlmlr/here.svg?branch=master)](https://travis-ci.org/krlmlr/here)
+here [![Travis-CI Build Status](https://travis-ci.org/r-lib/here.svg?branch=master)](https://travis-ci.org/r-lib/here)
 ========================================================================================================================
 
-A simple interface to [`rprojroot`](https://github.com/krlmlr/rprojroot).
+A simple interface to [`rprojroot`](https://github.com/r-lib/rprojroot).
 
 Motivation
 ----------
@@ -12,13 +12,13 @@ The logic to find a project root based on certain criteria is packaged in the `r
 
 ``` r
 library(here)
-#> here() starts at /home/travis/build/krlmlr/here
+#> here() starts at /home/travis/build/r-lib/here
 here()
-#> [1] "/home/travis/build/krlmlr/here"
+#> [1] "/home/travis/build/r-lib/here"
 here("DESCRIPTION")
-#> [1] "/home/travis/build/krlmlr/here/DESCRIPTION"
+#> [1] "/home/travis/build/r-lib/here/DESCRIPTION"
 here("R", "here.R")
-#> [1] "/home/travis/build/krlmlr/here/R/here.R"
+#> [1] "/home/travis/build/r-lib/here/R/here.R"
 ```
 
 Installation
@@ -33,5 +33,5 @@ install.packages("here")
 Install from GitHub via
 
 ``` r
-devtools::install_github("krlmlr/here")
+devtools::install_github("r-lib/here")
 ```

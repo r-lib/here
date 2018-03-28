@@ -14,9 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# here [![Travis-CI Build Status](https://travis-ci.org/krlmlr/here.svg?branch=master)](https://travis-ci.org/krlmlr/here)
+# here
 
-A simple interface to [`rprojroot`](https://github.com/krlmlr/rprojroot).
+[![Travis-CI Build Status](https://travis-ci.org/r-lib/here.svg?branch=master)](https://travis-ci.org/r-lib/here)
+
+A simple interface to [`rprojroot`](https://github.com/r-lib/rprojroot).
 
 
 ## Motivation
@@ -43,5 +45,5 @@ install.packages("here")
 
 Install from GitHub via
 ``` r
-devtools::install_github("krlmlr/here")
+devtools::install_github("r-lib/here")
 ```

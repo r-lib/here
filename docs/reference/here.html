@@ -18,13 +18,30 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+<meta property="og:title" content="Find your files — here" />
+
+<meta property="og:description" content="here() uses a reasonable heuristics to find your project's files, based on
+the current working directory at the time when the package is loaded.
+Use it as a drop-in replacement for file.path(), it will always locate the
+files relative to your project root.
+dr_here() shows a message that by default also includes the
+reason why here() is set to a particular directory.  Use this function
+if here() gives unexpected results.
+set_here() creates an empty file named .here, by default
+in the current directory.  When here encounters such a file, it uses the
+directory that contains this file as root.  This is useful if none of the
+default criteria apply.  You need to restart the R session so that here()
+picks up the newly created file." />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -32,6 +49,8 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
 
 
   </head>
@@ -47,8 +66,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">here</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">here</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.11</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,18 +84,19 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/krlmlr/here">
+  <a href="https://github.com/r-lib/here">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -84,19 +108,18 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Find your files</h1>
+    <small>Source: <a href='https://github.com/r-lib/here/blob/master/R/here.R'><code>R/here.R</code></a></small>
     </div>
 
     
     <p><code>here()</code> uses a reasonable heuristics to find your project's files, based on
 the current working directory at the time when the package is loaded.
 Use it as a drop-in replacement for <code>file.path()</code>, it will always locate the
-files relative to your project root.
-
-    <code>dr_here()</code> shows a message that by default also includes the
+files relative to your project root.</p>
+<p><code>dr_here()</code> shows a message that by default also includes the
 reason why <code>here()</code> is set to a particular directory.  Use this function
-if <code>here()</code> gives unexpected results.
-
-    <code>set_here()</code> creates an empty file named <code>.here</code>, by default
+if <code>here()</code> gives unexpected results.</p>
+<p><code>set_here()</code> creates an empty file named <code>.here</code>, by default
 in the current directory.  When <code>here</code> encounters such a file, it uses the
 directory that contains this file as root.  This is useful if none of the
 default criteria apply.  You need to restart the R session so that <code>here()</code>
@@ -109,29 +132,29 @@ picks up the newly created file.</p>
 
 <span class='fu'>set_here</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p><code>[character]</code>
+      <td><p><code>[character]</code><br />
 Path components below the project root, can be empty.
 Each argument should be a string containing one or more
 path components separated by a forward slash <code>"/"</code>.</p></td>
     </tr>
     <tr>
       <th>show_reason</th>
-      <td><p><code>[logical(1)]</code>
+      <td><p><code>[logical(1)]</code><br />
 Include reason in output of <code>dr_here()</code>, defaults to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>path</th>
-      <td><p><code>[character(1)]</code>
+      <td><p><code>[character(1)]</code><br />
 Directory where to create <code>.here</code> file, defaults to the current directory.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p><code>[logical(1)]</code>
+      <td><p><code>[logical(1)]</code><br />
 Verbose output, defaults to <code>TRUE</code>.</p></td>
     </tr>
     </table>
@@ -159,7 +182,7 @@ or for package development.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>here</span>()</div><div class='output co'>#&gt; [1] "/home/travis/build/krlmlr/here"</div><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='fu'>here</span>()</div><div class='output co'>#&gt; [1] "/home/travis/build/r-lib/here"</div><span class='co'># NOT RUN {</span>
 <span class='fu'>here</span>(<span class='st'>"some"</span>, <span class='st'>"path"</span>, <span class='st'>"below"</span>, <span class='st'>"your"</span>, <span class='st'>"project"</span>, <span class='st'>"root.txt"</span>)
 <span class='fu'>here</span>(<span class='st'>"some/path/below/your/project/root.txt"</span>)
 <span class='co'># }</span></pre>
@@ -191,5 +214,8 @@ or for package development.</p>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

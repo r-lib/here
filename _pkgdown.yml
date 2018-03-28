@@ -1,3 +1,6 @@
 template:
-  params:
-    bootswatch: flatly # https://bootswatch.com/flatly/
+  package: tidytemplate
+  default_assets: false
+
+home:
+  strip_header: true

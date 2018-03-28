@@ -14,5 +14,6 @@ if (Sys.getenv("BUILD_PKGDOWN") != "" && Sys.getenv("id_rsa") != "") {
   # - `Sys.getenv("BUILD_PKGDOWN") != ""`: If the env var "BUILD_PKGDOWN" is set
   # - `Sys.getenv("TRAVIS_EVENT_TYPE") == "cron"`: Only for Travis cron jobs
   get_stage("deploy") %>%
+    add_code_step(TRUE, prepare_call = remotes::install_github("tidyverse/tidytemplate")) %>%
     add_step(step_push_deploy(subdir = "docs"))
 }

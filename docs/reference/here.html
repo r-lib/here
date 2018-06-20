@@ -45,7 +45,7 @@
       </button>
 
       <div class="navbar-brand-container">
-        <a class="navbar-brand" href="../index.html">Find your files</a>
+        <a class="navbar-brand" href="../index.html">here</a>
         <small class="tidyverse">part of the <a href="http://tidyverse.org">tidyverse</a></small>
       </div>
     </div>
@@ -81,9 +81,11 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Find your files</h1>
-    <small>Source: <a href='https://github.com/r-lib/here/blob/master/R/here.R'><code>R/here.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-lib/here/blob/master/R/here.R'><code>R/here.R</code></a></small>
+    <div class="hidden name"><code>here.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>here()</code> uses a reasonable heuristics to find your project's files, based on
 the current working directory at the time when the package is loaded.
@@ -98,6 +100,7 @@ directory that contains this file as root.  This is useful if none of the
 default criteria apply.  You need to restart the R session so that <code>here()</code>
 picks up the newly created file.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>here</span>(<span class='no'>...</span>)
 

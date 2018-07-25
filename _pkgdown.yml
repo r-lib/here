@@ -1,6 +1,4 @@
-template:
-  package: tidytemplate
-  default_assets: false
+url: https://here.r-lib.org
 
 home:
   strip_header: true

@@ -3,7 +3,7 @@ Title: A Simpler Way to Find Your Files
 Version: 0.1-11
 Authors@R: c(
       person("Kirill", "M\u00fcller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org", comment = c(ORCID = "0000-0002-1416-3412")),
-      person("Jennifer", "Bryan", , "jenny@rstudio.com", "ctb")
+      person("Jennifer", "Bryan", role = "ctb", email = "jenny@rstudio.com", comment = c(ORCID = "0000-0002-6983-2759"))
     )
 Description: Constructs paths to your project's files.
     The 'here()' function uses a reasonable heuristics to find your project's

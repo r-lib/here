@@ -18,6 +18,6 @@ if (Sys.getenv("BUILD_PKGDOWN") != "" && !ci()$is_tag()) {
     # - `Sys.getenv("BUILD_PKGDOWN") != ""`: If the env var "BUILD_PKGDOWN" is set
     # - `Sys.getenv("TRAVIS_EVENT_TYPE") == "cron"`: Only for Travis cron jobs
     get_stage("deploy") %>%
-      add_step(step_push_deploy(subdir = "docs"))
+      add_step(step_push_deploy(commit_paths = "docs"))
   }
 }

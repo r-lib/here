@@ -4,6 +4,7 @@
 \alias{here}
 \alias{dr_here}
 \alias{set_here}
+\alias{change_here}
 \title{Find your files}
 \usage{
 here(...)
@@ -11,6 +12,8 @@ here(...)
 dr_here(show_reason = TRUE)
 
 set_here(path = ".", verbose = TRUE)
+
+change_here(new_path)
 }
 \arguments{
 \item{...}{\code{[character]}\cr
@@ -26,6 +29,9 @@ Directory where to create \code{.here} file, defaults to the current directory.}
 
 \item{verbose}{\code{[logical(1)]}\cr
 Verbose output, defaults to \code{TRUE}.}
+
+\item{new_path}{\code{[character(1)]}\cr
+New project file/directory path to switch focus to.}
 }
 \description{
 \code{here()} uses a reasonable heuristics to find your project's files, based on
@@ -42,6 +48,9 @@ in the current directory.  When \code{here} encounters such a file, it uses the
 directory that contains this file as root.  This is useful if none of the
 default criteria apply.  You need to restart the R session so that \code{here()}
 picks up the newly created file.
+
+\code{change_here()} moves the project directory to a new directory.
+Normal \code{here} heuristics are used to find the root of the project at the new path.
 }
 \details{
 This package is intended for interactive use only.
@@ -60,12 +69,12 @@ here("some/path/below/your/project/root.txt")
 Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:
 \itemize{
 \item contains a file \code{.here}
-\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version:} in the first line
-\item contains a file \code{DESCRIPTION} with contents matching \code{^Package:}
+\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version: } in the first line
+\item contains a file \code{DESCRIPTION} with contents matching \code{^Package: }
 \item contains a file \code{remake.yml}
 \item contains a file \code{.projectile}
 \item contains a directory \code{.git}
-\item contains a file \code{.git} with contents matching \code{^gitdir:}
+\item contains a file \code{.git} with contents matching \code{^gitdir: }
 \item contains a directory \code{.svn}
 }
 

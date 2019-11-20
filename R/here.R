@@ -91,6 +91,35 @@ set_here <- function(path = ".", verbose = TRUE) {
   invisible(file_path)
 }
 
+#' @rdname here
+#' @description
+#'   `change_here()` moves the project directory to a new directory.
+#'   Normal `here` heuristics are used to find the root of the project at the new path.
+#' @param new_path `[character(1)]`\cr
+#'   New project file/directory path to switch focus to.
+#' @export
+change_here <- function(new_path){
+  if (file.exists(new_path) && !dir.exists(new_path)) {
+    new_path <- dirname(new_path)
+  }
+
+  if (!dir.exists(new_path)){
+    stop("Path does not exist")
+  }
+
+  setwd(new_path)
+
+  .root_env$crit <- is_here | is_rstudio_project | is_r_package | is_remake_project | is_projectile_project | is_vcs_root
+  tryCatch(
+    .root_env$f <- .root_env$crit$make_fix_file(),
+    error = function(e) {
+      .root_env$f <- from_wd$make_fix_file()
+    }
+  )
+
+  dr_here(show_reason = TRUE)
+}
+
 is_here <- has_file(".here")
 
 .root_env <- new.env(parent = emptyenv())

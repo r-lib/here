@@ -13,18 +13,18 @@ dr_here(show_reason = TRUE)
 set_here(path = ".", verbose = TRUE)
 }
 \arguments{
-\item{...}{\code{[character]}\cr
+\item{...}{\verb{[character]}\cr
 Path components below the project root, can be empty.
 Each argument should be a string containing one or more
 path components separated by a forward slash \code{"/"}.}
 
-\item{show_reason}{\code{[logical(1)]}\cr
+\item{show_reason}{\verb{[logical(1)]}\cr
 Include reason in output of \code{dr_here()}, defaults to \code{TRUE}.}
 
-\item{path}{\code{[character(1)]}\cr
+\item{path}{\verb{[character(1)]}\cr
 Directory where to create \code{.here} file, defaults to the current directory.}
 
-\item{verbose}{\code{[logical(1)]}\cr
+\item{verbose}{\verb{[logical(1)]}\cr
 Verbose output, defaults to \code{TRUE}.}
 }
 \description{
@@ -60,12 +60,12 @@ here("some/path/below/your/project/root.txt")
 Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:
 \itemize{
 \item contains a file \code{.here}
-\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version: } in the first line
-\item contains a file \code{DESCRIPTION} with contents matching \code{^Package: }
+\item contains a file matching \verb{[.]Rproj$} with contents matching \verb{^Version: } in the first line
+\item contains a file \code{DESCRIPTION} with contents matching \verb{^Package: }
 \item contains a file \code{remake.yml}
 \item contains a file \code{.projectile}
 \item contains a directory \code{.git}
-\item contains a file \code{.git} with contents matching \code{^gitdir: }
+\item contains a file \code{.git} with contents matching \verb{^gitdir: }
 \item contains a directory \code{.svn}
 }
 

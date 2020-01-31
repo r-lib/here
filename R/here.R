@@ -26,3 +26,47 @@
 here <- function(...) {
   .root_env$f(...)
 }
+
+#' @rdname here
+#' @description `dr_here()` shows a message that by default also includes the
+#'   reason why `here()` is set to a particular directory.  Use this function
+#'   if `here()` gives unexpected results.
+#' @param show_reason `[logical(1)]`\cr
+#'   Include reason in output of `dr_here()`, defaults to `TRUE`.
+#' @export
+dr_here <- function(show_reason = TRUE) {
+  message(format_dr_here(show_reason = show_reason))
+}
+
+#' @rdname here
+#' @description
+#'   `set_here()` creates an empty file named `.here`, by default
+#'   in the current directory.  When `here` encounters such a file, it uses the
+#'   directory that contains this file as root.  This is useful if none of the
+#'   default criteria apply.  You need to restart the R session so that `here()`
+#'   picks up the newly created file.
+#' @param path `[character(1)]`\cr
+#'   Directory where to create `.here` file, defaults to the current directory.
+#' @param verbose `[logical(1)]`\cr
+#'   Verbose output, defaults to `TRUE`.
+#' @export
+set_here <- function(path = ".", verbose = TRUE) {
+  path <- normalizePath(path)
+  file_path <- file.path(path, ".here")
+
+  if (file.exists(file_path)) {
+    if (verbose) {
+      message("File .here already exists in ", path)
+    }
+  } else {
+    writeLines(character(), file_path)
+    if (verbose) {
+      message(
+        "Created file .here in ", path, " . ",
+        "Please restart your R session."
+      )
+    }
+  }
+
+  invisible(file_path)
+}

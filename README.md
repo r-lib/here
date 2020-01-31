@@ -60,3 +60,6 @@ lives.”
 These paths will also “just work” during interactive development,
 without incessant fiddling with the working directory of your IDE’s R
 process.
+
+![](man/figures/illustration.png) *Illustration by [Allison
+Horst](https://github.com/allisonhorst)*

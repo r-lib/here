@@ -60,12 +60,12 @@ here("some/path/below/your/project/root.txt")
 Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:
 \itemize{
 \item contains a file \code{.here}
-\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version:} in the first line
-\item contains a file \code{DESCRIPTION} with contents matching \code{^Package:}
+\item contains a file matching \code{[.]Rproj$} with contents matching \code{^Version: } in the first line
+\item contains a file \code{DESCRIPTION} with contents matching \code{^Package: }
 \item contains a file \code{remake.yml}
 \item contains a file \code{.projectile}
 \item contains a directory \code{.git}
-\item contains a file \code{.git} with contents matching \code{^gitdir:}
+\item contains a file \code{.git} with contents matching \code{^gitdir: }
 \item contains a directory \code{.svn}
 }
 

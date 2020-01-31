@@ -9,6 +9,8 @@
 Status](https://travis-ci.org/r-lib/here.svg?branch=master)](https://travis-ci.org/r-lib/here)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing. In

@@ -120,7 +120,7 @@ picks up the newly created file." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Find your files</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-lib/here/blob/master/R/here.R'><code>R/here.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-lib/here/blob/master/R/here-.R'><code>R/here-.R</code></a>, <a href='https://github.com/r-lib/here/blob/master/R/here-dr.R'><code>R/here-dr.R</code></a>, <a href='https://github.com/r-lib/here/blob/master/R/here-set.R'><code>R/here-set.R</code></a></small>
     <div class="hidden name"><code>here.Rd</code></div>
     </div>
 
@@ -182,12 +182,12 @@ or for package development.</p>
 
     <p>Starting with the current working directory during package load time, <code>here</code> will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:</p><ul>
 <li><p>contains a file <code>.here</code></p></li>
-<li><p>contains a file matching <code>[.]Rproj$</code> with contents matching <code>^Version:</code> in the first line</p></li>
-<li><p>contains a file <code>DESCRIPTION</code> with contents matching <code>^Package:</code></p></li>
+<li><p>contains a file matching <code>[.]Rproj$</code> with contents matching <code>^Version: </code> in the first line</p></li>
+<li><p>contains a file <code>DESCRIPTION</code> with contents matching <code>^Package: </code></p></li>
 <li><p>contains a file <code>remake.yml</code></p></li>
 <li><p>contains a file <code>.projectile</code></p></li>
 <li><p>contains a directory <code>.git</code></p></li>
-<li><p>contains a file <code>.git</code> with contents matching <code>^gitdir:</code></p></li>
+<li><p>contains a file <code>.git</code> with contents matching <code>^gitdir: </code></p></li>
 <li><p>contains a directory <code>.svn</code></p></li>
 </ul>
 

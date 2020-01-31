@@ -5,6 +5,10 @@
 #' Use it as a drop-in replacement for [file.path()], it will always locate the
 #' files relative to your project root.
 #'
+#' If you see `Error in here("data", "df.rda") : unused arguments ("data",
+#' "df.rda")"`, you may have attached \pkg{lubridate} after \pkg{here}.
+#' Correct this using \pkg{conflicts} or, here::here("data", "df.rda").
+#'
 #' This package is intended for interactive use only.
 #' Use [rprojroot::has_file()] or the other functions in
 #' the \pkg{rprojroot} package for more control,

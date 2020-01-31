@@ -1,6 +1,0 @@
-name: Deploy to GitHub Pages
-if: github.ref == 'refs/heads/master'
-uses: maxheld83/ghpages@v0.2.0
-env:
-  BUILD_DIR: $DEPLOY_PATH
-  GH_PAT: ${{ secrets.GH_PAT }}

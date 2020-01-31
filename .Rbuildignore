@@ -10,4 +10,4 @@
 ^tic\.R$
 ^cran-comments\.md$
 ^docs$
-^\.github/workflows$
+^\.github/workflows/pkgdown\.yaml$

@@ -71,5 +71,7 @@ To render `report.Rmd`, you would have to ensure the path to `data.csv` is relat
 
 The here package circumvents this issue by always creating the file path relative to the top level directory, so that `data.csv` can be read using `here("data", "data.csv")` both when the report is knit and when the code is run interactively in the console.
 
-![](man/figures/illustration.png)
+```{r, echo = FALSE}
+knitr::include_graphics(here("man", "figures", "illustration.png"))
+```
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*

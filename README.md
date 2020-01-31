@@ -80,7 +80,8 @@ the working directory in the console *isn’t* `analysis/`.
 The here package circumvents this issue by always creating the file path
 relative to the top level directory, so that `data.csv` can be read
 using `here("data", "data.csv")` both when the report is knit and when
-the code is run interactively in the console.
+the code is run interactively in the
+console.
 
-![](man/figures/illustration.png) *Illustration by [Allison
-Horst](https://github.com/allisonhorst)*
+![](/Users/sharla/github/tidy-dev-day-2020/here/man/figures/illustration.png)<!-- -->
+*Illustration by [Allison Horst](https://github.com/allisonhorst)*

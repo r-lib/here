@@ -34,9 +34,9 @@ devtools::install_github("r-lib/here")
 
 ## Usage
 
-The here package creates path relative to the top-level directory. The
+The here package creates paths relative to the top-level directory. The
 package displays the top-level of the current project on load or any
-time you call here():
+time you call `here()`:
 
 ``` r
 library(here)
@@ -49,17 +49,38 @@ You can build a path relative to the top-level directory in order to
 read or write a file:
 
 ``` r
-write.csv(iris, here("data", "iris.csv"))
+here("files", "data", "iris.csv")
 ```
 
-This works, regardless of where the associated source file lives inside
-your project. This is especially helpful if you use RMarkdown with the
-default behavior of “working directory = directory where this file
-lives.”
+``` r
+write.csv(iris, here("files", "data", "iris.csv"))
+```
 
-These paths will also “just work” during interactive development,
-without incessant fiddling with the working directory of your IDE’s R
-process.
+This works regardless of where the associated source file lives inside
+your project. This is especially helpful if you use RMarkdown with the
+default behaviour, where the working directory is the directory where
+the file is.
+
+Consider the following directory:
+
+    ├── analysis
+    │   └── report.Rmd
+    ├── data
+    │   └── data.csv
+    ├── project.Rproj
+
+The working directory is for `report.Rmd` is the `analysis/`
+subdirectory, while `data.csv` lives in the `data/` subdirectory.
+
+To render `report.Rmd`, you would have to ensure the path to `data.csv`
+is relative to the `analysis/` directory - i.e., `../data/data.csv`. The
+chunks would knit properly, but could not be run in the console since
+the working directory in the console *isn’t* `analysis/`.
+
+The here package circumvents this issue by always creating the file path
+relative to the top level directory, so that `data.csv` can be read
+using `here("data", "data.csv")` both when the report is knit and when
+the code is run interactively in the console.
 
 ![](man/figures/illustration.png) *Illustration by [Allison
 Horst](https://github.com/allisonhorst)*

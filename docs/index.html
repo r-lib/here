@@ -48,6 +48,9 @@
   </a>
 </li>
 <li>
+  <a href="articles/here.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li>
@@ -73,29 +76,32 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="here-travis-ci-build-status" class="section level1">
+<div id="here" class="section level1">
 
-<p>A simple interface to <a href="https://github.com/r-lib/rprojroot"><code>rprojroot</code></a>.</p>
-<div id="motivation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#motivation" class="anchor"></a>Motivation</h2>
-<p>The logic to find a project root based on certain criteria is packaged in the <code>rprojroot</code> package. Many projects might not need the full power, and the complexity that comes with it. Meet <code>here</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(here)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; here() starts at /home/travis/build/r-lib/here</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="reference/here.html">here</a></span>()</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; [1] "/home/travis/build/r-lib/here"</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="reference/here.html">here</a></span>(<span class="st">"DESCRIPTION"</span>)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; [1] "/home/travis/build/r-lib/here/DESCRIPTION"</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw"><a href="reference/here.html">here</a></span>(<span class="st">"R"</span>, <span class="st">"here.R"</span>)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt; [1] "/home/travis/build/r-lib/here/R/here.R"</span></a></code></pre></div>
-</div>
+<!-- badges: start -->
+
+<p>The goal of the here package is to enable easy file referencing. In contrast to using <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code>, which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Install from CRAN via</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"here"</span>)</a></code></pre></div>
-<p>Install from GitHub via</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"r-lib/here"</span>)</a></code></pre></div>
+<p>Install the released version of here from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"here"</span>)</a></code></pre></div>
+<p>Or install the development version from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"r-lib/here"</span>)</a></code></pre></div>
+</div>
+<div id="usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h2>
+<p>The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call <code><a href="reference/here.html">here()</a></code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(here)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; here() starts at /Users/sharla/github/tidy-dev-day-2020/here</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/here.html">here</a></span>()</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] "/Users/sharla/github/tidy-dev-day-2020/here"</span></a></code></pre></div>
+<p>You can build a path relative to the top-level directory in order to read or write a file:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/here.html">here</a></span>(<span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span>(iris, <span class="kw"><a href="reference/here.html">here</a></span>(<span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span>))</a></code></pre></div>
+<p>These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.</p>
+<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png"><em>Illustration by <a href="https://github.com/allisonhorst">Allison Horst</a></em></p>
 </div>
 </div>
   </div>
@@ -127,7 +133,15 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://travis-ci.org/r-lib/here"><img src="https://travis-ci.org/r-lib/here.svg?branch=master" alt="Travis-CI Build Status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=here"><img src="https://www.r-pkg.org/badges/version/here" alt="CRAN status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 

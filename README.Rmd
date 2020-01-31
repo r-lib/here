@@ -55,7 +55,6 @@ write.csv(iris, here("files", "data", "iris.csv"))
 
 These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
 
-```{r, echo = FALSE}
-knitr::include_graphics(here("man", "figures", "illustration.png"))
-```
+![](man/figures/illustration.png)
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*
+

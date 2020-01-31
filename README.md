@@ -58,8 +58,7 @@ write.csv(iris, here("files", "data", "iris.csv"))
 
 These relative paths work regardless of where the associated source file
 lives inside your project, like analysis projects with data and reports
-in different
-subdirectories.
+in different subdirectories.
 
-![](/Users/sharla/github/tidy-dev-day-2020/here/man/figures/illustration.png)<!-- -->
-*Illustration by [Allison Horst](https://github.com/allisonhorst)*
+![](man/figures/illustration.png) *Illustration by [Allison
+Horst](https://github.com/allisonhorst)*

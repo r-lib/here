@@ -48,6 +48,15 @@ This package is intended for interactive use only.
 Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
 the \pkg{rprojroot} package for more control,
 or for package development.
+
+If you see\preformatted{Error in here("data", "df.rda") :
+  unused arguments ("data", "df.rda")"
+}
+
+you may have attached \pkg{lubridate} after \pkg{here}.
+Correct this using
+\href{https://conflicted.r-lib.org/}{the \pkg{conflicted} package},
+or use \code{here::here("data", "df.rda")}.
 }
 \examples{
 here()

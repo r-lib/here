@@ -181,6 +181,14 @@ Verbose output, defaults to <code>TRUE</code>.</p></td>
 Use <code><a href='https://rdrr.io/pkg/rprojroot/man/root_criterion.html'>rprojroot::has_file()</a></code> or the other functions in
 the <span class="pkg">rprojroot</span> package for more control,
 or for package development.</p>
+<p>If you see</p><pre>Error in here("data", "df.rda") :
+  unused arguments ("data", "df.rda")"
+</pre>
+
+<p>you may have attached <span class="pkg">lubridate</span> after <span class="pkg">here</span>.
+Correct this using
+<a href='https://conflicted.r-lib.org/'>the <span class="pkg">conflicted</span> package</a>,
+or use <code>here::here("data", "df.rda")</code>.</p>
     <h2 class="hasAnchor" id="project-root"><a class="anchor" href="#project-root"></a>Project root</h2>
 
     <p>Starting with the current working directory during package load time, <code>here</code> will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:</p><ul>

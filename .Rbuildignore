@@ -11,3 +11,4 @@
 ^cran-comments\.md$
 ^docs$
 ^\.github/workflows/pkgdown\.yaml$
+^LICENSE\.md$

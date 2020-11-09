@@ -1,5 +1,7 @@
 ## here 0.1-11 (2018-02-01)
 
+- here has been re-licensed as MIT (#50).
+
 - Updated documentation and success message for `set_here()`, now suggests to restart the R session (#12).
 
 

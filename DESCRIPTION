@@ -11,7 +11,7 @@ Description: Constructs paths to your project's files.
     is loaded. Use it as a drop-in replacement for 'file.path()', it will always
     locate the files relative to your project root.
 Imports: rprojroot (>= 1.2)
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Date: 2018-02-01

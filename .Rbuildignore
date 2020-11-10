@@ -12,3 +12,4 @@
 ^docs$
 ^\.github/workflows/pkgdown\.yaml$
 ^LICENSE\.md$
+^TODO\.md$

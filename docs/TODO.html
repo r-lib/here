@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • here</title>
+<title>Steps for adopting older packages to new development standards • here</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script>
+<link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Steps for adopting older packages to new development standards" />
 
 
 
@@ -58,7 +58,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -70,7 +70,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">here</a>
+        <a class="navbar-link" href="index.html">here</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1-11</span>
       </span>
     </div>
@@ -78,19 +78,19 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../articles/here.html">Get started</a>
+  <a href="articles/here.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -111,22 +111,80 @@
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>Articles</h1>
+      <h1>Steps for adopting older packages to new development standards</h1>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
+<div id="steps-for-adopting-older-packages-to-new-development-standards" class="section level1">
 
-      <dl>
-        <dt><a href="here.html">here</a></dt>
-        <dd></dt>
-      </dl>
-    </div>
-  </div>
+<div id="docs-branch" class="section level2">
+<h2 class="hasAnchor">
+<a href="#docs-branch" class="anchor"></a><code>docs</code> branch</h2>
+<ul>
+<li>[ ] Create from last released tag</li>
+<li>[ ] Copy <code>.github/workflows/pkgdown.yaml</code> there</li>
+<li>[ ] Fix URL in DESCRIPTION, don’t forget trailing slash</li>
+<li>[ ] Tweak <code>_pkgdown.yml</code>
+</li>
+<li>[ ] Set source of GitHub Pages to branch</li>
+</ul>
 </div>
+<div id="separate-pull-requests" class="section level2">
+<h2 class="hasAnchor">
+<a href="#separate-pull-requests" class="anchor"></a>Separate pull requests</h2>
+<ul>
+<li>[ ] Use GitHub Actions</li>
+<li>[ ] Disable tic</li>
+<li>[ ] Disable Travis CI and AppVeyor</li>
+<li>[ ] Consider open pull requests</li>
+<li>
+<p>[ ] Tweak README</p>
+<ul>
+<li>use <code>downlit::readme_document</code> and <code>load_all()</code> if possible</li>
+</ul>
+</li>
+<li>[ ] Update roxygen2</li>
+<li>[ ] Use <code>@examplesIf</code> where appropriate</li>
+<li>[ ] <code>styler::style_pkg()</code>
+</li>
+<li>[ ] Remove <code>Collate:</code>
+</li>
+<li>[ ] <code><a href="https://usethis.r-lib.org/reference/badges.html">usethis::use_lifecycle_badge()</a></code>
+</li>
+<li>[ ] <code><a href="https://usethis.r-lib.org/reference/use_lifecycle.html">usethis::use_lifecycle()</a></code>
+</li>
+<li>[ ] Add pkgdown reference index</li>
+<li>[ ] Adapt tests to testthat 3e</li>
+<li>[ ] Ensure that dependency between source files is cycle-free, as in <a href="https://github.com/yonicd/foreman/issues/2" class="uri">https://github.com/yonicd/foreman/issues/2</a>
+</li>
+<li>[ ] Ensure that source files correspond to test files via <code>devtools::test_coverage_file()</code>
+</li>
+<li>[ ] Import rlang where appropriate</li>
+<li>[ ] Close open issues</li>
+<li>[ ] Deprecate functions that have moved somewhere else</li>
+<li>[ ] Avoid <code>iris</code>
+</li>
+<li>[ ] Synchronize with own downstream packages</li>
+<li>[ ] Add type to documentation of function arguments, as in <code><a href="reference/here.html">?here::here</a></code>
+</li>
+<li>[ ] Check <code>goodpractice::gp()</code>
+</li>
+<li><p>[ ] Release to CRAN</p></li>
+</ul>
+</div>
+</div>
+
+  </div>
+
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
+  </div>
+
+</div>
+
 
 
       <footer>

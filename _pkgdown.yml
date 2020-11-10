@@ -1,3 +1,8 @@
-templates:
-  params:
-    bootswatch: flatly # https://bootswatch.com/flatly/
+url: https://here.r-lib.org/
+
+development:
+  mode: auto
+
+authors:
+  Kirill Müller:
+    href: http://krlmlr.info

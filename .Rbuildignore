@@ -10,3 +10,4 @@
 ^tic\.R$
 ^cran-comments\.md$
 ^docs$
+^\.github$

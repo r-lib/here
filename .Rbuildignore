@@ -10,6 +10,6 @@
 ^tic\.R$
 ^cran-comments\.md$
 ^docs$
-^\.github/workflows/pkgdown\.yaml$
+^\.github$
 ^LICENSE\.md$
 ^TODO\.md$

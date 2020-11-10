@@ -1,7 +1,4 @@
-url: https://here.r-lib.org
-
-home:
-  strip_header: true
+url: https://here.r-lib.org/
 
 development:
   mode: auto

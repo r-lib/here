@@ -1,6 +1,6 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 0.1-11
+Version: 0.1.11.9000
 Authors@R: c(
       person("Kirill", "M\u00fcller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org", comment = c(ORCID = "0000-0002-1416-3412")),
       person("Jennifer", "Bryan", role = "ctb", email = "jenny@rstudio.com", comment = c(ORCID = "0000-0002-6983-2759"))
@@ -14,7 +14,7 @@ Imports: rprojroot (>= 1.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Date: 2017-05-27
+Date: 2020-11-10
 URL: https://here.r-lib.org/, https://github.com/r-lib/here
 BugReports: https://github.com/r-lib/here/issues
 Roxygen: list(markdown = TRUE)

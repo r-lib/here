@@ -1,6 +1,15 @@
-## here 0.1-11 (2018-02-01)
+# here 0.1.11.9000 (2020-11-10)
 
-- here has been re-licensed as MIT (#50).
+- Re-license as MIT (#50).
+
+- Update documentation to address conflict with `lubridate::here()` (#37, @nzgwynn).
+
+- Improve readme and add getting started vignette (#44, @sharlagelfand).
+
+- Added Jennifer Bryan as contributor (#32).
+
+
+## here 0.1-11 (2018-02-01)
 
 - Updated documentation and success message for `set_here()`, now suggests to restart the R session (#12).
 

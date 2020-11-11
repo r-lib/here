@@ -82,33 +82,37 @@
 <a href="#here" class="anchor"></a>here</h1></div>
 <!-- badges: start -->
 
-<p>The goal of the here package is to enable easy file referencing. In contrast to using <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code>, which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.</p>
+<!-- badges: end -->
+<p>The goal of the here package is to enable easy file referencing. In contrast to using <a href="https://rdrr.io/r/base/getwd.html"><code>setwd()</code></a>, which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install the released version of here from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span></code></pre></div>
-<p>Or install the development version from GitHub with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-lib/here"</span><span class="op">)</span></code></pre></div>
+<pre class="chroma">
+<span class="nf"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="o">(</span><span class="s">"here"</span><span class="o">)</span></pre>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call <code><a href="reference/here.html">here()</a></code>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
-<span class="co">#&gt; here() starts at /Users/sharla/github/tidy-dev-day-2020/here</span>
-<span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/Users/sharla/github/tidy-dev-day-2020/here"</span></code></pre></div>
+<pre class="chroma">
+<span class="kr"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="o">(</span><span class="nv"><a href="https://github.com/r-lib/here">here</a></span><span class="o">)</span>
+<span class="c">#&gt; here() starts at /home/kirill/git/R/here</span>
+<span class="nf"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="o">(</span><span class="o">)</span>
+<span class="c">#&gt; [1] "/home/kirill/git/R/here"</span></pre>
 <p>You can build a path relative to the top-level directory in order to read or write a file:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre class="chroma">
+<span class="nf"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="o">(</span><span class="s">"files"</span>, <span class="s">"data"</span>, <span class="s">"iris.csv"</span><span class="o">)</span></pre>
+<pre class="chroma">
+<span class="nf"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="o">(</span><span class="nv">iris</span>, <span class="nf"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="o">(</span><span class="s">"files"</span>, <span class="s">"data"</span>, <span class="s">"iris.csv"</span><span class="o">)</span><span class="o">)</span></pre>
 <p>These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.</p>
 <p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png"><em>Illustration by <a href="https://github.com/allisonhorst">Allison Horst</a></em></p>
+<hr>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the here project is released with a <a href="https://here.r-lib.org/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -130,6 +134,12 @@
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
 <div class="developers">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Steps for adopting older packages to new development standards • here</title>
+<title>Contributor Code of Conduct • here</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Steps for adopting older packages to new development standards" />
+<meta property="og:title" content="Contributor Code of Conduct" />
 
 
 <meta name="robots" content="noindex">
@@ -113,88 +113,17 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>Steps for adopting older packages to new development standards</h1>
+      <h1>Contributor Code of Conduct</h1>
     </div>
 
-<div id="steps-for-adopting-older-packages-to-new-development-standards" class="section level1">
+<div id="contributor-code-of-conduct" class="section level1">
 
-<div id="docs-branch" class="section level2">
-<h2 class="hasAnchor">
-<a href="#docs-branch" class="anchor"></a><code>docs</code> branch</h2>
-<ul>
-<li>
-<input type="checkbox" disabled checked>
-Create from last released tag</li>
-<li>
-<input type="checkbox" disabled checked>
-Copy <code>.github/workflows/pkgdown.yaml</code> there</li>
-<li>
-<input type="checkbox" disabled checked>
-Fix URL in DESCRIPTION, don’t forget trailing slash</li>
-<li>
-<input type="checkbox" disabled checked>
-Tweak <code>_pkgdown.yml</code>
-</li>
-<li>
-<input type="checkbox" disabled checked>
-Set source of GitHub Pages to branch</li>
-</ul>
-</div>
-<div id="separate-pull-requests" class="section level2">
-<h2 class="hasAnchor">
-<a href="#separate-pull-requests" class="anchor"></a>Separate pull requests</h2>
-<ul>
-<li><p><input type="checkbox" disabled checked>
-Use GitHub Actions</p></li>
-<li><p><input type="checkbox" disabled checked>
-Disable tic</p></li>
-<li><p><input type="checkbox" disabled checked>
-Disable Travis CI and AppVeyor</p></li>
-<li><p><input type="checkbox" disabled checked><code>usethis::use_coverage()</code></p></li>
-<li><p><input type="checkbox" disabled>
-Consider open pull requests</p></li>
-<li>
-<p><input type="checkbox" disabled checked>
-Tweak README</p>
-<ul>
-<li>use <code>downlit::readme_document</code> and <code>load_all()</code> if possible</li>
-</ul>
-</li>
-<li><p><input type="checkbox" disabled>
-Update roxygen2</p></li>
-<li><p><input type="checkbox" disabled>
-Use <code>@examplesIf</code> where appropriate</p></li>
-<li><p><input type="checkbox" disabled><code>styler::style_pkg()</code></p></li>
-<li><p><input type="checkbox" disabled checked>
-Remove <code>Collate:</code></p></li>
-<li><p><input type="checkbox" disabled checked><code>usethis::use_lifecycle_badge()</code></p></li>
-<li><p><input type="checkbox" disabled><code>usethis::use_lifecycle()</code></p></li>
-<li><p><input type="checkbox" disabled>
-Add pkgdown reference index</p></li>
-<li><p><input type="checkbox" disabled>
-Adapt tests to testthat 3e</p></li>
-<li><p><input type="checkbox" disabled>
-Ensure that dependency between source files is cycle-free, as in <a href="https://github.com/yonicd/foreman/issues/2" class="uri">https://github.com/yonicd/foreman/issues/2</a></p></li>
-<li><p><input type="checkbox" disabled>
-Ensure that source files correspond to test files via <code>devtools::test_coverage_file()</code></p></li>
-<li><p><input type="checkbox" disabled checked>
-Import rlang where appropriate</p></li>
-<li><p><input type="checkbox" disabled>
-Close open issues</p></li>
-<li><p><input type="checkbox" disabled>
-Deprecate functions that have moved somewhere else</p></li>
-<li><p><input type="checkbox" disabled>
-Avoid <code>iris</code></p></li>
-<li><p><input type="checkbox" disabled>
-Synchronize with own downstream packages</p></li>
-<li><p><input type="checkbox" disabled checked>
-Add type to documentation of function arguments, as in <code><a href="reference/here.html">?here::here</a></code></p></li>
-<li><p><input type="checkbox" disabled>
-Check <code>goodpractice::gp()</code></p></li>
-<li><p><input type="checkbox" disabled>
-Release to CRAN</p></li>
-</ul>
-</div>
+<p>As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.</p>
+<p>We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.</p>
+<p>Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.</p>
+<p>Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.</p>
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.</p>
+<p>This Code of Conduct is adapted from the Contributor Covenant (<a href="http://contributor-covenant.org" class="uri">http://contributor-covenant.org</a>), version 1.0.0, available at <a href="http://contributor-covenant.org/version/1/0/0/" class="uri">http://contributor-covenant.org/version/1/0/0/</a></p>
 </div>
 
   </div>

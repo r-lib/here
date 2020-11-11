@@ -5,12 +5,11 @@
 
 <!-- badges: start -->
 
-[![Travis-CI Build
-Status](https://travis-ci.org/r-lib/here.svg?branch=master)](https://travis-ci.org/r-lib/here)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![rcc](https://github.com/r-lib/here/workflows/rcc/badge.svg)](https://github.com/r-lib/here/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing. In
@@ -58,8 +57,7 @@ write.csv(iris, here("files", "data", "iris.csv"))
 
 These relative paths work regardless of where the associated source file
 lives inside your project, like analysis projects with data and reports
-in different
-subdirectories.
+in different subdirectories.
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*

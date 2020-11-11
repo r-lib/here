@@ -36,4 +36,5 @@
 - [ ] Synchronize with own downstream packages
 - [x] Add type to documentation of function arguments, as in `?here::here`
 - [ ] Check `goodpractice::gp()`
+- [ ] Switch pkgdown to dev mode "auto"
 - [ ] Release to CRAN

@@ -100,15 +100,15 @@ change_here <- function(new_path){
     stop("Path does not exist")
   }
 
-  setwd(new_path)
+  do_refresh_here(new_path)
+  dr_here(show_reason = TRUE)
+}
 
-  .root_env$crit <- is_here | is_rstudio_project | is_r_package | is_remake_project | is_projectile_project | is_vcs_root
+do_refresh_here <- function(path) {
   tryCatch(
-    .root_env$f <- .root_env$crit$make_fix_file(),
+    .root_env$f <- .root_env$crit$make_fix_file(path = path),
     error = function(e) {
-      .root_env$f <- from_wd$make_fix_file()
+      .root_env$f <- from_wd$make_fix_file(path = path)
     }
   )
-
-  dr_here(show_reason = TRUE)
 }

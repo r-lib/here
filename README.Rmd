@@ -1,5 +1,5 @@
 ---
-output: github_document
+output: downlit::readme_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -30,10 +30,6 @@ Install the released version of here from CRAN:
 install.packages("here")
 ```
 
-Or install the development version from GitHub with:
-```{r, eval = FALSE}
-devtools::install_github("r-lib/here")
-```
 
 ## Usage
 
@@ -59,3 +55,8 @@ These relative paths work regardless of where the associated source file lives i
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*
 
+---
+
+## Code of Conduct
+
+Please note that the here project is released with a [Contributor Code of Conduct](https://here.r-lib.org/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

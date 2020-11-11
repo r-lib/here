@@ -1,8 +1,0 @@
-pandoc: '2.2'
-pkgdown: 1.4.1
-pkgdown_sha: ~
-articles: []
-urls:
-  reference: https://here.r-lib.org/reference
-  article: https://here.r-lib.org/articles
-

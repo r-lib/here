@@ -1,7 +1,5 @@
 ---
-output:
-  github_document:
-    html_preview: false
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,34 +14,48 @@ knitr::opts_chunk$set(
 
 # here
 
-[![Travis-CI Build Status](https://travis-ci.org/r-lib/here.svg?branch=master)](https://travis-ci.org/r-lib/here)
+<!-- badges: start -->
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![rcc](https://github.com/r-lib/here/workflows/rcc/badge.svg)](https://github.com/r-lib/here/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/here/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/here?branch=master)
+<!-- badges: end -->
 
-A simple interface to [`rprojroot`](https://github.com/r-lib/rprojroot).
+The goal of the here package is to enable easy file referencing. In contrast to using `setwd()`, which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.
 
+## Installation
 
-## Motivation
+Install the released version of here from CRAN:
+```{r, eval = FALSE}
+install.packages("here")
+```
 
-The logic to find a project root based on certain criteria is packaged in the
-`rprojroot` package.
-Many projects might not need the full power, and the complexity that comes with it.
-Meet `here`:
+Or install the development version from GitHub with:
+```{r, eval = FALSE}
+devtools::install_github("r-lib/here")
+```
+
+## Usage
+
+The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
 
 ```{r}
 library(here)
 here()
-here("DESCRIPTION")
-here("R", "here.R")
 ```
 
+You can build a path relative to the top-level directory in order to read or write a file:
 
-## Installation
-
-Install from CRAN via
-``` r
-install.packages("here")
+```{r, eval = FALSE}
+here("files", "data", "iris.csv")
 ```
 
-Install from GitHub via
-``` r
-devtools::install_github("r-lib/here")
+```{r, eval = FALSE}
+write.csv(iris, here("files", "data", "iris.csv"))
 ```
+
+These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)
+*Illustration by [Allison Horst](https://github.com/allisonhorst)*
+

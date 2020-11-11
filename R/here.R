@@ -10,6 +10,19 @@
 #' the \pkg{rprojroot} package for more control,
 #' or for package development.
 #'
+#' If you see
+#'
+#' ```
+#' Error in here("data", "df.rda") :
+#'   unused arguments ("data", "df.rda")"
+#' ```
+#'
+#' you may have attached \pkg{lubridate} or another package
+#' after \pkg{here}.
+#' Correct this using
+#' [the \pkg{conflicted} package](https://conflicted.r-lib.org/),
+#' or use `here::here("data", "df.rda")`.
+#'
 #' @evalRd roxygen2:::markdown(format_root_section())
 #'
 #' @param ... `[character]`\cr

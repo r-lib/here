@@ -30,10 +30,6 @@ Install the released version of here from CRAN:
 install.packages("here")
 ```
 
-Or install the development version from GitHub with:
-```{r, eval = FALSE}
-devtools::install_github("r-lib/here")
-```
 
 ## Usage
 

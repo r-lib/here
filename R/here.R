@@ -91,12 +91,12 @@ set_here <- function(path = ".", verbose = TRUE) {
 #' @param new_path `[character(1)]`\cr
 #'   New project file/directory path to switch focus to.
 #' @export
-change_here <- function(new_path){
+change_here <- function(new_path) {
   if (file.exists(new_path) && !dir.exists(new_path)) {
     new_path <- dirname(new_path)
   }
 
-  if (!dir.exists(new_path)){
+  if (!dir.exists(new_path)) {
     stop("Path does not exist")
   }
 

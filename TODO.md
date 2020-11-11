@@ -2,11 +2,11 @@
 
 ## `docs` branch
 
-- [ ] Create from last released tag
-- [ ] Copy `.github/workflows/pkgdown.yaml` there
-- [ ] Fix URL in DESCRIPTION, don't forget trailing slash
-- [ ] Tweak `_pkgdown.yml`
-- [ ] Set source of GitHub Pages to branch
+- [x] Create from last released tag
+- [x] Copy `.github/workflows/pkgdown.yaml` there
+- [x] Fix URL in DESCRIPTION, don't forget trailing slash
+- [x] Tweak `_pkgdown.yml`
+- [x] Set source of GitHub Pages to branch
 
 ## Separate pull requests
 

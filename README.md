@@ -23,9 +23,9 @@ The here package creates paths relative to the top-level directory. The package 
 
 <pre class='chroma'>
 <span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://github.com/r-lib/here'>here</a></span><span class='o'>)</span>
-<span class='c'>#&gt; here() starts at /Users/sharla/github/tidy-dev-day-2020/here</span>
+<span class='c'>#&gt; here() starts at /home/kirill/git/R/here</span>
 <span class='nf'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='o'>(</span><span class='o'>)</span>
-<span class='c'>#&gt; [1] "/Users/sharla/github/tidy-dev-day-2020/here"</span></pre>
+<span class='c'>#&gt; [1] "/home/kirill/git/R/here"</span></pre>
 
 You can build a path relative to the top-level directory in order to read or write a file:
 
@@ -37,3 +37,9 @@ You can build a path relative to the top-level directory in order to read or wri
 These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png) *Illustration by [Allison Horst](https://github.com/allisonhorst)*
+
+------------------------------------------------------------------------
+
+## Code of Conduct
+
+Please note that the here project is released with a [Contributor Code of Conduct](https://here.r-lib.org/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

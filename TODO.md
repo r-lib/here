@@ -10,9 +10,10 @@
 
 ## Separate pull requests
 
-- [ ] Use GitHub Actions
-- [ ] Disable tic
-- [ ] Disable Travis CI and AppVeyor
+- [x] Use GitHub Actions
+- [x] Disable tic
+- [x] Disable Travis CI and AppVeyor
+- [ ] `usethis::use_coverage()`
 - [ ] Consider open pull requests
 - [ ] Tweak README
 

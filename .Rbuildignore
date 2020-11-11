@@ -13,3 +13,4 @@
 ^\.github$
 ^LICENSE\.md$
 ^TODO\.md$
+^codecov\.yml$

@@ -50,7 +50,8 @@ if here() gives unexpected results.
 set_here() creates an empty file named .here, by default
 in the current directory.  When here encounters such a file, it uses the
 directory that contains this file as root.  This is useful if none of the
-default criteria apply." />
+default criteria apply.  You need to restart the R session so that here()
+picks up the newly created file." />
 
 
 
@@ -82,7 +83,7 @@ default criteria apply." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">here</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.11.9000</span>
       </span>
     </div>
 
@@ -93,6 +94,9 @@ default criteria apply." />
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="../articles/here.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -137,7 +141,8 @@ if <code>here()</code> gives unexpected results.</p>
 <p><code>set_here()</code> creates an empty file named <code>.here</code>, by default
 in the current directory.  When <code>here</code> encounters such a file, it uses the
 directory that contains this file as root.  This is useful if none of the
-default criteria apply.</p>
+default criteria apply.  You need to restart the R session so that <code>here()</code>
+picks up the newly created file.</p>
     </div>
 
     <pre class="usage"><span class='fu'>here</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
@@ -152,7 +157,9 @@ default criteria apply.</p>
     <tr>
       <th>...</th>
       <td><p><code>[character]</code><br />
-Path components below the project root, can be empty.</p></td>
+Path components below the project root, can be empty.
+Each argument should be a string containing one or more
+path components separated by a forward slash <code>"/"</code>.</p></td>
     </tr>
     <tr>
       <th>show_reason</th>
@@ -177,15 +184,24 @@ Verbose output, defaults to <code>TRUE</code>.</p></td>
 Use <code><a href='https://rdrr.io/pkg/rprojroot/man/root_criterion.html'>rprojroot::has_file()</a></code> or the other functions in
 the <span class="pkg">rprojroot</span> package for more control,
 or for package development.</p>
+<p>If you see</p><pre>Error in here("data", "df.rda") :
+  unused arguments ("data", "df.rda")"
+</pre>
+
+<p>you may have attached <span class="pkg">lubridate</span> after <span class="pkg">here</span>.
+Correct this using
+<a href='https://conflicted.r-lib.org/'>the <span class="pkg">conflicted</span> package</a>,
+or use <code>here::here("data", "df.rda")</code>.</p>
     <h2 class="hasAnchor" id="project-root"><a class="anchor" href="#project-root"></a>Project root</h2>
 
     <p>Starting with the current working directory during package load time, <code>here</code> will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:</p><ul>
 <li><p>contains a file <code>.here</code></p></li>
-<li><p>contains a file matching <code>[.]Rproj$</code> with contents matching <code>^Version:</code> in the first line</p></li>
-<li><p>contains a file <code>DESCRIPTION</code> with contents matching <code>^Package:</code></p></li>
+<li><p>contains a file matching <code>[.]Rproj$</code> with contents matching <code>^Version: </code> in the first line</p></li>
+<li><p>contains a file <code>DESCRIPTION</code> with contents matching <code>^Package: </code></p></li>
 <li><p>contains a file <code>remake.yml</code></p></li>
 <li><p>contains a file <code>.projectile</code></p></li>
 <li><p>contains a directory <code>.git</code></p></li>
+<li><p>contains a file <code>.git</code> with contents matching <code>^gitdir: </code></p></li>
 <li><p>contains a directory <code>.svn</code></p></li>
 </ul>
 
@@ -193,7 +209,10 @@ or for package development.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>here</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "/home/runner/work/here/here"</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>here</span><span class='op'>(</span><span class='st'>"some/path/below/your/project/root.txt"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/home/runner/work/here/here"</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>here</span><span class='op'>(</span><span class='st'>"some"</span>, <span class='st'>"path"</span>, <span class='st'>"below"</span>, <span class='st'>"your"</span>, <span class='st'>"project"</span>, <span class='st'>"root.txt"</span><span class='op'>)</span>
+<span class='fu'>here</span><span class='op'>(</span><span class='st'>"some/path/below/your/project/root.txt"</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

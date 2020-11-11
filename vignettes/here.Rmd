@@ -14,44 +14,71 @@ knitr::opts_chunk$set(
 )
 ```
 
-The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths. This is in contrast to using `setwd()`, which is fragile and dependent on the way you order your files.
+The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths.
+This is in contrast to using `setwd()`, which is fragile and dependent on the way you order your files on your computer.
+Read more about project-oriented workflows:
 
-The package displays the top-level of the current project on load:
+- What They Forgot to Teach You About R: ["Project-oriented workflow"](https://rstats.wtf/project-oriented-workflow.html) chapter by Jenny Bryan and Jim Hester
+
+- ["Project-oriented workflow"](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) blog post by Jenny Bryan
+
+- R for data science: ["Workflow: projects"](https://r4ds.had.co.nz/workflow-projects.html) chapter by Hadley Wickham
+
+## Basic functionality
+
+The package displays the top-level directory of the current project on load:
 
 ```{r setup}
 library(here)
 ```
 
-or any time you call here()
+or any time you call `here()`:
 
 ```{r}
 here()
 ```
 
-You can build a path relative to the top-level directory in order to read or write a file:
+You can build a path relative to the top-level directory in order to build the full path to a file:
 
 ```{r}
-here("file", "data", "iris.csv")
+here("data", "penguins.csv")
 ```
 
 ```{r, eval = FALSE}
-write.csv(iris, here("files", "data", "iris.csv"))
+write.csv(penguins, here("data", "penguins.csv"))
 ```
 
-This works regardless of where the associated source file lives inside your project. This is especially helpful if you use RMarkdown with the default behaviour, where the working directory is the directory where the file is.
+This works regardless of where the associated source file lives inside your project. This is especially helpful if you use RMarkdown with the default behaviour, where the working directory is set to the directory where the `.Rmd` file is.
 
-Consider the following directory:
+Consider the following project structure:
 
 ```
 ├── analysis
 │   └── report.Rmd
 ├── data
-│   └── data.csv
-├── project.Rproj
+│   └── penguins.csv
+└── project.Rproj
 ```
 
-The working directory is for `report.Rmd` is the `analysis/` subdirectory, while `data.csv` lives in the `data/` subdirectory. 
+The working directory for `report.Rmd` is the `analysis/` subdirectory, while `penguins.csv` lives in the `data/` subdirectory.
+The report requires the `penguins.csv` file to work.
 
-To render `report.Rmd`, you would have to ensure the path to `data.csv` is relative to the `analysis/` directory - i.e., `../data/data.csv`. The chunks would knit properly, but could not be run in the console since the working directory in the console *isn't* `analysis/`.
+To render `report.Rmd`, you would have to ensure the path to `penguins.csv` is relative to the `analysis/` directory - i.e., `../data/penguins.csv`. The chunks would knit properly, but could not be run in the console since the working directory in the console *isn't* `analysis/`.
 
-The here package circumvents this issue by always creating the file path relative to the top level directory, so that `data.csv` can be read using `here("data", "data.csv")` both when the report is knit and when the code is run interactively in the console.
+The here package circumvents this issue by always creating the file path relative to the top level directory, so that `penguins.csv` can be read using `here("data", "penguins.csv")` both when the report is knit and when the code is run interactively in the console.
+
+## Path components
+
+`here("data", "penguins.csv")` vs. `here("data/penguins.csv")`
+
+## Situation report
+
+`dr_here()`
+
+## Change working directory
+
+Unload and reload package
+
+## Fix project root
+
+`set_here()`

@@ -134,6 +134,21 @@ dr_here(show_reason = FALSE)
 ```
 
 
+## Enforce project-oriented workflow
+
+Even if you always work inside a project, your collaborators may not be aware.
+`here()` falls back to the current working directory when no project can be found.
+This means that your code does not find the correct files even if you use `here()` everywhere.
+
+To give an early warning when this situation arises, use the following pattern in your scripts and reports:
+
+```r
+if (!file.exists(here("analysis/report.Rmd"))) {
+  stop("Please open demo-project.Rproj to render this document.")
+}
+```
+
+
 ## Define project root
 
 The `here()` function supports a variety of common project formats, see `?here` for details.

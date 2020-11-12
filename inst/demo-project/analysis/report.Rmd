@@ -9,6 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(here)
+
+if (!file.exists(here("analysis/report.Rmd"))) {
+  stop("Please open demo-project.Rproj to render this document.")
+}
+
 penguins <- readr::read_csv(here("data/penguins.csv"))
 ```
 

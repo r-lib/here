@@ -26,6 +26,7 @@ Imports:
 Suggests: 
     conflicted,
     covr,
+    fs,
     knitr,
     palmerpenguins,
     plyr,

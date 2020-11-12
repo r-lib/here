@@ -2,7 +2,7 @@ format_dr_here <- function(show_reason) {
   paste0(
     "here() starts at ", .root_env$f(),
     if (show_reason) {
-      paste0(", because ", format_reason())
+      paste0(".\nThis directory ", format_reason())
     }
   )
 }

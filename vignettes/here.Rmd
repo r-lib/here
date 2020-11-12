@@ -10,8 +10,13 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  error = !identical(Sys.getenv("IN_PKGDOWN"), "true")
 )
+
+project_path <- system.file("demo-project", package = "here")
+
+knitr::opts_knit$set(root.dir = project_path)
 ```
 
 The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths.
@@ -26,54 +31,108 @@ Read more about project-oriented workflows:
 
 ## Basic functionality
 
-The package displays the top-level directory of the current project on load:
+For demonstration, this article uses a data analysis project that lives in `` `r project_path` `` on my machine.
+This is the *project root*.
+The path will most likely be different on your machine, the here package helps deal with this situation.
 
-```{r setup}
+The project has the following structure:
+
+```{r echo = FALSE}
+fs::dir_tree()
+```
+
+To start working on this project in RStudio, open the `demo-project.Rproj` file.
+This ensures that the [working directory](https://en.wikipedia.org/wiki/Working_directory) is set to `` `r project_path` ``, the project root.
+Opening only the `.R` or the `.Rmd` file may be insufficient!
+
+Other development environments may have a different notion of a project.
+Either way, it is important that the working directory is set to the project root or a subdirectory of that path.
+You can check with:
+
+```{r eval = FALSE}
+setwd(project_path)
+```
+
+```{r}
+getwd()
+```
+
+(See `vignette("rmarkdown")` for an example where the working directory is set to a subdirectory on start.)
+
+The package displays the top-level directory of the current project when the package is loaded:[^attached]
+
+[^attached]: Technically, `library()` loads and attaches a package. The message is printed only when the package is attached; if your code only uses `here::here()`, no message is printed.
+
+```{r}
 library(here)
 ```
 
-or any time you call `here()`:
+In our case, the `demo-project.Rproj` file decides what the project root is.
+
+The top-level directory is also returned from the `here()` function:
 
 ```{r}
 here()
 ```
 
+One important distinction from the working directory is that this remains stable even if the working directory is changed:
+
+```{r}
+setwd("analysis")
+getwd()
+here()
+setwd("..")
+```
+
+(I suggest to steer clear from ever changing the working directory.
+This may not always be feasible, in particular if the working directory is changed by code that you don't control.)
+
+
+## Relative paths
+
 You can build a path relative to the top-level directory in order to build the full path to a file:
 
 ```{r}
 here("data", "penguins.csv")
+readr::read_csv(here("data", "penguins.csv"))
 ```
 
-```{r, eval = FALSE}
-write.csv(penguins, here("data", "penguins.csv"))
+This works regardless of where the associated source file lives inside your project.
+With `here()`, the path will always be relative to the top-level project directory.
+
+`here()` works very similarly to `file.path()` or `fs::path()`, you can pass path components or entire subpaths:
+
+```{r}
+here("data/penguins.csv")
 ```
 
-This works regardless of where the associated source file lives inside your project. This is especially helpful if you use RMarkdown with the default behaviour, where the working directory is set to the directory where the `.Rmd` file is.
+As seen above, `here()` returns absolute paths (starting with `/`, `<drive letter>:\` or `\\`).
+This makes it safe to pass these paths to other functions, even if the working directory is changed along the way.
 
-Consider the following project structure:
+As of version 1.0.0, absolute paths passed to `here()` are returned unchanged.
+This means that you can safely use both absolute and project-relative paths in `here()`.
 
+```{r}
+data_path <- here("data")
+here(data_path)
+here(data_path, "penguins.csv")
 ```
-├── analysis
-│   └── report.Rmd
-├── data
-│   └── penguins.csv
-└── project.Rproj
-```
 
-The working directory for `report.Rmd` is the `analysis/` subdirectory, while `penguins.csv` lives in the `data/` subdirectory.
-The report requires the `penguins.csv` file to work.
-
-To render `report.Rmd`, you would have to ensure the path to `penguins.csv` is relative to the `analysis/` directory - i.e., `../data/penguins.csv`. The chunks would knit properly, but could not be run in the console since the working directory in the console *isn't* `analysis/`.
-
-The here package circumvents this issue by always creating the file path relative to the top level directory, so that `penguins.csv` can be read using `here("data", "penguins.csv")` both when the report is knit and when the code is run interactively in the console.
-
-## Path components
-
-`here("data", "penguins.csv")` vs. `here("data/penguins.csv")`
 
 ## Situation report
 
-`dr_here()`
+The `dr_here()` function explains the reasoning behind choosing the project root:
+
+```{r}
+dr_here()
+```
+
+The `show_reason` argument can be set to `FALSE` to reduce the output to one line:
+
+```{r}
+dr_here(show_reason = FALSE)
+```
+
 
 ## Change working directory
 
@@ -82,3 +141,5 @@ Unload and reload package
 ## Fix project root
 
 `set_here()`
+
+## Under the hood: rprojroot

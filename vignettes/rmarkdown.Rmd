@@ -2,7 +2,7 @@
 title: "Using here with rmarkdown"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{here}
+  %\VignetteIndexEntry{Using here with rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

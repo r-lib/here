@@ -22,14 +22,21 @@ License: MIT + file LICENSE
 URL: https://here.r-lib.org/, https://github.com/r-lib/here
 BugReports: https://github.com/r-lib/here/issues
 Imports: 
-    rprojroot (>= 1.2)
+    rprojroot (>= 2.0.0)
 Suggests: 
+    conflicted,
     covr,
+    fs,
     knitr,
+    palmerpenguins,
+    plyr,
+    readr,
     rmarkdown
 VignetteBuilder: 
     knitr
+Remotes: 
+    r-lib/rprojroot
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1.9000

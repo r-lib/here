@@ -2,7 +2,7 @@ format_dr_here <- function(show_reason) {
   paste0(
     "here() starts at ", .root_env$f(),
     if (show_reason) {
-      paste0(", because ", format_reason())
+      paste0(".\nThis directory ", format_reason())
     }
   )
 }
@@ -13,7 +13,7 @@ format_reason <- function() {
     paste0("it ", get_root_desc(.root_env$crit, .root_env$f()))
   } else {
     paste0(
-      "none of the following criteria apply for this directory or any of its parents:\n",
+      "and its parents do not satisfy any of the following criteria:\n",
       format_root_criteria_items(), "\n",
       "Use set_here() to create a `.here` file"
     )

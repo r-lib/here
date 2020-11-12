@@ -10,14 +10,8 @@
 #' the \pkg{rprojroot} package for more control,
 #' or for package development.
 #'
-#' If you see
-#'
-#' ```
-#' Error in here("data", "df.rda") :
-#'   unused arguments ("data", "df.rda")"
-#' ```
-#'
-#' you may have attached \pkg{lubridate} or another package
+#' If `here()` raises an error or otherwise behaves unexpectedly,
+#' you may have attached \pkg{plyr} or another package
 #' after \pkg{here}.
 #' Correct this using
 #' [the \pkg{conflicted} package](https://conflicted.r-lib.org/),
@@ -76,7 +70,7 @@ set_here <- function(path = ".", verbose = TRUE) {
     if (verbose) {
       message(
         "Created file .here in ", path, " . ",
-        "Please restart your R session."
+        'Please start a new R session in the new project directory.'
       )
     }
   }

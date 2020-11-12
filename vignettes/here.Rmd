@@ -197,6 +197,33 @@ To reiterate: a fresh session is almost always the better, cleaner, safer, and m
 Use this approach only as a last resort.
 
 
+## Conflicts with other packages
+
+Other packages also export a `here()` function.
+Loading these packages after loading here masks our `here()` function:
+
+```{r error = TRUE}
+library(plyr)
+here()
+```
+
+One way to work around this problem is to use `here::here()`:
+
+```{r}
+here::here()
+```
+
+The conflicted package offers an alternative: it detects that `here()` is exported from more than one package and allows you to use neither until you indicate a preference.
+
+```{r error = TRUE}
+library(conflicted)
+here()
+
+conflicted::conflict_prefer("here", "here")
+here()
+```
+
+
 ## Under the hood: rprojroot
 
 The here package has a very simple and restricted interface, by design.

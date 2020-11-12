@@ -45,15 +45,13 @@ picks up the newly created file.
 }
 \details{
 This package is intended for interactive use only.
-Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
+Use \code{\link[rprojroot:root_criterion]{rprojroot::has_file()}} or the other functions in
 the \pkg{rprojroot} package for more control,
 or for package development.
 
-If you see\preformatted{Error in here("data", "df.rda") :
-  unused arguments ("data", "df.rda")"
-}
-
-you may have attached \pkg{lubridate} after \pkg{here}.
+If \code{here()} raises an error or otherwise behaves unexpectedly,
+you may have attached \pkg{plyr} or another package
+after \pkg{here}.
 Correct this using
 \href{https://conflicted.r-lib.org/}{the \pkg{conflicted} package},
 or use \code{here::here("data", "df.rda")}.

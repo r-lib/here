@@ -49,6 +49,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/rmarkdown.html">Using here with rmarkdown</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -84,36 +96,165 @@
 
     
     
-<p>The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths. This is in contrast to using <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code>, which is fragile and dependent on the way you order your files.</p>
-<p>The package displays the top-level of the current project on load:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
-<span class="co">#&gt; here() starts at /home/runner/work/here/here</span></code></pre></div>
-<p>or any time you call here()</p>
+<p>The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths. This is in contrast to using <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code>, which is fragile and dependent on the way you order your files on your computer. Read more about project-oriented workflows:</p>
+<ul>
+<li><p>What They Forgot to Teach You About R: <a href="https://rstats.wtf/project-oriented-workflow.html">“Project-oriented workflow”</a> chapter by Jenny Bryan and Jim Hester</p></li>
+<li><p><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">“Project-oriented workflow”</a> blog post by Jenny Bryan</p></li>
+<li><p>R for data science: <a href="https://r4ds.had.co.nz/workflow-projects.html">“Workflow: projects”</a> chapter by Hadley Wickham</p></li>
+</ul>
+<div id="basic-functionality" class="section level2">
+<h2 class="hasAnchor">
+<a href="#basic-functionality" class="anchor"></a>Basic functionality</h2>
+<p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
+<p>The project has the following structure:</p>
+<pre><code>#&gt; .
+#&gt; ├── analysis
+#&gt; │   └── report.Rmd
+#&gt; ├── data
+#&gt; │   └── penguins.csv
+#&gt; ├── demo-project.Rproj
+#&gt; └── prepare
+#&gt;     └── penguins.R</code></pre>
+<p>To start working on this project in RStudio, open the <code>demo-project.Rproj</code> file. This ensures that the <a href="https://en.wikipedia.org/wiki/Working_directory">working directory</a> is set to <code>/home/runner/work/_temp/Library/here/demo-project</code>, the project root. Opening only the <code>.R</code> or the <code>.Rmd</code> file may be insufficient!</p>
+<p>Other development environments may have a different notion of a project. Either way, it is important that the working directory is set to the project root or a subdirectory of that path. You can check with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/here/here"</span></code></pre></div>
-<p>You can build a path relative to the top-level directory in order to read or write a file:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">project_path</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"file"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/here/here/file/data/iris.csv"</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<p>(See <code><a href="../articles/rmarkdown.html">vignette("rmarkdown")</a></code> for an example where the working directory is set to a subdirectory on start.)</p>
+<p>The package displays the top-level directory of the current project when the package is loaded:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>This works regardless of where the associated source file lives inside your project. This is especially helpful if you use RMarkdown with the default behaviour, where the working directory is the directory where the file is.</p>
-<p>Consider the following directory:</p>
-<pre><code>├── analysis
-│   └── report.Rmd
-├── data
-│   └── data.csv
-├── project.Rproj</code></pre>
-<p>The working directory is for <code>report.Rmd</code> is the <code>analysis/</code> subdirectory, while <code>data.csv</code> lives in the <code>data/</code> subdirectory.</p>
-<p>To render <code>report.Rmd</code>, you would have to ensure the path to <code>data.csv</code> is relative to the <code>analysis/</code> directory - i.e., <code>../data/data.csv</code>. The chunks would knit properly, but could not be run in the console since the working directory in the console <em>isn’t</em> <code>analysis/</code>.</p>
-<p>The here package circumvents this issue by always creating the file path relative to the top level directory, so that <code>data.csv</code> can be read using <code><a href="../reference/here.html">here("data", "data.csv")</a></code> both when the report is knit and when the code is run interactively in the console.</p>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
+<span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
+<p>In our case, the <code>demo-project.Rproj</code> file decides what the project root is.</p>
+<p>The top-level directory is also returned from the <code><a href="../reference/here.html">here()</a></code> function:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<p>One important distinction from the working directory is that this remains stable even if the working directory is changed:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"analysis"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/analysis"</span>
+<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">".."</span><span class="op">)</span></code></pre></div>
+<p>(I suggest to steer clear from ever changing the working directory. This may not always be feasible, in particular if the working directory is changed by code that you do not control.)</p>
+</div>
+<div id="relative-paths" class="section level2">
+<h2 class="hasAnchor">
+<a href="#relative-paths" class="anchor"></a>Relative paths</h2>
+<p>You can build a path relative to the top-level directory in order to build the full path to a file:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span>
+<span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 0 x 0</span></code></pre></div>
+<p>This works regardless of where the associated source file lives inside your project. With <code><a href="../reference/here.html">here()</a></code>, the path will always be relative to the top-level project directory.</p>
+<p><code><a href="../reference/here.html">here()</a></code> works very similarly to <code><a href="https://rdrr.io/r/base/file.path.html">file.path()</a></code> or <code><a href="http://fs.r-lib.org/reference/path.html">fs::path()</a></code>, you can pass path components or entire subpaths:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>
+<p>As seen above, <code><a href="../reference/here.html">here()</a></code> returns absolute paths (starting with <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code>, <code>&lt;drive letter&gt;:\</code> or <code>\\</code>). This makes it safe to pass these paths to other functions, even if the working directory is changed along the way.</p>
+<p>As of version 1.0.0, absolute paths passed to <code><a href="../reference/here.html">here()</a></code> are returned unchanged. This means that you can safely use both absolute and project-relative paths in <code><a href="../reference/here.html">here()</a></code>.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data"</span>
+<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>
+</div>
+<div id="situation-report" class="section level2">
+<h2 class="hasAnchor">
+<a href="#situation-report" class="anchor"></a>Situation report</h2>
+<p>The <code><a href="../reference/here.html">dr_here()</a></code> function explains the reasoning behind choosing the project root:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">dr_here</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project.</span>
+<span class="co">#&gt; This directory it contains a file matching `[.]Rproj$` with contents matching `^Version: ` in the first line</span></code></pre></div>
+<p>The <code>show_reason</code> argument can be set to <code>FALSE</code> to reduce the output to one line:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">dr_here</a></span><span class="op">(</span>show_reason <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
+</div>
+<div id="define-project-root" class="section level2">
+<h2 class="hasAnchor">
+<a href="#define-project-root" class="anchor"></a>Define project root</h2>
+<p>The <code><a href="../reference/here.html">here()</a></code> function supports a variety of common project formats, see <code><a href="../reference/here.html">?here</a></code> for details. If no project is found, the working directory is used as fallback. The heuristics can be overridden by creating a <code>.here</code> file, the <code><a href="../reference/here.html">set_here()</a></code> function takes care of that.</p>
+<p>To start, let’s create a temporary project for demonstration:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">temp_project_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">temp_project_path</span>, <span class="st">"scripts"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="st">'print("Hello, world!")'</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">temp_project_path</span>, <span class="st">"scripts"</span>, <span class="st">"script.R"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
+<span class="co">#&gt; /tmp/RtmpO7rlww/file39804312df5d</span>
+<span class="co">#&gt; └── scripts</span>
+<span class="co">#&gt;     └── script.R</span></code></pre></div>
+<p>When starting in the <code>scripts</code> directory, the here package will not find any project. Use <code><a href="../reference/here.html">set_here()</a></code> to define the project root:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">set_here</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
+<span class="co">#&gt; Created file .here in /tmp/RtmpO7rlww/file39804312df5d . Please restart your R session.</span>
+<span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; /tmp/RtmpO7rlww/file39804312df5d</span>
+<span class="co">#&gt; ├── .here</span>
+<span class="co">#&gt; └── scripts</span>
+<span class="co">#&gt;     └── script.R</span></code></pre></div>
+<p>Note the message about restarting the R session. This is because the here package never changes its notion of a project root once loaded. This is by design. The next sections show possible remedies.</p>
+</div>
+<div id="change-project-root" class="section level2">
+<h2 class="hasAnchor">
+<a href="#change-project-root" class="anchor"></a>Change project root</h2>
+<p>Once the here package is loaded, subsequential attempts to load do not change here’s notion of the project root. No message is printed, and the <code><a href="../reference/here.html">here()</a></code> output is unchanged:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">project_path</span><span class="op">)</span>
+<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<p>This is by design:</p>
+<ul>
+<li>it keeps the interface as simple as possible</li>
+<li>it gently nudges you to <a href="https://rstats.wtf/save-source.html">start a fresh R session</a> when focusing on another project</li>
+</ul>
+<p>Nevertheless, there may be cases when it is desirable to reset here’s notion of the project root. This can be achieved with unloading and reloading the package:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">unloadNamespace</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
+<span class="co">#&gt; here() starts at /tmp/RtmpO7rlww/file39804312df5d</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">project_path</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span>
+<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/tmp/RtmpO7rlww/file39804312df5d"</span></code></pre></div>
+<p>To reiterate: a fresh session is almost always the better, cleaner, safer, and more robust solution. Use this approach only as a last resort.</p>
+</div>
+<div id="under-the-hood-rprojroot" class="section level2">
+<h2 class="hasAnchor">
+<a href="#under-the-hood-rprojroot" class="anchor"></a>Under the hood: rprojroot</h2>
+<p>The here package has a very simple and restricted interface, by design. The logic is driven by the rprojroot package. To find an RStudio project starting from a directory, use:</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rprojroot.r-lib.org/">rprojroot</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rprojroot.r-lib.org//reference/find_root.html">find_root</a></span><span class="op">(</span><span class="va">is_rstudio_project</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">project_path</span>, <span class="st">"analysis"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<p>See <code>vignette("rprojroot", package = "rprojroot")</code> for an introduction.</p>
+</div>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Technically, <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> loads and attaches a package. The message is printed only when the package is attached; if your code only uses <code><a href="../reference/here.html">here::here()</a></code>, no message is printed.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

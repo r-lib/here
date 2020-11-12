@@ -22,7 +22,7 @@ Install the released version of here from CRAN:
 The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
 
 <pre class='chroma'>
-<span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://github.com/r-lib/here'>here</a></span><span class='o'>)</span>
+<span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://here.r-lib.org/'>here</a></span><span class='o'>)</span>
 <span class='c'>#&gt; here() starts at /home/kirill/git/R/here</span>
 <span class='nf'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='o'>(</span><span class='o'>)</span>
 <span class='c'>#&gt; [1] "/home/kirill/git/R/here"</span></pre>

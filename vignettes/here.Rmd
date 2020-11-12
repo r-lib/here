@@ -200,12 +200,15 @@ Use this approach only as a last resort.
 ## Under the hood: rprojroot
 
 The here package has a very simple and restricted interface, by design.
-The logic is driven by the rprojroot package.
-To find an RStudio project starting from a directory, use:
+The underlying logic is provided by the much more powerful rprojroot package.
+If the default behavior of here does not suit your workflow for one reason or another, the rprojroot package may be a better alternative.
+
+The following example shows how to find an RStudio project starting from a directory:
 
 ```{r}
 library(rprojroot)
 find_root(is_rstudio_project, file.path(project_path, "analysis"))
 ```
 
+Arbitrary criteria can be defined.
 See `vignette("rprojroot", package = "rprojroot")` for an introduction.

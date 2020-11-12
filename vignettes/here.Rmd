@@ -85,7 +85,7 @@ setwd("..")
 ```
 
 (I suggest to steer clear from ever changing the working directory.
-This may not always be feasible, in particular if the working directory is changed by code that you don't control.)
+This may not always be feasible, in particular if the working directory is changed by code that you do not control.)
 
 
 ## Relative paths
@@ -134,12 +134,78 @@ dr_here(show_reason = FALSE)
 ```
 
 
-## Change working directory
+## Define project root
 
-Unload and reload package
+The `here()` function supports a variety of common project formats, see `?here` for details.
+If no project is found, the working directory is used as fallback.
+The heuristics can be overridden by creating a `.here` file, the `set_here()` function takes care of that.
 
-## Fix project root
+To start, let's create a temporary project for demonstration:
 
-`set_here()`
+```{r}
+temp_project_path <- tempfile()
+dir.create(temp_project_path)
+dir.create(file.path(temp_project_path, "scripts"))
+writeLines('print("Hello, world!")', file.path(temp_project_path, "scripts", "script.R"))
+fs::dir_tree(temp_project_path)
+```
+
+When starting in the `scripts` directory, the here package will not find any project.
+Use `set_here()` to define the project root:
+
+```{r}
+set_here(temp_project_path)
+fs::dir_tree(temp_project_path, all = TRUE)
+```
+
+Note the message about restarting the R session.
+This is because the here package never changes its notion of a project root once loaded.
+This is by design.
+The next sections show possible remedies.
+
+## Change project root
+
+Once the here package is loaded, subsequential attempts to load do not change here's notion of the project root.
+No message is printed, and the `here()` output is unchanged:
+
+```{r}
+library(here)
+setwd(temp_project_path)
+library(here)
+setwd(project_path)
+here()
+```
+
+This is by design:
+
+- it keeps the interface as simple as possible
+- it gently nudges you to [start a fresh R session](https://rstats.wtf/save-source.html) when focusing on another project
+
+Nevertheless, there may be cases when it is desirable to reset here's notion of the project root.
+This can be achieved with unloading and reloading the package:
+
+```{r}
+unloadNamespace("here")
+setwd(temp_project_path)
+library(here)
+setwd(project_path)
+getwd()
+here()
+```
+
+To reiterate: a fresh session is almost always the better, cleaner, safer, and more robust solution.
+Use this approach only as a last resort.
+
 
 ## Under the hood: rprojroot
+
+The here package has a very simple and restricted interface, by design.
+The logic is driven by the rprojroot package.
+To find an RStudio project starting from a directory, use:
+
+```{r}
+library(rprojroot)
+find_root(is_rstudio_project, file.path(project_path, "analysis"))
+```
+
+See `vignette("rprojroot", package = "rprojroot")` for an introduction.

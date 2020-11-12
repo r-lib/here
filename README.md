@@ -8,7 +8,7 @@
 
 <!-- badges: end -->
 
-The goal of the here package is to enable easy file referencing. In contrast to using [`setwd()`](https://rdrr.io/r/base/getwd.html), which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.
+The goal of the here package is to enable easy file referencing in [project-oriented workflows](https://rstats.wtf/project-oriented-workflow.html). In contrast to using [`setwd()`](https://rdrr.io/r/base/getwd.html), which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.
 
 ## Installation
 

@@ -1,3 +1,4 @@
+# nocov start
 format_root_section <- function() {
   paste(
     "\\section{Project root}{",
@@ -9,6 +10,7 @@ format_root_section <- function() {
     sep = "\n"
   )
 }
+# nocov end
 
 format_root_criteria_items <- function() {
   paste(format(.root_env$crit)[-1L], collapse = "\n")

@@ -4,11 +4,9 @@ local_project <- function(..., .env = parent.frame()) {
   path <- tempfile()
   dir.create(path)
 
-  file.copy(
-    dir(system.file("demo-project", package = "here"), full.names = TRUE),
-    path,
-    recursive = TRUE
-  )
+  demo_path <- system.file("demo-project", package = "here")
+  demo_files <- dir(demo_path, full.names = TRUE)
+  file.copy(demo_files, path, recursive = TRUE)
 
   local_here(path, .env = .env)
 

@@ -1,3 +1,8 @@
+# here 0.1.11.9002 (2020-11-13)
+
+- Add testthat tests (#57).
+
+
 # here 0.1.11.9001 (2020-11-13)
 
 - Extend "Getting started" vignette with a detailed description of the behavior and use cases (#55).

@@ -1,6 +1,6 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 0.1.11.9001
+Version: 0.1.11.9002
 Date: 2020-11-13
 Authors@R: 
     c(person(given = "Kirill",

@@ -70,7 +70,7 @@ set_here <- function(path = ".", verbose = TRUE) {
     if (verbose) {
       message(
         "Created file .here in ", path, " . ",
-        'Please start a new R session in the new project directory.'
+        "Please start a new R session in the new project directory."
       )
     }
   }

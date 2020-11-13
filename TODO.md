@@ -14,13 +14,13 @@
 - [x] Disable tic
 - [x] Disable Travis CI and AppVeyor
 - [x] `usethis::use_coverage()`
-- [ ] Consider open pull requests
+- [x] Consider open pull requests
 - [x] Tweak README
 
     - use `downlit::readme_document` and `load_all()` if possible
 
-- [ ] Update roxygen2
-- [ ] Use `@examplesIf` where appropriate
+- [x] Update roxygen2
+- [x] Use `@examplesIf` where appropriate
 - [ ] `styler::style_pkg()`
 - [x] Remove `Collate:`
 - [x] `usethis::use_lifecycle_badge()`

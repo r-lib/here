@@ -35,3 +35,12 @@ here <- function(...) {
 }
 
 .root_env <- new.env(parent = emptyenv())
+
+do_refresh_here <- function(path) {
+  tryCatch(
+    .root_env$f <- .root_env$crit$make_fix_file(path = path),
+    error = function(e) {
+      .root_env$f <- from_wd$make_fix_file(path = path)
+    }
+  )
+}

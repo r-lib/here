@@ -31,7 +31,8 @@ Suggests:
     palmerpenguins,
     plyr,
     readr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: 
     knitr
 Remotes: 

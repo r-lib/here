@@ -1,5 +1,16 @@
 url: https://here.r-lib.org/
 
+reference:
+- title: Locate files
+  contents:
+  - here
+- title: Diagnostics
+  contents:
+  - dr_here
+- title: Setup
+  contents:
+  - set_here
+
 authors:
   Kirill Müller:
     href: http://krlmlr.info

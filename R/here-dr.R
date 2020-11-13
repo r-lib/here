@@ -1,3 +1,15 @@
+#' Situation report
+#'
+#' `dr_here()` shows a message that by default also includes the
+#' reason why `here()` is set to a particular directory.
+#' Use this function if `here()` gives unexpected results.
+#' @param show_reason `[logical(1)]`\cr
+#'   Include reason in output of `dr_here()`, defaults to `TRUE`.
+#' @export
+dr_here <- function(show_reason = TRUE) {
+  message(format_dr_here(show_reason = show_reason))
+}
+
 format_dr_here <- function(show_reason) {
   paste0(
     "here() starts at ", .root_env$f(),

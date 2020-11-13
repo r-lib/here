@@ -25,7 +25,7 @@
 - [x] Remove `Collate:`
 - [x] `usethis::use_lifecycle_badge()`
 - [ ] `usethis::use_lifecycle()`
-- [ ] Add pkgdown reference index
+- [x] Add pkgdown reference index
 - [ ] Adapt tests to testthat 3e
 - [ ] Ensure that dependency between source files is cycle-free, as in https://github.com/yonicd/foreman/issues/2
 - [ ] Ensure that source files correspond to test files via `devtools::test_coverage_file()`

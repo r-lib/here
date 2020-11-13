@@ -33,3 +33,5 @@
 here <- function(...) {
   .root_env$f(...)
 }
+
+.root_env <- new.env(parent = emptyenv())

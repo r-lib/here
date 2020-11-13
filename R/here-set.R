@@ -1,7 +1,3 @@
-is_here <- has_file(".here")
-
-.root_env <- new.env(parent = emptyenv())
-
 #' Add a marker file to a project
 #'
 #' `set_here()` creates an empty file named `.here`, by default
@@ -36,3 +32,5 @@ set_here <- function(path = ".", verbose = TRUE) {
 
   invisible(file_path)
 }
+
+is_here <- has_file(".here")

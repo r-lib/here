@@ -32,9 +32,9 @@
 - [x] Import rlang where appropriate
 - [ ] Close open issues
 - [x] Deprecate functions that have moved somewhere else
-- [ ] Avoid `iris`
-- [ ] Synchronize with own downstream packages
+- [x] Avoid `iris`
+- [x] Synchronize with own downstream packages
 - [x] Add type to documentation of function arguments, as in `?here::here`
-- [ ] Check `goodpractice::gp()`
+- [x] Check `goodpractice::gp()`
 - [ ] Switch pkgdown to dev mode "auto"
 - [ ] Release to CRAN

@@ -36,5 +36,6 @@
 - [x] Synchronize with own downstream packages
 - [x] Add type to documentation of function arguments, as in `?here::here`
 - [x] Check `goodpractice::gp()`
+- [x] Check `spelling::update_wordlist(confirm = FALSE)`
 - [ ] Switch pkgdown to dev mode "auto"
 - [ ] Release to CRAN

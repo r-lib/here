@@ -12,7 +12,7 @@ dr_here <- function(show_reason = TRUE) {
 
 format_dr_here <- function(show_reason) {
   paste0(
-    "here() starts at ", .root_env$f(),
+    "here() starts at ", here(),
     if (show_reason) {
       paste0(".\nThis directory ", format_reason())
     }
@@ -20,9 +20,9 @@ format_dr_here <- function(show_reason) {
 }
 
 format_reason <- function() {
-  root <- .root_env$f()
-  if (any(vapply(.root_env$crit$testfun, function(f) f(root), logical(1L)))) {
-    get_root_desc(.root_env$crit, .root_env$f())
+  root <- .root_env$root$f()
+  if (any(vapply(.root_env$root$crit$testfun, function(f) f(root), logical(1L)))) {
+    get_root_desc(.root_env$root$crit, .root_env$root$f())
   } else {
     paste0(
       "and its parents do not satisfy any of the following criteria:\n",

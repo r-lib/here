@@ -21,7 +21,7 @@
 
 - [x] Update roxygen2
 - [x] Use `@examplesIf` where appropriate
-- [ ] `styler::style_pkg()`
+- [x] `styler::style_pkg()`
 - [x] Remove `Collate:`
 - [x] `usethis::use_lifecycle_badge()`
 - [ ] `usethis::use_lifecycle()`

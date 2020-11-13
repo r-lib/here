@@ -1,3 +1,11 @@
+# here 0.1.11.9001 (2020-11-13)
+
+- Extend "Getting started" vignette with a detailed description of the behavior and use cases (#55).
+- New "rmarkdown" vignette (#55).
+- Tweak message in `dr_here()` (#55).
+- Use GitHub Actions (#52).
+
+
 # here 0.1.11.9000 (2020-11-10)
 
 - Re-license as MIT (#50).

@@ -10,6 +10,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "README-"
 )
+
+pkgload::load_all()
 ```
 
 # here
@@ -44,11 +46,11 @@ here()
 You can build a path relative to the top-level directory in order to read or write a file:
 
 ```{r, eval = FALSE}
-here("files", "data", "iris.csv")
+here("files", "data", "penguins.csv")
 ```
 
 ```{r, eval = FALSE}
-write.csv(iris, here("files", "data", "iris.csv"))
+write.csv(palmerpenguins::penguins, here("files", "data", "penguins.csv"))
 ```
 
 These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.

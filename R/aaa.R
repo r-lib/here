@@ -13,5 +13,5 @@ format_root_section <- function() {
 # nocov end
 
 format_root_criteria_items <- function() {
-  paste(format(.root_env$crit)[-1L], collapse = "\n")
+  paste(format(.root_env$root$crit)[-1L], collapse = "\n")
 }

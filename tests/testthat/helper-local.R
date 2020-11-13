@@ -1,4 +1,6 @@
 local_project <- function(..., .env = parent.frame()) {
+  skip_if_not_installed("withr")
+
   path <- tempfile()
   dir.create(path)
 

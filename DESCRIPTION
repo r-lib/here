@@ -32,7 +32,8 @@ Suggests:
     plyr,
     readr,
     rmarkdown,
-    testthat
+    testthat,
+    withr
 VignetteBuilder: 
     knitr
 Remotes: 

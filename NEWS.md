@@ -1,3 +1,10 @@
+# here 0.1.11.9003 (2020-11-15)
+
+- `dr_here()` shows the initial and current working directory (#18).
+- `set_here()` is superseded (#61).
+- New `here::i_am()` offers a new recommended way to declare the project root. Instead of relying on special files or directories that indicate the project root, each script and report now can declare its own location relative to the project root (#27).
+
+
 # here 0.1.11.9002 (2020-11-13)
 
 - Add testthat tests (#57).

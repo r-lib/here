@@ -213,10 +213,10 @@
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/RtmppP67WN"</span>
+<span class="co">#&gt; [1] "/tmp/Rtmp7f6vMi"</span>
 <span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
 <span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/RtmppP67WN</span>
+<span class="co">#&gt; - Current working directory: /tmp/Rtmp7f6vMi</span>
 <span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
 </div>
 </div>
@@ -271,7 +271,7 @@
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "13d7a59f-694a-4cc3-8d72-1827dd8cabf7"</span></code></pre></div>
+<span class="co">#&gt; [1] "6181f5b2-6410-4ee6-8a80-e665e2a94cc4"</span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -297,7 +297,7 @@
   <span class="va">script_path</span>
 <span class="op">)</span>
 <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; /tmp/RtmppP67WN/file38547dd347ea</span>
+<span class="co">#&gt; /tmp/Rtmp7f6vMi/file39034f506b10</span>
 <span class="co">#&gt; └── scripts</span>
 <span class="co">#&gt;     └── script.R</span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
@@ -319,7 +319,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/RtmppP67WN/file38547dd347ea</span>
+<span class="co">#&gt; here() starts at /tmp/Rtmp7f6vMi/file39034f506b10</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; print("Hello, world!")</span>
 <span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>

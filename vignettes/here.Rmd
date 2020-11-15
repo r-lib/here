@@ -15,8 +15,6 @@ knitr::opts_chunk$set(
 )
 
 project_path <- system.file("demo-project", package = "here")
-
-knitr::opts_knit$set(root.dir = project_path)
 ```
 
 The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths.
@@ -38,8 +36,10 @@ The path will most likely be different on your machine, the here package helps d
 The project has the following structure:
 
 ```{r echo = FALSE}
-fs::dir_tree()
+fs::dir_tree(project_path)
 ```
+
+You can review the project on [GitHub](https://github.com/r-lib/here/tree/master/inst/demo-project) and also download a copy.
 
 To start working on this project in RStudio, open the `demo-project.Rproj` file.
 This ensures that the [working directory](https://en.wikipedia.org/wiki/Working_directory) is set to `` `r project_path` ``, the project root.
@@ -53,6 +53,10 @@ You can check with:
 setwd(project_path)
 ```
 
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = project_path)
+```
+
 ```{r}
 getwd()
 ```
@@ -64,7 +68,7 @@ getwd()
 The intended use is to add a call to `here::i_am()` at the beginning of your script or in the first chunk of your rmarkdown report.[^legacy]
 This achieves the following:
 
-[^legacy]: Prior to version 1.0.0, it was recommended to load[^attached] the here package via `library(here)`.
+[^legacy]: Prior to version 1.0.0, it was recommended to attach the here package via `library(here)`.
 This still works, but is no longer the recommended approach.
 
 - The location of the current script or notebook within the project is declared
@@ -79,7 +83,6 @@ here::i_am("prepare/penguins.R")
 
 `here::i_am()` displays the top-level directory of the current project.
 Because the project has a `prepare/` directory in its root that contains `penguins.R`, it is correctly inferred as the project root.
-This would have failed if the working directory had been e.g. the user's home or an unrelated project.
 
 After `here::i_am()`, insert `library(here)` to make the `here()` function available:[^why-not-first]
 
@@ -154,19 +157,20 @@ dr_here(show_reason = FALSE)
 ```
 
 
+### What if the working directory is wrong?
+
+The declaration of the active file via `here::i_am()` also protects against accidentally running the script from a working directory outside of your project.
+The example below calls `here::i_am()` from the temporary directory, which is clearly outside our project:
+
+```{r error = TRUE}
+withr::with_dir(tempdir(), {
+  print(getwd())
+  here::i_am("prepare/penguins.R")
+})
+```
+
+
 ## Extra safety
-
-### Specify a uuid
-
-To eliminate potential confusion, `here::i_am()` accepts a `contents` argument.
-
-FIXME: `uuid` argument`
-
-If specified, it should be a regular expression.
-The first 100 lines of the script are matched against this regular expression.
-
-It is a good idea to pass in a universally unique identifier (UUID) as this argument.
-
 
 ### Conflicts with other packages
 
@@ -195,12 +199,35 @@ here()
 ```
 
 
+### Specify a unique identifier
+
+To eliminate potential confusion, `here::i_am()` accepts a `uuid` argument.
+The idea is that each script and report calls `here::i_am()` very early (in the first 100 lines) with a universally unique identifier.
+Even if a file location is reused across projects (e.g. two projects contain a "prepare/data.R" file), the files can be identified correctly if the `uuid` argument in the `here::i_am()` call is different.
+
+If a `uuid` argument is passed to `here::i_am()`:
+
+- a project root that contains a file at the specified file path is searched
+- the first 100 lines of that file are read
+- for the correct file, the `here::i_am()` call that passes this very `uuid` is among those 100 lines, and will be matched
+- for the wrong file, `uuid` is not found in the text
+
+Use `uuid::UUIDgenerate()` to create universally unique identifiers:
+
+```{r}
+uuid::UUIDgenerate()
+```
+
+Ensure that the `uuid` arguments are actually unique across your files!
+In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls in your scripts and reports.
+
+
 ## Beyond here
 
 ### Change project root
 
 It is advisable to [start a fresh R session](https://rstats.wtf/save-source.html) as often as possible, especially before focusing on another project.
-There may be cases when it is desirable to reset the project root.
+There still may be legitimate cases when it is desirable to reset the project root.
 
 To start, let's create a temporary project for demonstration:
 

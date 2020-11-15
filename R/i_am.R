@@ -51,10 +51,10 @@ i_am <- function(path, ..., uuid = NULL) {
       stop(
         "Could not find associated project in working directory or any parent directory.\n",
         "- Path in project: ", path, "\n",
-        if (!is.null(contents)) {
-          paste0("- File contents matching: ", contents, "\n")
+        if (!is.null(uuid)) {
+          paste0("- File must contain: ", uuid, "\n")
         },
-        "- Current working directory: ", getwd(), "\n",
+        "- Current working directory: ", mockable_getwd(), "\n",
         "Please open the project associated with this file and try again.",
         call. = FALSE
       )
@@ -65,4 +65,12 @@ i_am <- function(path, ..., uuid = NULL) {
   set_fix_fun(root_fun)
   dr_here(show_reason = FALSE)
   invisible()
+}
+
+mockable_getwd <- function() {
+  if (identical(Sys.getenv("TESTTHAT"), "true")) {
+    "<working directory>"
+  } else {
+    getwd()
+  }
 }

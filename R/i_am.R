@@ -25,7 +25,10 @@
 #' @param path `[character(1)]`\cr
 #'   The path to the current script or report, relative to the project root.
 #'   Passing an absolute path raises an error.
+#' @param ... Must be empty, reserved for future use.
 #' @param uuid `[character(1)]`\cr
+#'   `r lifecycle::badge("experimental")`
+#'
 #'   If not `NULL`, a unique string that is matched
 #'   against the first 100 lines of the file.
 #'   Use [uuid::UUIDgenerate()] to create a unique string
@@ -36,9 +39,11 @@
 #' @examples
 #' \dontrun{
 #' here::i_am("prepare/penguins.R")
-#' here::i_am("analysis/report.Rmd", nonce = "f9e884084b84794d762a535f3facec85")
+#' here::i_am("analysis/report.Rmd", uuid = "f9e884084b84794d762a535f3facec85")
 #' }
-i_am <- function(path, uuid = NULL) {
+i_am <- function(path, ..., uuid = NULL) {
+  stopifnot(length(list(...)) == 0)
+
   criterion <- has_file(path, contents = uuid, n = 100, fixed = TRUE)
   tryCatch(
     root_fun <- criterion$make_fix_file(),

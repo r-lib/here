@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-here::i_am("analysis/report.Rmd", "50208352-4ee9-4401-bb40-9f7ec81050da")
+here::i_am("analysis/report.Rmd", uuid = "50208352-4ee9-4401-bb40-9f7ec81050da")
 library(here)
 
 knitr::opts_chunk$set(echo = TRUE)

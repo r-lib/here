@@ -4,20 +4,22 @@
 \alias{i_am}
 \title{Declare location of current script or notebook}
 \usage{
-i_am(path, contents = NULL)
+i_am(path, ..., uuid = NULL)
 }
 \arguments{
 \item{path}{\verb{[character(1)]}\cr
 The path to the current script or report, relative to the project root.
 Passing an absolute path raises an error.}
 
-\item{contents}{\verb{[character(1)]}\cr
-If not \code{NULL}, a regular expression that is matched
+\item{...}{Must be empty, reserved for future use.}
+
+\item{uuid}{\verb{[character(1)]}\cr
+\ifelse{html}{\out{<a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>}}{\strong{Experimental}})`
+
+If not \code{NULL}, a unique string that is matched
 against the first 100 lines of the file.
-For a string of letters and digits and perhaps dashes,
-\code{contents} will match the call to \code{i_am()} itself.
 Use \code{\link[uuid:UUIDgenerate]{uuid::UUIDgenerate()}} to create a unique string
-that can be used as argument to \code{contents}.}
+that can be used as a \code{uuid} argument.}
 }
 \value{
 This function is called for its side effects.
@@ -49,6 +51,6 @@ when you save an existing script or report under a new name.
 \examples{
 \dontrun{
 here::i_am("prepare/penguins.R")
-here::i_am("analysis/report.Rmd", nonce = "f9e884084b84794d762a535f3facec85")
+here::i_am("analysis/report.Rmd", uuid = "f9e884084b84794d762a535f3facec85")
 }
 }

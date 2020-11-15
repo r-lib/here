@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">here</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.11.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -88,6 +88,18 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/rmarkdown.html">Using here with rmarkdown</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -117,6 +129,53 @@
       <small>Source: <a href='https://github.com/r-lib/here/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="here-1009000-2020-11-15" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.0.9000">
+<a href="#here-1009000-2020-11-15" class="anchor"></a>here 1.0.0.9000 (2020-11-15)<small> Unreleased </small>
+</h1>
+<ul>
+<li>Internal changes only.</li>
+</ul>
+</div>
+    <div id="here-100-2020-11-15" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.0">
+<a href="#here-100-2020-11-15" class="anchor"></a>here 1.0.0 (2020-11-15)<small> Unreleased </small>
+</h1>
+<ul>
+<li>Internal changes only.</li>
+</ul>
+</div>
+    <div id="here-01119003-2020-11-15" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.11.9003">
+<a href="#here-01119003-2020-11-15" class="anchor"></a>here 0.1.11.9003 (2020-11-15)<small> Unreleased </small>
+</h1>
+<ul>
+<li>
+<code><a href="../reference/dr_here.html">dr_here()</a></code> shows the initial and current working directory (<a href='https://github.com/r-lib/here/issues/18'>#18</a>).</li>
+<li>
+<code><a href="../reference/set_here.html">set_here()</a></code> is superseded (<a href='https://github.com/r-lib/here/issues/61'>#61</a>).</li>
+<li>New <code><a href="../reference/i_am.html">here::i_am()</a></code> offers a new recommended way to declare the project root. Instead of relying on special files or directories that indicate the project root, each script and report now can declare its own location relative to the project root (<a href='https://github.com/r-lib/here/issues/27'>#27</a>).</li>
+</ul>
+</div>
+    <div id="here-01119002-2020-11-13" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.11.9002">
+<a href="#here-01119002-2020-11-13" class="anchor"></a>here 0.1.11.9002 (2020-11-13)<small> Unreleased </small>
+</h1>
+<ul>
+<li>Add testthat tests (<a href='https://github.com/r-lib/here/issues/57'>#57</a>).</li>
+</ul>
+</div>
+    <div id="here-01119001-2020-11-13" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.11.9001">
+<a href="#here-01119001-2020-11-13" class="anchor"></a>here 0.1.11.9001 (2020-11-13)<small> Unreleased </small>
+</h1>
+<ul>
+<li>Extend “Getting started” vignette with a detailed description of the behavior and use cases (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
+<li>New “rmarkdown” vignette (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
+<li>Tweak message in <code><a href="../reference/dr_here.html">dr_here()</a></code> (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
+<li>Use GitHub Actions (<a href='https://github.com/r-lib/here/issues/52'>#52</a>).</li>
+</ul>
+</div>
     <div id="here-01119000-2020-11-10" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.11.9000">
 <a href="#here-01119000-2020-11-10" class="anchor"></a>here 0.1.11.9000 (2020-11-10)<small> Unreleased </small>
@@ -131,7 +190,7 @@
 <h2 class="hasAnchor">
 <a href="#here-01-11-2018-02-01" class="anchor"></a>here 0.1-11 (2018-02-01)</h2>
 <ul>
-<li>Updated documentation and success message for <code><a href="../reference/here.html">set_here()</a></code>, now suggests to restart the R session (<a href='https://github.com/r-lib/here/issues/12'>#12</a>).</li>
+<li>Updated documentation and success message for <code><a href="../reference/set_here.html">set_here()</a></code>, now suggests to restart the R session (<a href='https://github.com/r-lib/here/issues/12'>#12</a>).</li>
 </ul>
 </div>
 <div id="here-01-10-2017-12-14" class="section level2">
@@ -155,8 +214,8 @@
 <li>The current working directory is used as a fallback.</li>
 </ul>
 </li>
-<li>The <code><a href="../reference/here.html">set_here()</a></code> function creates a <code>.here</code> file so that a directory is recognized as root by <code><a href="../reference/here.html">here()</a></code>.</li>
-<li>The <code><a href="../reference/here.html">dr_here()</a></code> function explains the reasoning of <code><a href="../reference/here.html">here()</a></code> for the current session.</li>
+<li>The <code><a href="../reference/set_here.html">set_here()</a></code> function creates a <code>.here</code> file so that a directory is recognized as root by <code><a href="../reference/here.html">here()</a></code>.</li>
+<li>The <code><a href="../reference/dr_here.html">dr_here()</a></code> function explains the reasoning of <code><a href="../reference/here.html">here()</a></code> for the current session.</li>
 </ul>
 </div>
   </div>

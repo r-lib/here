@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">here</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.11.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -88,6 +88,18 @@
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="articles/rmarkdown.html">Using here with rmarkdown</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -151,7 +163,7 @@ Disable tic</p></li>
 <li><p><input type="checkbox" disabled checked>
 Disable Travis CI and AppVeyor</p></li>
 <li><p><input type="checkbox" disabled checked><code>usethis::use_coverage()</code></p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Consider open pull requests</p></li>
 <li>
 <p><input type="checkbox" disabled checked>
@@ -160,37 +172,41 @@ Tweak README</p>
 <li>use <code>downlit::readme_document</code> and <code>load_all()</code> if possible</li>
 </ul>
 </li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Update roxygen2</p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Use <code>@examplesIf</code> where appropriate</p></li>
-<li><p><input type="checkbox" disabled><code>styler::style_pkg()</code></p></li>
+<li><p><input type="checkbox" disabled checked><code>styler::style_pkg()</code></p></li>
 <li><p><input type="checkbox" disabled checked>
 Remove <code>Collate:</code></p></li>
 <li><p><input type="checkbox" disabled checked><code>usethis::use_lifecycle_badge()</code></p></li>
 <li><p><input type="checkbox" disabled><code>usethis::use_lifecycle()</code></p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Add pkgdown reference index</p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Adapt tests to testthat 3e</p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Ensure that dependency between source files is cycle-free, as in <a href="https://github.com/yonicd/foreman/issues/2" class="uri">https://github.com/yonicd/foreman/issues/2</a></p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Ensure that source files correspond to test files via <code>devtools::test_coverage_file()</code></p></li>
 <li><p><input type="checkbox" disabled checked>
 Import rlang where appropriate</p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Close open issues</p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Deprecate functions that have moved somewhere else</p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Avoid <code>iris</code></p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Synchronize with own downstream packages</p></li>
 <li><p><input type="checkbox" disabled checked>
 Add type to documentation of function arguments, as in <code><a href="reference/here.html">?here::here</a></code></p></li>
-<li><p><input type="checkbox" disabled>
+<li><p><input type="checkbox" disabled checked>
 Check <code>goodpractice::gp()</code></p></li>
+<li><p><input type="checkbox" disabled checked>
+Check <code>spelling::update_wordlist(confirm = FALSE)</code></p></li>
+<li><p><input type="checkbox" disabled>
+Switch pkgdown to dev mode “auto”</p></li>
 <li><p><input type="checkbox" disabled>
 Release to CRAN</p></li>
 </ul>

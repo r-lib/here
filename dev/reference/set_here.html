@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • here</title>
+<title>Add a marker file to a project — set_here • here</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Add a marker file to a project — set_here" />
+<meta property="og:description" content="" />
 
 
 <meta name="robots" content="noindex">
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -125,20 +126,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Add a marker file to a project</h1>
+    <small class="dont-index">Source: <a href='https://github.com/r-lib/here/blob/master/R/set_here.R'><code>R/set_here.R</code></a></small>
+    <div class="hidden name"><code>set_here.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="here.html">here</a></dt>
-        <dd></dt>
-        <dt><a href="rmarkdown.html">Using here with rmarkdown</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p><a href='https://www.tidyverse.org/lifecycle/#superseded'><img src='figures/lifecycle-superseded.svg' alt='Superseded lifecycle'></a></p>
     </div>
+
+    <pre class="usage"><span class='fu'>set_here</span><span class='op'>(</span>path <span class='op'>=</span> <span class='st'>"."</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p><code>[character(1)]</code><br />
+Directory where to create <code>.here</code> file, defaults to the current directory.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p><code>[logical(1)]</code><br />
+Verbose output, defaults to <code>TRUE</code>.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>set_here()</code> creates an empty file named <code>.here</code>, by default
+in the current directory.
+When here encounters such a file, it uses the
+directory that contains this file as root.
+This is useful if none of the default criteria apply.
+You need to restart the R session so that <code><a href='here.html'>here()</a></code>
+picks up the newly created file.</p>
+    <h2 class="hasAnchor" id="life-cycle"><a class="anchor" href="#life-cycle"></a>Life cycle</h2>
+
+    
+
+<p><code>set_here()</code> should no longer be necessary
+if all scripts and reports in a project call <code><a href='i_am.html'>i_am()</a></code>,
+which is now the recommended workflow for declaring the project root.</p>
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

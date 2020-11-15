@@ -13,10 +13,9 @@ Authors@R:
              role = "ctb",
              email = "jenny@rstudio.com",
              comment = c(ORCID = "0000-0002-6983-2759")))
-Description: Constructs paths to your project's files.  The
-    'here()' function uses a reasonable heuristics to find your project's
-    files, based on the current working directory at the time when the
-    package is loaded. Use it as a drop-in replacement for 'file.path()',
+Description: Constructs paths to your project's files.
+    Declare the relative path of a file within your project with 'i_am()'.
+    Use the 'here()' function as a drop-in replacement for 'file.path()',
     it will always locate the files relative to your project root.
 License: MIT + file LICENSE
 URL: https://here.r-lib.org/, https://github.com/r-lib/here

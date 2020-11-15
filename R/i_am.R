@@ -62,7 +62,7 @@ i_am <- function(path, ..., uuid = NULL) {
   )
 
   set_root_crit(criterion)
-  set_fix_fun(root_fun)
+  set_fix_fun(root_fun, i_am = TRUE)
   dr_here(show_reason = FALSE)
   invisible()
 }

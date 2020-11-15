@@ -7,5 +7,7 @@
 # nocov end
 
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage(format_dr_here(show_reason = FALSE))
+  if (!isTRUE(.root_env$root$i_am)) {
+    packageStartupMessage(format_dr_here(show_reason = FALSE))
+  }
 }

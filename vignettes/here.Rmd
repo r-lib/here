@@ -176,6 +176,9 @@ withr::with_dir(tempdir(), {
 })
 ```
 
+This can also happen when a file has been renamed or moved without updating the `here::i_am()` call.
+In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls in your scripts and reports.
+
 
 ## Extra safety
 

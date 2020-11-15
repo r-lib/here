@@ -1,10 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<pre class='chroma'>
-<span class='c'>## Loading here</span>
-
-<span class='c'>## here() starts at /home/kirill/git/R/here</span></pre>
-
 # here
 
 <!-- badges: start -->

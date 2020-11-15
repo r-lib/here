@@ -4,7 +4,7 @@ output: downlit::readme_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -39,21 +39,19 @@ install.packages("here")
 The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
 
 ```{r}
-library(here)
+here::i_am("README.Rmd")
 here()
 ```
 
 You can build a path relative to the top-level directory in order to read or write a file:
 
-```{r, eval = FALSE}
-here("files", "data", "penguins.csv")
-```
-
-```{r, eval = FALSE}
-write.csv(palmerpenguins::penguins, here("files", "data", "penguins.csv"))
+```{r}
+here("inst", "demo-project", "data", "penguins.csv")
+readr::write_csv(palmerpenguins::penguins, here("inst", "demo-project", "data", "penguins.csv"))
 ```
 
 These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
+See the included [demo project](https://github.com/r-lib/here/tree/master/inst/demo-project) for an example.
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*

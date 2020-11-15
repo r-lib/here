@@ -39,7 +39,7 @@ install.packages("here")
 The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
 
 ```{r}
-library(here)
+here::i_am("README.Rmd")
 here()
 ```
 

@@ -22,16 +22,17 @@ Install the released version of here from CRAN:
 The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
 
 <pre class='chroma'>
-<span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://here.r-lib.org/'>here</a></span><span class='o'>)</span>
-<span class='nf'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='o'>(</span><span class='o'>)</span>
+<span class='nf'>here</span><span class='nf'>::</span><span class='nf'><a href='https://here.r-lib.org//reference/i_am.html'>i_am</a></span><span class='o'>(</span><span class='s'>"README.Rmd"</span><span class='o'>)</span>
+<span class='c'>#&gt; here() starts at /home/kirill/git/R/here</span>
+<span class='nf'>here</span><span class='o'>(</span><span class='o'>)</span>
 <span class='c'>#&gt; [1] "/home/kirill/git/R/here"</span></pre>
 
 You can build a path relative to the top-level directory in order to read or write a file:
 
 <pre class='chroma'>
-<span class='nf'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='o'>(</span><span class='s'>"files"</span>, <span class='s'>"data"</span>, <span class='s'>"penguins.csv"</span><span class='o'>)</span></pre>
+<span class='nf'>here</span><span class='o'>(</span><span class='s'>"files"</span>, <span class='s'>"data"</span>, <span class='s'>"penguins.csv"</span><span class='o'>)</span></pre>
 <pre class='chroma'>
-<span class='nf'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span><span class='o'>(</span><span class='nf'>palmerpenguins</span><span class='nf'>::</span><span class='nv'><a href='https://allisonhorst.github.io/palmerpenguins/reference/penguins.html'>penguins</a></span>, <span class='nf'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='o'>(</span><span class='s'>"files"</span>, <span class='s'>"data"</span>, <span class='s'>"penguins.csv"</span><span class='o'>)</span><span class='o'>)</span></pre>
+<span class='nf'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span><span class='o'>(</span><span class='nf'>palmerpenguins</span><span class='nf'>::</span><span class='nv'><a href='https://allisonhorst.github.io/palmerpenguins/reference/penguins.html'>penguins</a></span>, <span class='nf'>here</span><span class='o'>(</span><span class='s'>"files"</span>, <span class='s'>"data"</span>, <span class='s'>"penguins.csv"</span><span class='o'>)</span><span class='o'>)</span></pre>
 
 These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
 

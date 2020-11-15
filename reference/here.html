@@ -169,7 +169,12 @@ Correct this using
 or use <code>here::here("data", "df.rda")</code>.</p>
     <h2 class="hasAnchor" id="project-root"><a class="anchor" href="#project-root"></a>Project root</h2>
 
-    <p>Starting with the current working directory during package load time, <code>here</code> will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:</p><ul>
+    <p>The project root is established with a call to <code><a href='i_am.html'>i_am()</a></code>.
+Although not recommended, it can be changed by calling <code><a href='i_am.html'>here::i_am()</a></code> again.</p>
+<p>In the absence of such a call (e.g. for a new project),
+starting with the current working directory during package load time,
+the directory hierarchy is walked upwards
+until a directory with at least one of the following conditions is found:</p><ul>
 <li><p>contains a file <code>.here</code></p></li>
 <li><p>contains a file matching <code>[.]Rproj$</code> with contents matching <code>^Version: </code> in the first line</p></li>
 <li><p>contains a file <code>DESCRIPTION</code> with contents matching <code>^Package: </code></p></li>
@@ -180,7 +185,8 @@ or use <code>here::here("data", "df.rda")</code>.</p>
 <li><p>contains a directory <code>.svn</code></p></li>
 </ul>
 
-<p>Once established, the root directory doesn't change during the active R session. <code>here()</code> then appends the arguments to the root directory.</p>
+<p>In either case, <code>here()</code> appends its arguments as path components
+to the root directory.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>here</span><span class='op'>(</span><span class='op'>)</span>

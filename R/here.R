@@ -53,5 +53,6 @@ set_fix_fun <- function(f, i_am) {
   force(f)
   force(i_am)
   .root_env$root$f <- f
+  .root_env$root$wd <- getwd()
   .root_env$root$i_am <- i_am
 }

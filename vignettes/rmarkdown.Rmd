@@ -15,8 +15,6 @@ knitr::opts_chunk$set(
 )
 
 project_path <- system.file("demo-project", package = "here")
-
-knitr::opts_knit$set(root.dir = file.path(project_path, "analysis"))
 ```
 
 The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths.
@@ -32,13 +30,17 @@ The path will most likely be different on your machine, the here package helps d
 The project has the following structure:
 
 ```{r echo = FALSE}
-fs::dir_tree()
+fs::dir_tree(project_path)
 ```
 
 When `report.Rmd` is rendered, the working directory is internally set to `<project root>/analysis` by rmarkdown:
 
 ```{r eval = FALSE}
 setwd(file.path(project_path, "analysis"))
+```
+
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = file.path(project_path, "analysis"))
 ```
 
 ```{r}
@@ -55,12 +57,13 @@ To render `report.Rmd`, you would have to ensure the path to `penguins.csv` is r
 The here package circumvents this issue by always referring to the project root:
 
 ```{r}
-library(here)
+here::i_am("analysis/report.Rmd")
 ```
 
 All files accessed by `report.Rmd` should be referred to using `here()`:
 
 ```{r}
+library(here)
 here("data", "penguins.csv")
 here("data/penguins.csv")
 ```

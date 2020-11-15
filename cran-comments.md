@@ -7,10 +7,8 @@ here 1.0.0
 ## R CMD check results
 
 - [x] Checked locally, R 4.0.3
-- [ ] Checked on CI system, R 4.0.3
-- [ ] Checked on win-builder, R devel
-
-Check the boxes above after successful execution and remove this line. Then run `fledge::release()`.
+- [x] Checked on CI system, R 4.0.3
+- [x] Checked on win-builder, R devel
 
 ## Current CRAN check results
 

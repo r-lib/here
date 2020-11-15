@@ -22,7 +22,7 @@ License: MIT + file LICENSE
 URL: https://here.r-lib.org/, https://github.com/r-lib/here
 BugReports: https://github.com/r-lib/here/issues
 Imports: 
-    rprojroot (>= 2.0.0.9001)
+    rprojroot (>= 2.0.1)
 Suggests: 
     conflicted,
     covr,

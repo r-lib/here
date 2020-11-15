@@ -2,7 +2,7 @@
 format_root_section <- function() {
   paste(
     "\\section{Project root}{",
-    "The project root is established with a call to [here::i_am()].",
+    "The project root is established with a call to `here::`[here::i_am()].",
     "Although not recommended, it can be changed by calling `here::i_am()` again.",
     "",
     "In the absence of such a call (e.g. for a new project),",

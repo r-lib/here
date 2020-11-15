@@ -39,7 +39,7 @@ here("some/path/below/your/project/root.txt")
 }
 }
 \section{Project root}{
-The project root is established with a call to \code{\link[=i_am]{i_am()}}.
+The project root is established with a call to \verb{here::}\code{\link[=i_am]{i_am()}}.
 Although not recommended, it can be changed by calling \code{here::i_am()} again.
 
 In the absence of such a call (e.g. for a new project),

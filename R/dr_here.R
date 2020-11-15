@@ -6,6 +6,8 @@
 #' @param show_reason `[logical(1)]`\cr
 #'   Include reason in output of `dr_here()`, defaults to `TRUE`.
 #' @export
+#' @examples
+#' dr_here()
 dr_here <- function(show_reason = TRUE) {
   message(format_dr_here(show_reason = show_reason))
 }

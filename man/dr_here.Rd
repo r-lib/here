@@ -15,3 +15,6 @@ Include reason in output of \code{dr_here()}, defaults to \code{TRUE}.}
 reason why \code{here()} is set to a particular directory.
 Use this function if \code{here()} gives unexpected results.
 }
+\examples{
+dr_here()
+}

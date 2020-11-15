@@ -14,11 +14,22 @@ Directory where to create \code{.here} file, defaults to the current directory.}
 Verbose output, defaults to \code{TRUE}.}
 }
 \description{
+\ifelse{html}{\out{<a href='https://www.tidyverse.org/lifecycle/#superseded'><img src='figures/lifecycle-superseded.svg' alt='Superseded lifecycle'></a>}}{\strong{Superseded}}
+}
+\details{
 \code{set_here()} creates an empty file named \code{.here}, by default
 in the current directory.
-When \code{here} encounters such a file, it uses the
+When here encounters such a file, it uses the
 directory that contains this file as root.
 This is useful if none of the default criteria apply.
 You need to restart the R session so that \code{here()}
 picks up the newly created file.
 }
+\section{Life cycle}{
+
+\code{set_here()} should no longer be necessary
+if all scripts and reports in a project call \code{\link[=i_am]{i_am()}},
+which is now the recommended workflow for declaring the project root.
+}
+
+\keyword{internal}

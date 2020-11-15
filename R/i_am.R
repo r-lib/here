@@ -1,11 +1,11 @@
-#' Declare location of current script or notebook
+#' Declare location of current script or report
 #'
 #' Add a call to `here::i_am("<project-relative path>.<ext>")`
 #' at the top of your R script or in the first chunk of your rmarkdown document.
 #' This ensures that the project root is set up correctly:
 #' subsequent calls to `here()` will refer to the implied project root.
 #' If the current working directory is outside of the project
-#' where the script or notebook is intended to run, it will fail
+#' where the script or report is intended to run, it will fail
 #' with a descriptive message.
 #'
 #' Relying on the project root determined with a project file,
@@ -62,7 +62,7 @@ i_am <- function(path, ..., uuid = NULL) {
   )
 
   set_root_crit(criterion)
-  set_fix_fun(root_fun)
+  set_fix_fun(root_fun, i_am = TRUE)
   dr_here(show_reason = FALSE)
   invisible()
 }

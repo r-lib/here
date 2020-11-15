@@ -25,13 +25,11 @@
 #' @param path `[character(1)]`\cr
 #'   The path to the current script or report, relative to the project root.
 #'   Passing an absolute path raises an error.
-#' @param contents `[character(1)]`\cr
-#'   If not `NULL`, a regular expression that is matched
+#' @param uuid `[character(1)]`\cr
+#'   If not `NULL`, a unique string that is matched
 #'   against the first 100 lines of the file.
-#'   For a string of letters and digits and perhaps dashes,
-#'   `contents` will match the call to `i_am()` itself.
 #'   Use [uuid::UUIDgenerate()] to create a unique string
-#'   that can be used as argument to `contents`.
+#'   that can be used as a `uuid` argument.
 #'
 #' @return This function is called for its side effects.
 #' @export
@@ -40,8 +38,8 @@
 #' here::i_am("prepare/penguins.R")
 #' here::i_am("analysis/report.Rmd", nonce = "f9e884084b84794d762a535f3facec85")
 #' }
-i_am <- function(path, contents = NULL) {
-  criterion <- has_file(path, contents)
+i_am <- function(path, uuid = NULL) {
+  criterion <- has_file(path, contents = uuid, n = 100, fixed = TRUE)
   tryCatch(
     root_fun <- criterion$make_fix_file(),
     error = function(e) {

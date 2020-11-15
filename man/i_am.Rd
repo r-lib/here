@@ -2,7 +2,7 @@
 % Please edit documentation in R/i_am.R
 \name{i_am}
 \alias{i_am}
-\title{Declare location of current script or notebook}
+\title{Declare location of current script or report}
 \usage{
 i_am(path, ..., uuid = NULL)
 }
@@ -30,7 +30,7 @@ at the top of your R script or in the first chunk of your rmarkdown document.
 This ensures that the project root is set up correctly:
 subsequent calls to \code{here()} will refer to the implied project root.
 If the current working directory is outside of the project
-where the script or notebook is intended to run, it will fail
+where the script or report is intended to run, it will fail
 with a descriptive message.
 }
 \details{

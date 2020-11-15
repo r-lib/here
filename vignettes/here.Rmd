@@ -71,8 +71,8 @@ This achieves the following:
 [^legacy]: Prior to version 1.0.0, it was recommended to attach the here package via `library(here)`.
 This still works, but is no longer the recommended approach.
 
-- The location of the current script or notebook within the project is declared
-- The project root is initialized, consistent with the location of the current script or notebook
+- The location of the current script or report within the project is declared
+- The project root is initialized, consistent with the location of the current script or report
 
 The first argument to `here::i_am()` should be the path to the current file, relative to the project root.
 The `penguins.R` script uses:

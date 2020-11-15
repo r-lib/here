@@ -5,7 +5,7 @@ test_that("i_am() sets the project root", {
   local_here(".")
 
   expect_message(
-    here::i_am("prepare/penguins.R", "115147ca-fedd-42ca-8650-2cb3dad0aebc"),
+    here::i_am("prepare/penguins.R", uuid = "115147ca-fedd-42ca-8650-2cb3dad0aebc"),
     "starts at"
   )
 

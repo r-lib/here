@@ -1,14 +1,17 @@
-## Test environments
-* local Ubuntu 16.10 install, R 3.4.0
-* ubuntu 12.04 (on travis-ci), R release, devel, and oldrel
-* win-builder (devel and release)
+here 1.0.0
+
+## Cran Repository Policy
+
+- [x] Reviewed CRP last edited 2020-10-29.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+- [x] Checked locally, R 4.0.3
+- [ ] Checked on CI system, R 4.0.3
+- [ ] Checked on win-builder, R devel
 
-* This is a new release.
+Check the boxes above after successful execution and remove this line. Then run `fledge::release()`.
 
-## Reverse dependencies
+## Current CRAN check results
 
-This is a new release, so there are no reverse dependencies.
+- [x] Checked on 2020-11-15, no problems found.

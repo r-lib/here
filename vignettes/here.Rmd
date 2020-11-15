@@ -235,7 +235,7 @@ To start, let's create a temporary project for demonstration:
 temp_project_path <- tempfile()
 dir.create(temp_project_path)
 scripts_path <- file.path(temp_project_path, "scripts")
-dir.create()
+dir.create(scripts_path)
 script_path <- file.path(scripts_path, "script.R")
 writeLines(
   c(

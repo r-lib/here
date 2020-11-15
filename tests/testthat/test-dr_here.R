@@ -7,6 +7,7 @@ test_that("dr_here() shows message", {
 test_that("format_dr_here(show_reason = TRUE)", {
   dr <- format_dr_here(show_reason = TRUE)
   dr <- gsub(here(), "<project root>", dr, fixed = TRUE)
+  dr <- gsub(getwd(), "<working directory>", dr, fixed = TRUE)
   expect_snapshot(writeLines(dr))
 })
 
@@ -21,5 +22,6 @@ test_that("format_dr_here() without root", {
 
   dr <- format_dr_here(show_reason = TRUE)
   dr <- gsub(here(), "<project root>", dr, fixed = TRUE)
+  dr <- gsub(getwd(), "<working directory>", dr, fixed = TRUE)
   expect_snapshot(writeLines(dr))
 })

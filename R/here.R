@@ -51,4 +51,5 @@ do_refresh_here <- function(path) {
 
 set_fix_fun <- function(f) {
   .root_env$root$f <- f
+  .root_env$root$wd <- getwd()
 }

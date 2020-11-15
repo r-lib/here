@@ -120,7 +120,11 @@ You can build a path relative to the top-level directory in order to build the f
 
 ```{r}
 here("data", "penguins.csv")
-readr::read_csv(here("data", "penguins.csv"))
+readr::read_csv(
+  here("data", "penguins.csv"),
+  col_types = list(.default = readr::col_guess()),
+  n_max = 3
+)
 ```
 
 This works regardless of where the associated source file lives inside your project.

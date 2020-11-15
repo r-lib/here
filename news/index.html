@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">here</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -129,75 +129,40 @@
       <small>Source: <a href='https://github.com/r-lib/here/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="here-1009000-2020-11-15" class="section level1">
-<h1 class="page-header" data-toc-text="1.0.0.9000">
-<a href="#here-1009000-2020-11-15" class="anchor"></a>here 1.0.0.9000 (2020-11-15)<small> Unreleased </small>
-</h1>
-<ul>
-<li>Internal changes only.</li>
-</ul>
-</div>
     <div id="here-100-2020-11-15" class="section level1">
 <h1 class="page-header" data-toc-text="1.0.0">
 <a href="#here-100-2020-11-15" class="anchor"></a>here 1.0.0 (2020-11-15)<small> Unreleased </small>
 </h1>
+<div id="features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#features" class="anchor"></a>Features</h2>
 <ul>
-<li>Internal changes only.</li>
-</ul>
-</div>
-    <div id="here-01119003-2020-11-15" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.11.9003">
-<a href="#here-01119003-2020-11-15" class="anchor"></a>here 0.1.11.9003 (2020-11-15)<small> Unreleased </small>
-</h1>
-<ul>
-<li>
-<code><a href="../reference/dr_here.html">dr_here()</a></code> shows the initial and current working directory (<a href='https://github.com/r-lib/here/issues/18'>#18</a>).</li>
-<li>
-<code><a href="../reference/set_here.html">set_here()</a></code> is superseded (<a href='https://github.com/r-lib/here/issues/61'>#61</a>).</li>
 <li>New <code><a href="../reference/i_am.html">here::i_am()</a></code> offers a new recommended way to declare the project root. Instead of relying on special files or directories that indicate the project root, each script and report now can declare its own location relative to the project root (<a href='https://github.com/r-lib/here/issues/27'>#27</a>).</li>
+<li>
+<code><a href="../reference/dr_here.html">dr_here()</a></code> shows the initial and current working directory (<a href='https://github.com/r-lib/here/issues/18'>#18</a>, <a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
 </ul>
 </div>
-    <div id="here-01119002-2020-11-13" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.11.9002">
-<a href="#here-01119002-2020-11-13" class="anchor"></a>here 0.1.11.9002 (2020-11-13)<small> Unreleased </small>
-</h1>
+<div id="documentation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation" class="anchor"></a>Documentation</h2>
+<ul>
+<li>Improve readme and add “Getting started” vignette (<a href='https://github.com/r-lib/here/issues/44'>#44</a>, <a href='https://github.com/sharlagelfand'>@sharlagelfand</a>). Extend “Getting started” vignette with a detailed description of the behavior and use cases (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
+<li>Update <code><a href="../reference/here.html">?here</a></code> to address conflict with <code>lubridate::here()</code> (<a href='https://github.com/r-lib/here/issues/37'>#37</a>, <a href='https://github.com/nzgwynn'>@nzgwynn</a>).</li>
+<li>New “rmarkdown” vignette (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
+<li>
+<code><a href="../reference/set_here.html">set_here()</a></code> is superseded in favor of <code><a href="../reference/i_am.html">here::i_am()</a></code> (<a href='https://github.com/r-lib/here/issues/61'>#61</a>).</li>
+<li>More explicit documentation for the <code>...</code> argument to <code><a href="../reference/here.html">here()</a></code> (<a href='https://github.com/r-lib/here/issues/7'>#7</a>).</li>
+</ul>
+</div>
+<div id="internal" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internal" class="anchor"></a>Internal</h2>
 <ul>
 <li>Add testthat tests (<a href='https://github.com/r-lib/here/issues/57'>#57</a>).</li>
-</ul>
-</div>
-    <div id="here-01119001-2020-11-13" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.11.9001">
-<a href="#here-01119001-2020-11-13" class="anchor"></a>here 0.1.11.9001 (2020-11-13)<small> Unreleased </small>
-</h1>
-<ul>
-<li>Extend “Getting started” vignette with a detailed description of the behavior and use cases (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
-<li>New “rmarkdown” vignette (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
-<li>Tweak message in <code><a href="../reference/dr_here.html">dr_here()</a></code> (<a href='https://github.com/r-lib/here/issues/55'>#55</a>).</li>
-<li>Use GitHub Actions (<a href='https://github.com/r-lib/here/issues/52'>#52</a>).</li>
-</ul>
-</div>
-    <div id="here-01119000-2020-11-10" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.11.9000">
-<a href="#here-01119000-2020-11-10" class="anchor"></a>here 0.1.11.9000 (2020-11-10)<small> Unreleased </small>
-</h1>
-<ul>
-<li><p>Re-license as MIT (<a href='https://github.com/r-lib/here/issues/50'>#50</a>).</p></li>
-<li><p>Update documentation to address conflict with <code>lubridate::here()</code> (<a href='https://github.com/r-lib/here/issues/37'>#37</a>, <a href='https://github.com/nzgwynn'>@nzgwynn</a>).</p></li>
-<li><p>Improve readme and add getting started vignette (<a href='https://github.com/r-lib/here/issues/44'>#44</a>, <a href='https://github.com/sharlagelfand'>@sharlagelfand</a>).</p></li>
-<li><p>Added Jennifer Bryan as contributor (<a href='https://github.com/r-lib/here/issues/32'>#32</a>).</p></li>
-</ul>
-<div id="here-01-11-2018-02-01" class="section level2">
-<h2 class="hasAnchor">
-<a href="#here-01-11-2018-02-01" class="anchor"></a>here 0.1-11 (2018-02-01)</h2>
-<ul>
-<li>Updated documentation and success message for <code><a href="../reference/set_here.html">set_here()</a></code>, now suggests to restart the R session (<a href='https://github.com/r-lib/here/issues/12'>#12</a>).</li>
-</ul>
-</div>
-<div id="here-01-10-2017-12-14" class="section level2">
-<h2 class="hasAnchor">
-<a href="#here-01-10-2017-12-14" class="anchor"></a>here 0.1-10 (2017-12-14)</h2>
-<ul>
-<li>More explicit documentation for the <code>...</code> argument to <code><a href="../reference/here.html">here()</a></code> (<a href='https://github.com/r-lib/here/issues/7'>#7</a>).</li>
+<li>Use GitHub Actions for checks (<a href='https://github.com/r-lib/here/issues/52'>#52</a>).</li>
+<li>Requires rprojroot &gt;= 2.0.1.</li>
+<li>Re-license as MIT (<a href='https://github.com/r-lib/here/issues/50'>#50</a>).</li>
+<li>Added Jennifer Bryan as contributor (<a href='https://github.com/r-lib/here/issues/32'>#32</a>).</li>
 </ul>
 </div>
 </div>

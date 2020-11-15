@@ -39,7 +39,13 @@ here("some/path/below/your/project/root.txt")
 }
 }
 \section{Project root}{
-Starting with the current working directory during package load time, \code{here} will walk the directory hierarchy upwards until it finds a directory that satisfies at least one of the following conditions:
+The project root is established with a call to \code{\link[=i_am]{i_am()}}.
+Although not recommended, it can be changed by calling \code{here::i_am()} again.
+
+In the absence of such a call (e.g. for a new project),
+starting with the current working directory during package load time,
+the directory hierarchy is walked upwards
+until a directory with at least one of the following conditions is found:
 \itemize{
 \item contains a file \code{.here}
 \item contains a file matching \verb{[.]Rproj$} with contents matching \verb{^Version: } in the first line
@@ -51,5 +57,6 @@ Starting with the current working directory during package load time, \code{here
 \item contains a directory \code{.svn}
 }
 
-Once established, the root directory doesn't change during the active R session. \code{here()} then appends the arguments to the root directory.
+In either case, \code{here()} appends its arguments as path components
+to the root directory.
 }

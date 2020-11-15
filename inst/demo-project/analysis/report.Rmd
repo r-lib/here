@@ -6,13 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
+here::i_am("analysis/report.Rmd", uuid = "50208352-4ee9-4401-bb40-9f7ec81050da")
 library(here)
 
-if (!file.exists(here("analysis/report.Rmd"))) {
-  stop("Please open demo-project.Rproj to render this document.")
-}
+knitr::opts_chunk$set(echo = TRUE)
 
 penguins <- readr::read_csv(here("data/penguins.csv"))
 ```

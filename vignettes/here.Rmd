@@ -15,8 +15,6 @@ knitr::opts_chunk$set(
 )
 
 project_path <- system.file("demo-project", package = "here")
-
-knitr::opts_knit$set(root.dir = project_path)
 ```
 
 The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths.
@@ -38,8 +36,10 @@ The path will most likely be different on your machine, the here package helps d
 The project has the following structure:
 
 ```{r echo = FALSE}
-fs::dir_tree()
+fs::dir_tree(project_path)
 ```
+
+You can review the project on [GitHub](https://github.com/r-lib/here/tree/master/inst/demo-project) and also download a copy.
 
 To start working on this project in RStudio, open the `demo-project.Rproj` file.
 This ensures that the [working directory](https://en.wikipedia.org/wiki/Working_directory) is set to `` `r project_path` ``, the project root.
@@ -53,21 +53,44 @@ You can check with:
 setwd(project_path)
 ```
 
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = project_path)
+```
+
 ```{r}
 getwd()
 ```
 
 (See `vignette("rmarkdown")` for an example where the working directory is set to a subdirectory on start.)
 
-The package displays the top-level directory of the current project when the package is loaded:[^attached]
+### Declare the location of the current script
 
-[^attached]: Technically, `library()` loads and attaches a package. The message is printed only when the package is attached; if your code only uses `here::here()`, no message is printed.
+The intended use is to add a call to `here::i_am()` at the beginning of your script or in the first chunk of your rmarkdown report.[^legacy]
+This achieves the following:
+
+[^legacy]: Prior to version 1.0.0, it was recommended to attach the here package via `library(here)`.
+This still works, but is no longer the recommended approach.
+
+- The location of the current script or notebook within the project is declared
+- The project root is initialized, consistent with the location of the current script or notebook
+
+The first argument to `here::i_am()` should be the path to the current file, relative to the project root.
+The `penguins.R` script uses:
+
+```{r}
+here::i_am("prepare/penguins.R")
+```
+
+`here::i_am()` displays the top-level directory of the current project.
+Because the project has a `prepare/` directory in its root that contains `penguins.R`, it is correctly inferred as the project root.
+
+After `here::i_am()`, insert `library(here)` to make the `here()` function available:[^why-not-first]
+
+[^why-not-first]: `library(here)` emits a message that may be confusing if followed by the message from `here::i_am()`.
 
 ```{r}
 library(here)
 ```
-
-In our case, the `demo-project.Rproj` file decides what the project root is.
 
 The top-level directory is also returned from the `here()` function:
 
@@ -88,7 +111,7 @@ setwd("..")
 This may not always be feasible, in particular if the working directory is changed by code that you do not control.)
 
 
-## Relative paths
+### Use project-relative paths
 
 You can build a path relative to the top-level directory in order to build the full path to a file:
 
@@ -119,7 +142,7 @@ here(data_path, "penguins.csv")
 ```
 
 
-## Situation report
+### Situation report
 
 The `dr_here()` function explains the reasoning behind choosing the project root:
 
@@ -134,85 +157,22 @@ dr_here(show_reason = FALSE)
 ```
 
 
-## Enforce project-oriented workflow
+### What if the working directory is wrong?
 
-Even if you always work inside a project, your collaborators may not be aware.
-`here()` falls back to the current working directory when no project can be found.
-This means that your code does not find the correct files even if you use `here()` everywhere.
+The declaration of the active file via `here::i_am()` also protects against accidentally running the script from a working directory outside of your project.
+The example below calls `here::i_am()` from the temporary directory, which is clearly outside our project:
 
-To give an early warning when this situation arises, use the following pattern in your scripts and reports:
-
-```r
-if (!file.exists(here("analysis/report.Rmd"))) {
-  stop("Please open demo-project.Rproj to render this document.")
-}
+```{r error = TRUE}
+withr::with_dir(tempdir(), {
+  print(getwd())
+  here::i_am("prepare/penguins.R")
+})
 ```
 
 
-## Define project root
+## Extra safety
 
-The `here()` function supports a variety of common project formats, see `?here` for details.
-If no project is found, the working directory is used as fallback.
-The heuristics can be overridden by creating a `.here` file, the `set_here()` function takes care of that.
-
-To start, let's create a temporary project for demonstration:
-
-```{r}
-temp_project_path <- tempfile()
-dir.create(temp_project_path)
-dir.create(file.path(temp_project_path, "scripts"))
-writeLines('print("Hello, world!")', file.path(temp_project_path, "scripts", "script.R"))
-fs::dir_tree(temp_project_path)
-```
-
-When starting in the `scripts` directory, the here package will not find any project.
-Use `set_here()` to define the project root:
-
-```{r}
-set_here(temp_project_path)
-fs::dir_tree(temp_project_path, all = TRUE)
-```
-
-Note the message about restarting the R session.
-This is because the here package never changes its notion of a project root once loaded.
-This is by design.
-The next sections show possible remedies.
-
-## Change project root
-
-Once the here package is loaded, subsequential attempts to load do not change here's notion of the project root.
-No message is printed, and the `here()` output is unchanged:
-
-```{r}
-library(here)
-setwd(temp_project_path)
-library(here)
-setwd(project_path)
-here()
-```
-
-This is by design:
-
-- it keeps the interface as simple as possible
-- it gently nudges you to [start a fresh R session](https://rstats.wtf/save-source.html) when focusing on another project
-
-Nevertheless, there may be cases when it is desirable to reset here's notion of the project root.
-This can be achieved with unloading and reloading the package:
-
-```{r}
-unloadNamespace("here")
-setwd(temp_project_path)
-library(here)
-setwd(project_path)
-getwd()
-here()
-```
-
-To reiterate: a fresh session is almost always the better, cleaner, safer, and more robust solution.
-Use this approach only as a last resort.
-
-
-## Conflicts with other packages
+### Conflicts with other packages
 
 Other packages also export a `here()` function.
 Loading these packages after loading here masks our `here()` function:
@@ -239,11 +199,87 @@ here()
 ```
 
 
-## Under the hood: rprojroot
+### Specify a unique identifier
+
+To eliminate potential confusion, `here::i_am()` accepts a `uuid` argument.
+The idea is that each script and report calls `here::i_am()` very early (in the first 100 lines) with a universally unique identifier.
+Even if a file location is reused across projects (e.g. two projects contain a "prepare/data.R" file), the files can be identified correctly if the `uuid` argument in the `here::i_am()` call is different.
+
+If a `uuid` argument is passed to `here::i_am()`:
+
+- a project root that contains a file at the specified file path is searched
+- the first 100 lines of that file are read
+- for the correct file, the `here::i_am()` call that passes this very `uuid` is among those 100 lines, and will be matched
+- for the wrong file, `uuid` is not found in the text
+
+Use `uuid::UUIDgenerate()` to create universally unique identifiers:
+
+```{r}
+uuid::UUIDgenerate()
+```
+
+Ensure that the `uuid` arguments are actually unique across your files!
+In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls in your scripts and reports.
+
+
+## Beyond here
+
+### Change project root
+
+It is advisable to [start a fresh R session](https://rstats.wtf/save-source.html) as often as possible, especially before focusing on another project.
+There still may be legitimate cases when it is desirable to reset the project root.
+
+To start, let's create a temporary project for demonstration:
+
+```{r}
+temp_project_path <- tempfile()
+dir.create(temp_project_path)
+scripts_path <- file.path(temp_project_path, "scripts")
+dir.create()
+script_path <- file.path(scripts_path, "script.R")
+writeLines(
+  c(
+    'here::i_am("scripts/script.R")',
+    'print("Hello, world!")'
+  ),
+  script_path
+)
+fs::dir_tree(temp_project_path)
+writeLines(readLines(script_path))
+```
+
+The `script.R` file contains a call to `here::i_am()` to declare its location.
+Running it from the current working directory will fail:
+
+```{r error = TRUE}
+source(script_path, echo = TRUE)
+```
+
+To reset the project root mid-session, change the working directory with `setwd()`.
+Now, the subsequent call to `here::i_am()` from within `script.R` works:
+
+```{r eval = FALSE}
+setwd(temp_project_path)
+```
+
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = temp_project_path)
+```
+
+```{r}
+source(script_path, echo = TRUE)
+```
+
+To reiterate: a fresh session is almost always the better, cleaner, safer, and more robust solution.
+Use this approach only as a last resort.
+
+
+### Under the hood: rprojroot
 
 The here package has a very simple and restricted interface, by design.
 The underlying logic is provided by the much more powerful rprojroot package.
 If the default behavior of here does not suit your workflow for one reason or another, the rprojroot package may be a better alternative.
+It is also recommended to import rprojroot and not here from other packages.
 
 The following example shows how to find an RStudio project starting from a directory:
 

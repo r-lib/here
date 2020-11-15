@@ -30,7 +30,7 @@
 - [x] Ensure that dependency between source files is cycle-free, as in https://github.com/yonicd/foreman/issues/2
 - [x] Ensure that source files correspond to test files via `devtools::test_coverage_file()`
 - [x] Import rlang where appropriate
-- [ ] Close open issues
+- [x] Close open issues
 - [x] Deprecate functions that have moved somewhere else
 - [x] Avoid `iris`
 - [x] Synchronize with own downstream packages

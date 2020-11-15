@@ -71,8 +71,11 @@ This achieves the following:
 [^legacy]: Prior to version 1.0.0, it was recommended to attach the here package via `library(here)`.
 This still works, but is no longer the recommended approach.
 
-- The location of the current script or notebook within the project is declared
-- The project root is initialized, consistent with the location of the current script or notebook
+- The location of the current script or report within the project is declared
+- The project root is initialized, consistent with the location of the current script or report
+- An informative message is emitted.[^print]
+
+[^print]: `library(here)` no longer emits an informative message if `here::i_am()` has been called before.
 
 The first argument to `here::i_am()` should be the path to the current file, relative to the project root.
 The `penguins.R` script uses:
@@ -117,7 +120,11 @@ You can build a path relative to the top-level directory in order to build the f
 
 ```{r}
 here("data", "penguins.csv")
-readr::read_csv(here("data", "penguins.csv"))
+readr::read_csv(
+  here("data", "penguins.csv"),
+  col_types = list(.default = readr::col_guess()),
+  n_max = 3
+)
 ```
 
 This works regardless of where the associated source file lives inside your project.
@@ -235,7 +242,7 @@ To start, let's create a temporary project for demonstration:
 temp_project_path <- tempfile()
 dir.create(temp_project_path)
 scripts_path <- file.path(temp_project_path, "scripts")
-dir.create()
+dir.create(scripts_path)
 script_path <- file.path(scripts_path, "script.R")
 writeLines(
   c(

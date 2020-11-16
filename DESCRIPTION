@@ -36,6 +36,8 @@ Suggests:
     withr
 VignetteBuilder: 
     knitr
+Remotes: 
+    r-lib/rprojroot@v2.0.2
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

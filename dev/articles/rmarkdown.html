@@ -103,8 +103,14 @@
 <a href="#rmarkdown-starts-in-a-subdirectory" class="anchor"></a>rmarkdown starts in a subdirectory</h2>
 <p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
 <p>The project has the following structure:</p>
-<pre><code>#&gt; .
-#&gt; └── report.Rmd</code></pre>
+<pre><code>#&gt; /home/runner/work/_temp/Library/here/demo-project
+#&gt; ├── analysis
+#&gt; │   └── report.Rmd
+#&gt; ├── data
+#&gt; │   └── penguins.csv
+#&gt; ├── demo-project.Rproj
+#&gt; └── prepare
+#&gt;     └── penguins.R</code></pre>
 <p>When <code>report.Rmd</code> is rendered, the working directory is internally set to <code>&lt;project root&gt;/analysis</code> by rmarkdown:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">project_path</span>, <span class="st">"analysis"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -119,11 +125,12 @@
 <p>To render <code>report.Rmd</code>, you would have to ensure the path to <code>penguins.csv</code> is relative to the <code>analysis/</code> directory - i.e., <code>../data/penguins.csv</code>. The chunks would knit properly, but could not be run in the console since the working directory in the console <em>isn’t</em> <code>analysis/</code>.</p>
 <p>The here package circumvents this issue by always referring to the project root:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"analysis/report.Rmd"</span><span class="op">)</span>
 <span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
 <p>All files accessed by <code>report.Rmd</code> should be referred to using <code><a href="../reference/here.html">here()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>
+<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span>
 <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>

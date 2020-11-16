@@ -61,7 +61,7 @@ jobs:
         run: |
           install.packages("remotes")
           remotes::install_deps(dependencies = TRUE)
-          remotes::install_github("krlmlr/pkgdown@fix/examples-dontshow")
+          remotes::install_github("r-lib/pkgdown")
         shell: Rscript {0}
 
       - name: Install package

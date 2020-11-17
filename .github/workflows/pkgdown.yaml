@@ -2,6 +2,7 @@ on:
   push:
     branches:
     - master
+    - main
     - "docs*"
     - "cran-*"
 
@@ -67,7 +68,14 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
 
+      - name: Build site
+        if: github.event_name == 'pull_request'
+        run: |
+          pkgdown::build_site()
+        shell: Rscript {0}
+
       - name: Deploy package
+        if: github.event_name == 'push'
         run: |
           pkgdown::deploy_to_branch(new_process = FALSE)
         shell: Rscript {0}

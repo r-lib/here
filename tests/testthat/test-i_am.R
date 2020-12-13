@@ -20,7 +20,7 @@ test_that("i_am() fails with useful message", {
   local_here(here())
   withr::local_dir(tempdir())
 
-  expect_snapshot(
+  expect_snapshot_with_error(
     here::i_am("prepare/penguins.R", uuid = "115147ca-fedd-42ca-8650-2cb3dad0aebc")
   )
 })

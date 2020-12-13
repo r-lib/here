@@ -30,6 +30,7 @@ Suggests:
     palmerpenguins,
     plyr,
     readr,
+    rlang,
     rmarkdown,
     testthat,
     uuid,

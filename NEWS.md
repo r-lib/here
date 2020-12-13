@@ -3,11 +3,6 @@
 - Adapt to testthat 3.0.1.
 
 
-# here 1.0.0.9000 (2020-11-15)
-
-- Internal changes only.
-
-
 # here 1.0.0 (2020-11-15)
 
 ## Features

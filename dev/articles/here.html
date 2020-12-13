@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">here</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -207,10 +207,10 @@
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/RtmpKG9jJz"</span>
+<span class="co">#&gt; [1] "/tmp/RtmpPD6ouR"</span>
 <span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
 <span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/RtmpKG9jJz</span>
+<span class="co">#&gt; - Current working directory: /tmp/RtmpPD6ouR</span>
 <span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
@@ -266,7 +266,7 @@
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "a40fa1db-79b6-4ba8-b1e9-e1661ec00eb1"</span></code></pre></div>
+<span class="co">#&gt; [1] "5c059f58-2ef6-4944-bf4a-e58496d40f1b"</span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -292,7 +292,7 @@
   <span class="va">script_path</span>
 <span class="op">)</span>
 <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; /tmp/RtmpKG9jJz/file3e6a64674c19</span>
+<span class="co">#&gt; /tmp/RtmpPD6ouR/file3e644e389332</span>
 <span class="co">#&gt; └── scripts</span>
 <span class="co">#&gt;     └── script.R</span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
@@ -314,7 +314,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/RtmpKG9jJz/file3e6a64674c19</span>
+<span class="co">#&gt; here() starts at /tmp/RtmpPD6ouR/file3e644e389332</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; print("Hello, world!")</span>
 <span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>

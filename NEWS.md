@@ -1,3 +1,8 @@
+# here 1.0.1 (2020-12-13)
+
+- Adapt to testthat 3.0.1.
+
+
 # here 1.0.0.9000 (2020-11-15)
 
 - Internal changes only.

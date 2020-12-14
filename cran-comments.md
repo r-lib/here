@@ -1,4 +1,4 @@
-here 1.0.0
+here 1.0.1: Compatibility with testthat 3.0.1
 
 ## Cran Repository Policy
 
@@ -12,4 +12,4 @@ here 1.0.0
 
 ## Current CRAN check results
 
-- [x] Checked on 2020-11-15, no problems found.
+- [x] Checked on 2020-12-13, no problems found.

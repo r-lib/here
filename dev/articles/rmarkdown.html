@@ -95,7 +95,7 @@
 <p>The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths. This article demonstrates the case where the working directory is set to a subdirectory of the project root, for instance when rendering an R Markdown document that lives in a subdirectory. See <code><a href="../articles/here.html">vignette("here")</a></code> for a more general introduction.</p>
 <div id="rmarkdown-starts-in-a-subdirectory" class="section level2">
 <h2 class="hasAnchor">
-<a href="#rmarkdown-starts-in-a-subdirectory" class="anchor"></a>rmarkdown starts in a subdirectory</h2>
+<a href="#rmarkdown-starts-in-a-subdirectory" class="anchor" aria-hidden="true"></a>rmarkdown starts in a subdirectory</h2>
 <p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
 <p>The project has the following structure:</p>
 <pre><code>#&gt; /home/runner/work/_temp/Library/here/demo-project
@@ -116,7 +116,7 @@
 </div>
 <div id="here-always-uses-project-relative-paths" class="section level2">
 <h2 class="hasAnchor">
-<a href="#here-always-uses-project-relative-paths" class="anchor"></a>here always uses project-relative paths</h2>
+<a href="#here-always-uses-project-relative-paths" class="anchor" aria-hidden="true"></a>here always uses project-relative paths</h2>
 <p>To render <code>report.Rmd</code>, you would have to ensure the path to <code>penguins.csv</code> is relative to the <code>analysis/</code> directory - i.e., <code>../data/penguins.csv</code>. The chunks would knit properly, but could not be run in the console since the working directory in the console <em>isn’t</em> <code>analysis/</code>.</p>
 <p>The here package circumvents this issue by always referring to the project root:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">

@@ -98,8 +98,8 @@
 <li><p><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="external-link">“Project-oriented workflow”</a> blog post by Jenny Bryan</p></li>
 <li><p>R for data science: <a href="https://r4ds.had.co.nz/workflow-projects.html" class="external-link">“Workflow: projects”</a> chapter by Hadley Wickham</p></li>
 </ul>
-<div id="basic-functionality" class="section level2">
-<h2>Basic functionality<a class="anchor" aria-label="anchor" href="#basic-functionality"></a>
+<div class="section level2">
+<h2 id="basic-functionality">Basic functionality<a class="anchor" aria-label="anchor" href="#basic-functionality"></a>
 </h2>
 <p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
 <p>The project has the following structure:</p>
@@ -120,8 +120,8 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
 <p>(See <code><a href="../articles/rmarkdown.html">vignette("rmarkdown")</a></code> for an example where the working directory is set to a subdirectory on start.)</p>
-<div id="declare-the-location-of-the-current-script" class="section level3">
-<h3>Declare the location of the current script<a class="anchor" aria-label="anchor" href="#declare-the-location-of-the-current-script"></a>
+<div class="section level3">
+<h3 id="declare-the-location-of-the-current-script">Declare the location of the current script<a class="anchor" aria-label="anchor" href="#declare-the-location-of-the-current-script"></a>
 </h3>
 <p>The intended use is to add a call to <code><a href="../reference/i_am.html">here::i_am()</a></code> at the beginning of your script or in the first chunk of your rmarkdown report.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> This achieves the following:</p>
 <ul>
@@ -152,8 +152,8 @@
 <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="st">".."</span><span class="op">)</span></code></pre></div>
 <p>(I suggest to steer clear from ever changing the working directory. This may not always be feasible, in particular if the working directory is changed by code that you do not control.)</p>
 </div>
-<div id="use-project-relative-paths" class="section level3">
-<h3>Use project-relative paths<a class="anchor" aria-label="anchor" href="#use-project-relative-paths"></a>
+<div class="section level3">
+<h3 id="use-project-relative-paths">Use project-relative paths<a class="anchor" aria-label="anchor" href="#use-project-relative-paths"></a>
 </h3>
 <p>You can build a path relative to the top-level directory in order to build the full path to a file:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -185,8 +185,8 @@
 <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>
 </div>
-<div id="situation-report" class="section level3">
-<h3>Situation report<a class="anchor" aria-label="anchor" href="#situation-report"></a>
+<div class="section level3">
+<h3 id="situation-report">Situation report<a class="anchor" aria-label="anchor" href="#situation-report"></a>
 </h3>
 <p>The <code><a href="../reference/dr_here.html">dr_here()</a></code> function explains the reasoning behind choosing the project root:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -200,8 +200,8 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/dr_here.html">dr_here</a></span><span class="op">(</span>show_reason <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
 </div>
-<div id="what-if-the-working-directory-is-wrong" class="section level3">
-<h3>What if the working directory is wrong?<a class="anchor" aria-label="anchor" href="#what-if-the-working-directory-is-wrong"></a>
+<div class="section level3">
+<h3 id="what-if-the-working-directory-is-wrong">What if the working directory is wrong?<a class="anchor" aria-label="anchor" href="#what-if-the-working-directory-is-wrong"></a>
 </h3>
 <p>The declaration of the active file via <code><a href="../reference/i_am.html">here::i_am()</a></code> also protects against accidentally running the script from a working directory outside of your project. The example below calls <code><a href="../reference/i_am.html">here::i_am()</a></code> from the temporary directory, which is clearly outside our project:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -209,19 +209,19 @@
   <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/RtmpAC9GgX"</span>
+<span class="co">#&gt; [1] "/tmp/RtmpszIBJa"</span>
 <span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
 <span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/RtmpAC9GgX</span>
+<span class="co">#&gt; - Current working directory: /tmp/RtmpszIBJa</span>
 <span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
-<div id="extra-safety" class="section level2">
-<h2>Extra safety<a class="anchor" aria-label="anchor" href="#extra-safety"></a>
+<div class="section level2">
+<h2 id="extra-safety">Extra safety<a class="anchor" aria-label="anchor" href="#extra-safety"></a>
 </h2>
-<div id="conflicts-with-other-packages" class="section level3">
-<h3>Conflicts with other packages<a class="anchor" aria-label="anchor" href="#conflicts-with-other-packages"></a>
+<div class="section level3">
+<h3 id="conflicts-with-other-packages">Conflicts with other packages<a class="anchor" aria-label="anchor" href="#conflicts-with-other-packages"></a>
 </h3>
 <p>Other packages also export a <code><a href="../reference/here.html">here()</a></code> function. Loading these packages after loading here masks our <code><a href="../reference/here.html">here()</a></code> function:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
@@ -254,8 +254,8 @@
 <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
 </div>
-<div id="specify-a-unique-identifier" class="section level3">
-<h3>Specify a unique identifier<a class="anchor" aria-label="anchor" href="#specify-a-unique-identifier"></a>
+<div class="section level3">
+<h3 id="specify-a-unique-identifier">Specify a unique identifier<a class="anchor" aria-label="anchor" href="#specify-a-unique-identifier"></a>
 </h3>
 <p>To eliminate potential confusion, <code><a href="../reference/i_am.html">here::i_am()</a></code> accepts a <code>uuid</code> argument. The idea is that each script and report calls <code><a href="../reference/i_am.html">here::i_am()</a></code> very early (in the first 100 lines) with a universally unique identifier. Even if a file location is reused across projects (e.g. two projects contain a “prepare/data.R” file), the files can be identified correctly if the <code>uuid</code> argument in the <code><a href="../reference/i_am.html">here::i_am()</a></code> call is different.</p>
 <p>If a <code>uuid</code> argument is passed to <code><a href="../reference/i_am.html">here::i_am()</a></code>:</p>
@@ -268,15 +268,15 @@
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "9d9b543c-97e2-45e2-a9a2-b42688b927d9"</span></code></pre></div>
+<span class="co">#&gt; [1] "a0b51416-e716-4294-8cf9-57f97bdc1aa1"</span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
-<div id="beyond-here" class="section level2">
-<h2>Beyond here<a class="anchor" aria-label="anchor" href="#beyond-here"></a>
+<div class="section level2">
+<h2 id="beyond-here">Beyond here<a class="anchor" aria-label="anchor" href="#beyond-here"></a>
 </h2>
-<div id="change-project-root" class="section level3">
-<h3>Change project root<a class="anchor" aria-label="anchor" href="#change-project-root"></a>
+<div class="section level3">
+<h3 id="change-project-root">Change project root<a class="anchor" aria-label="anchor" href="#change-project-root"></a>
 </h3>
 <p>It is advisable to <a href="https://rstats.wtf/save-source.html" class="external-link">start a fresh R session</a> as often as possible, especially before focusing on another project. There still may be legitimate cases when it is desirable to reset the project root.</p>
 <p>To start, let’s create a temporary project for demonstration:</p>
@@ -294,7 +294,7 @@
   <span class="va">script_path</span>
 <span class="op">)</span>
 <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #0000BB; background-color: #00BB00;">/tmp/RtmpAC9GgX/file266e3f98f12d</span></span>
+<span class="co">#&gt; <span style="color: #0000BB; background-color: #00BB00;">/tmp/RtmpszIBJa/file1cb652dd63d0</span></span>
 <span class="co">#&gt; └── <span style="color: #0000BB; background-color: #00BB00;">scripts</span></span>
 <span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
@@ -316,14 +316,14 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/RtmpAC9GgX/file266e3f98f12d</span>
+<span class="co">#&gt; here() starts at /tmp/RtmpszIBJa/file1cb652dd63d0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; print("Hello, world!")</span>
 <span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>
 <p>To reiterate: a fresh session is almost always the better, cleaner, safer, and more robust solution. Use this approach only as a last resort.</p>
 </div>
-<div id="under-the-hood-rprojroot" class="section level3">
-<h3>Under the hood: rprojroot<a class="anchor" aria-label="anchor" href="#under-the-hood-rprojroot"></a>
+<div class="section level3">
+<h3 id="under-the-hood-rprojroot">Under the hood: rprojroot<a class="anchor" aria-label="anchor" href="#under-the-hood-rprojroot"></a>
 </h3>
 <p>The here package has a very simple and restricted interface, by design. The underlying logic is provided by the much more powerful rprojroot package. If the default behavior of here does not suit your workflow for one reason or another, the rprojroot package may be a better alternative. It is also recommended to import rprojroot and not here from other packages.</p>
 <p>The following example shows how to find an RStudio project starting from a directory:</p>
@@ -356,12 +356,12 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by <a href="https://krlmlr.info" class="external-link external-link">Kirill Müller</a>.</p>
+<p>Developed by <a href="https://krlmlr.info" class="external-link">Kirill Müller</a>.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>

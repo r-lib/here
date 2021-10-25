@@ -48,7 +48,7 @@ with a descriptive message.'><meta name="robots" content="noindex"><!-- mathjax 
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/r-lib/here/">
+  <a href="https://github.com/r-lib/here/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -63,7 +63,7 @@ with a descriptive message.'><meta name="robots" content="noindex"><!-- mathjax 
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Declare location of current script or report</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/i_am.R"><code>R/i_am.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/i_am.R" class="external-link"><code>R/i_am.R</code></a></small>
     <div class="hidden name"><code>i_am.Rd</code></div>
     </div>
 
@@ -79,28 +79,26 @@ with a descriptive message.</p>
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">i_am</span><span class="op">(</span><span class="va">path</span>, <span class="va">...</span>, uuid <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
-    <h2>Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>path</th>
-      <td><p><code>[character(1)]</code><br>
-The path to the current script or report, relative to the project root.
-Passing an absolute path raises an error.</p></td>
-    </tr><tr><th>...</th>
-      <td><p>Must be empty, reserved for future use.</p></td>
-    </tr><tr><th>uuid</th>
-      <td><p><code>[character(1)]</code><br><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>)`</p>
-<p>If not <code>NULL</code>, a unique string that is matched
-against the first 100 lines of the file.
-Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html">uuid::UUIDgenerate()</a></code> to create a unique string
-that can be used as a <code>uuid</code> argument.</p></td>
-    </tr></table></div>
+    <h2>Arguments</h2>
+    
 
+<dl><dt>path</dt><dd><p><code>[character(1)]</code><br>
+The path to the current script or report, relative to the project root.
+Passing an absolute path raises an error.</p></dd>
+</dl><dl><dt>...</dt><dd><p>Must be empty, reserved for future use.</p></dd>
+</dl><dl><dt>uuid</dt><dd><p><code>[character(1)]</code><br><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>)`If not <code>NULL</code>, a unique string that is matched
+against the first 100 lines of the file.
+Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create a unique string
+that can be used as a <code>uuid</code> argument.</p></dd>
+</dl></div>
     <div id="value">
-    <h2>Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <h2>Value</h2>
     <p>This function is called for its side effects.</p>
     </div>
     <div id="details">
-    <h2>Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <h2>Details</h2>
     <p>Relying on the project root determined with a project file,
 the default for versions prior to 1.0.0,
 only weakly protects against running a script from an arbitrary directory
@@ -114,9 +112,10 @@ Update the <code>i_am()</code> call to reflect the new location.
 If you use the <code>nonce</code> argument for extra safety, be sure to change it
 when you save an existing script or report under a new name.</p>
     </div>
+    </div>
 
     <div id="examples">
-    <h2>Examples<a class="anchor" aria-label="anchor" href="#examples"></a></h2>
+    <h2>Examples</h2>
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in"><span class="fu">here</span><span class="fu">::</span><span class="fu">i_am</span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">here</span><span class="fu">::</span><span class="fu">i_am</span><span class="op">(</span><span class="st">"analysis/report.Rmd"</span>, uuid <span class="op">=</span> <span class="st">"f9e884084b84794d762a535f3facec85"</span><span class="op">)</span></span>

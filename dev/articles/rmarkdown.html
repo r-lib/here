@@ -93,8 +93,8 @@
     
     
 <p>The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths. This article demonstrates the case where the working directory is set to a subdirectory of the project root, for instance when rendering an R Markdown document that lives in a subdirectory. See <code><a href="../articles/here.html">vignette("here")</a></code> for a more general introduction.</p>
-<div id="rmarkdown-starts-in-a-subdirectory" class="section level2">
-<h2>rmarkdown starts in a subdirectory<a class="anchor" aria-label="anchor" href="#rmarkdown-starts-in-a-subdirectory"></a>
+<div class="section level2">
+<h2 id="rmarkdown-starts-in-a-subdirectory">rmarkdown starts in a subdirectory<a class="anchor" aria-label="anchor" href="#rmarkdown-starts-in-a-subdirectory"></a>
 </h2>
 <p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
 <p>The project has the following structure:</p>
@@ -114,8 +114,8 @@
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/analysis"</span></code></pre></div>
 <p>However, <code>penguins.csv</code> still lives in the <code>data/</code> subdirectory. The report requires the <code>penguins.csv</code> file to work.</p>
 </div>
-<div id="here-always-uses-project-relative-paths" class="section level2">
-<h2>here always uses project-relative paths<a class="anchor" aria-label="anchor" href="#here-always-uses-project-relative-paths"></a>
+<div class="section level2">
+<h2 id="here-always-uses-project-relative-paths">here always uses project-relative paths<a class="anchor" aria-label="anchor" href="#here-always-uses-project-relative-paths"></a>
 </h2>
 <p>To render <code>report.Rmd</code>, you would have to ensure the path to <code>penguins.csv</code> is relative to the <code>analysis/</code> directory - i.e., <code>../data/penguins.csv</code>. The chunks would knit properly, but could not be run in the console since the working directory in the console <em>isn’t</em> <code>analysis/</code>.</p>
 <p>The here package circumvents this issue by always referring to the project root:</p>
@@ -145,12 +145,12 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by <a href="https://krlmlr.info" class="external-link external-link">Kirill Müller</a>.</p>
+<p>Developed by <a href="https://krlmlr.info" class="external-link">Kirill Müller</a>.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>

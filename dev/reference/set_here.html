@@ -42,7 +42,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/r-lib/here/">
+  <a href="https://github.com/r-lib/here/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -57,28 +57,28 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add a marker file to a project</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/set_here.R"><code>R/set_here.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/set_here.R" class="external-link"><code>R/set_here.R</code></a></small>
     <div class="hidden name"><code>set_here.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><a href="https://www.tidyverse.org/lifecycle/#superseded"><img src="figures/lifecycle-superseded.svg" alt="Superseded lifecycle"></a></p>
+    <p><a href="https://www.tidyverse.org/lifecycle/#superseded" class="external-link"><img src="figures/lifecycle-superseded.svg" alt="Superseded lifecycle"></a></p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">set_here</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
-    <h2>Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>path</th>
-      <td><p><code>[character(1)]</code><br>
-Directory where to create <code>.here</code> file, defaults to the current directory.</p></td>
-    </tr><tr><th>verbose</th>
-      <td><p><code>[logical(1)]</code><br>
-Verbose output, defaults to <code>TRUE</code>.</p></td>
-    </tr></table></div>
+    <h2>Arguments</h2>
+    
 
+<dl><dt>path</dt><dd><p><code>[character(1)]</code><br>
+Directory where to create <code>.here</code> file, defaults to the current directory.</p></dd>
+</dl><dl><dt>verbose</dt><dd><p><code>[logical(1)]</code><br>
+Verbose output, defaults to <code>TRUE</code>.</p></dd>
+</dl></div>
     <div id="details">
-    <h2>Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <h2>Details</h2>
     <p><code>set_here()</code> creates an empty file named <code>.here</code>, by default
 in the current directory.
 When here encounters such a file, it uses the
@@ -88,12 +88,13 @@ You need to restart the R session so that <code><a href="here.html">here()</a></
 picks up the newly created file.</p>
     </div>
     <div id="life-cycle">
-    <h2>Life cycle<a class="anchor" aria-label="anchor" href="#life-cycle"></a></h2>
+    <h2>Life cycle</h2>
     
 
 <p><code>set_here()</code> should no longer be necessary
 if all scripts and reports in a project call <code><a href="i_am.html">i_am()</a></code>,
 which is now the recommended workflow for declaring the project root.</p>
+    </div>
     </div>
 
   </div>

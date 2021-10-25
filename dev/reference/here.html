@@ -45,7 +45,7 @@ files relative to your project root."><meta name="robots" content="noindex"><!--
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/r-lib/here/">
+  <a href="https://github.com/r-lib/here/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -60,43 +60,44 @@ files relative to your project root."><meta name="robots" content="noindex"><!--
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Find your files</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/here.R"><code>R/here.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/here.R" class="external-link"><code>R/here.R</code></a></small>
     <div class="hidden name"><code>here.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p><code>here()</code> uses a reasonable heuristics to find your project's files, based on
 the current working directory at the time when the package is loaded.
-Use it as a drop-in replacement for <code><a href="https://rdrr.io/r/base/file.path.html">file.path()</a></code>, it will always locate the
+Use it as a drop-in replacement for <code><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path()</a></code>, it will always locate the
 files relative to your project root.</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">here</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
-    <h2>Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>...</th>
-      <td><p><code>[character]</code><br>
+    <h2>Arguments</h2>
+    
+
+<dl><dt>...</dt><dd><p><code>[character]</code><br>
 Path components below the project root, can be empty.
 Each argument should be a string containing one or more
-path components separated by a forward slash <code>"/"</code>.</p></td>
-    </tr></table></div>
-
+path components separated by a forward slash <code>"/"</code>.</p></dd>
+</dl></div>
     <div id="details">
-    <h2>Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <h2>Details</h2>
     <p>This package is intended for interactive use only.
-Use <code><a href="https://rprojroot.r-lib.org//reference/root_criterion.html">rprojroot::has_file()</a></code> or the other functions in
+Use <code><a href="https://rprojroot.r-lib.org//reference/root_criterion.html" class="external-link">rprojroot::has_file()</a></code> or the other functions in
 the <span class="pkg">rprojroot</span> package for more control,
 or for package development.</p>
 <p>If <code>here()</code> raises an error or otherwise behaves unexpectedly,
 you may have attached <span class="pkg">plyr</span> or another package
 after <span class="pkg">here</span>.
 Correct this using
-<a href="https://conflicted.r-lib.org/">the <span class="pkg">conflicted</span> package</a>,
+<a href="https://conflicted.r-lib.org/" class="external-link">the <span class="pkg">conflicted</span> package</a>,
 or use <code>here::here("data", "df.rda")</code>.</p>
     </div>
     <div id="project-root">
-    <h2>Project root<a class="anchor" aria-label="anchor" href="#project-root"></a></h2>
+    <h2>Project root</h2>
     <p>The project root is established with a call to <code>here::</code><code><a href="i_am.html">i_am()</a></code>.
 Although not recommended, it can be changed by calling <code><a href="i_am.html">here::i_am()</a></code> again.</p>
 <p>In the absence of such a call (e.g. for a new project),
@@ -113,9 +114,10 @@ until a directory with at least one of the following conditions is found:</p><ul
 </ul><p>In either case, <code>here()</code> appends its arguments as path components
 to the root directory.</p>
     </div>
+    </div>
 
     <div id="examples">
-    <h2>Examples<a class="anchor" aria-label="anchor" href="#examples"></a></h2>
+    <h2>Examples</h2>
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">here</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/home/runner/work/here/here"</span>
 <span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>

@@ -63,7 +63,7 @@ with a descriptive message.'><meta name="robots" content="noindex"><!-- mathjax 
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Declare location of current script or report</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/R/i_am.R" class="external-link"><code>R/i_am.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/HEAD/R/i_am.R" class="external-link"><code>R/i_am.R</code></a></small>
     <div class="hidden name"><code>i_am.Rd</code></div>
     </div>
 
@@ -82,13 +82,15 @@ with a descriptive message.</p>
     <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    
-
-<dl><dt>path</dt><dd><p><code>[character(1)]</code><br>
+    <dl><dt>path</dt>
+<dd><p><code>[character(1)]</code><br>
 The path to the current script or report, relative to the project root.
 Passing an absolute path raises an error.</p></dd>
-</dl><dl><dt>...</dt><dd><p>Must be empty, reserved for future use.</p></dd>
-</dl><dl><dt>uuid</dt><dd><p><code>[character(1)]</code><br><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>)`If not <code>NULL</code>, a unique string that is matched
+<dt>...</dt>
+<dd><p>Must be empty, reserved for future use.</p></dd>
+<dt>uuid</dt>
+<dd><p><code>[character(1)]</code><br><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="Experimental lifecycle"></a>)`</p>
+<p>If not <code>NULL</code>, a unique string that is matched
 against the first 100 lines of the file.
 Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create a unique string
 that can be used as a <code>uuid</code> argument.</p></dd>

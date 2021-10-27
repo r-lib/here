@@ -85,7 +85,7 @@
       <h1 data-toc-skip>Using here with rmarkdown</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/master/vignettes/rmarkdown.Rmd" class="external-link"><code>vignettes/rmarkdown.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/HEAD/vignettes/rmarkdown.Rmd" class="external-link"><code>vignettes/rmarkdown.Rmd</code></a></small>
       <div class="hidden name"><code>rmarkdown.Rmd</code></div>
 
     </div>
@@ -98,14 +98,14 @@
 </h2>
 <p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
 <p>The project has the following structure:</p>
-<pre><code>#&gt;  [01;34m/home/runner/work/_temp/Library/here/demo-project [0m
-#&gt; ├──  [01;34manalysis [0m
-#&gt; │   └──  [32mreport.Rmd [0m
-#&gt; ├──  [01;34mdata [0m
-#&gt; │   └── penguins.csv
-#&gt; ├── demo-project.Rproj
-#&gt; └──  [01;34mprepare [0m
-#&gt;     └──  [32mpenguins.R [0m</code></pre>
+<pre><code><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/home/runner/work/_temp/Library/here/demo-project</span></span>
+<span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">analysis</span></span>
+<span class="co">#&gt; │   └── <span style="color: #00BB00;">report.Rmd</span></span>
+<span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">data</span></span>
+<span class="co">#&gt; │   └── penguins.csv</span>
+<span class="co">#&gt; ├── demo-project.Rproj</span>
+<span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">prepare</span></span>
+<span class="co">#&gt;     └── <span style="color: #00BB00;">penguins.R</span></span></code></pre>
 <p>When <code>report.Rmd</code> is rendered, the working directory is internally set to <code>&lt;project root&gt;/analysis</code> by rmarkdown:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">project_path</span>, <span class="st">"analysis"</span><span class="op">)</span><span class="op">)</span></code></pre></div>

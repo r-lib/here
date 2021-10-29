@@ -39,7 +39,7 @@ The project has the following structure:
 fs::dir_tree(project_path)
 ```
 
-You can review the project on [GitHub](https://github.com/r-lib/here/tree/master/inst/demo-project) and also download a copy.
+You can review the project on [GitHub](https://github.com/r-lib/here/tree/main/inst/demo-project) and also download a copy.
 
 To start working on this project in RStudio, open the `demo-project.Rproj` file.
 This ensures that the [working directory](https://en.wikipedia.org/wiki/Working_directory) is set to `` `r project_path` ``, the project root.

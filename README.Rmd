@@ -20,7 +20,7 @@ pkgload::load_all()
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![rcc](https://github.com/r-lib/here/workflows/rcc/badge.svg)](https://github.com/r-lib/here/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/here/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/here?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/here/branch/main/graph/badge.svg)](https://codecov.io/gh/r-lib/here?branch=main)
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing in [project-oriented workflows](https://rstats.wtf/project-oriented-workflow.html).
@@ -51,7 +51,7 @@ readr::write_csv(palmerpenguins::penguins, here("inst", "demo-project", "data", 
 ```
 
 These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
-See the included [demo project](https://github.com/r-lib/here/tree/master/inst/demo-project) for an example.
+See the included [demo project](https://github.com/r-lib/here/tree/main/inst/demo-project) for an example.
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*

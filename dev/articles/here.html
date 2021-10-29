@@ -111,7 +111,7 @@
 <span class="co">#&gt; ├── demo-project.Rproj</span>
 <span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">prepare</span></span>
 <span class="co">#&gt;     └── <span style="color: #00BB00;">penguins.R</span></span></code></pre>
-<p>You can review the project on <a href="https://github.com/r-lib/here/tree/master/inst/demo-project" class="external-link">GitHub</a> and also download a copy.</p>
+<p>You can review the project on <a href="https://github.com/r-lib/here/tree/main/inst/demo-project" class="external-link">GitHub</a> and also download a copy.</p>
 <p>To start working on this project in RStudio, open the <code>demo-project.Rproj</code> file. This ensures that the <a href="https://en.wikipedia.org/wiki/Working_directory" class="external-link">working directory</a> is set to <code>/home/runner/work/_temp/Library/here/demo-project</code>, the project root. Opening only the <code>.R</code> or the <code>.Rmd</code> file may be insufficient!</p>
 <p>Other development environments may have a different notion of a project. Either way, it is important that the working directory is set to the project root or a subdirectory of that path. You can check with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -209,10 +209,10 @@
   <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/Rtmpgz5NiQ"</span>
+<span class="co">#&gt; [1] "/tmp/Rtmp80h5JV"</span>
 <span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
 <span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/Rtmpgz5NiQ</span>
+<span class="co">#&gt; - Current working directory: /tmp/Rtmp80h5JV</span>
 <span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
@@ -268,7 +268,7 @@
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "8d7b5e93-84fc-41b8-a155-923770fd011d"</span></code></pre></div>
+<span class="co">#&gt; [1] "a70220ec-966e-42d6-80b0-9330ef5f7575"</span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -294,7 +294,7 @@
   <span class="va">script_path</span>
 <span class="op">)</span>
 <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #0000BB; background-color: #00BB00;">/tmp/Rtmpgz5NiQ/file26f02ed47cf4</span></span>
+<span class="co">#&gt; <span style="color: #0000BB; background-color: #00BB00;">/tmp/Rtmp80h5JV/file1add3dcff9c8</span></span>
 <span class="co">#&gt; └── <span style="color: #0000BB; background-color: #00BB00;">scripts</span></span>
 <span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
@@ -316,7 +316,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/Rtmpgz5NiQ/file26f02ed47cf4</span>
+<span class="co">#&gt; here() starts at /tmp/Rtmp80h5JV/file1add3dcff9c8</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; print("Hello, world!")</span>
 <span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>

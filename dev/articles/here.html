@@ -209,10 +209,10 @@
   <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/Rtmp80h5JV"</span>
+<span class="co">#&gt; [1] "/tmp/RtmpQcQNOr"</span>
 <span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
 <span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/Rtmp80h5JV</span>
+<span class="co">#&gt; - Current working directory: /tmp/RtmpQcQNOr</span>
 <span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
@@ -239,9 +239,9 @@
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
 <p>The conflicted package offers an alternative: it detects that <code><a href="../reference/here.html">here()</a></code> is exported from more than one package and allows you to use neither until you indicate a preference.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/conflicted" class="external-link">conflicted</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://conflicted.r-lib.org" class="external-link">conflicted</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Error: [conflicted] <span style="color: #0000BB;">`here`</span> found in 2 packages.</span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span> [conflicted] <span style="color: #0000BB;">`here`</span> found in 2 packages.</span>
 <span class="co">#&gt; Either pick the one you want with `::` </span>
 <span class="co">#&gt; * <span style="color: #0000BB;">plyr::here</span></span>
 <span class="co">#&gt; * <span style="color: #0000BB;">here::here</span></span>
@@ -249,7 +249,7 @@
 <span class="co">#&gt; * conflict_prefer("here", "plyr")</span>
 <span class="co">#&gt; * conflict_prefer("here", "here")</span>
 
-<span class="fu">conflicted</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/conflicted/man/conflict_prefer.html" class="external-link">conflict_prefer</a></span><span class="op">(</span><span class="st">"here"</span>, <span class="st">"here"</span><span class="op">)</span>
+<span class="fu">conflicted</span><span class="fu">::</span><span class="fu"><a href="https://conflicted.r-lib.org/reference/conflict_prefer.html" class="external-link">conflict_prefer</a></span><span class="op">(</span><span class="st">"here"</span>, <span class="st">"here"</span><span class="op">)</span>
 <span class="co">#&gt; [conflicted] Will prefer <span style="color: #0000BB;">here::here</span> over any other package</span>
 <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
@@ -268,7 +268,7 @@
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "a70220ec-966e-42d6-80b0-9330ef5f7575"</span></code></pre></div>
+<span class="co">#&gt; [1] "e64564ba-09fe-4c2f-8e97-759d6de1433b"</span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -294,8 +294,8 @@
   <span class="va">script_path</span>
 <span class="op">)</span>
 <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #0000BB; background-color: #00BB00;">/tmp/Rtmp80h5JV/file1add3dcff9c8</span></span>
-<span class="co">#&gt; └── <span style="color: #0000BB; background-color: #00BB00;">scripts</span></span>
+<span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpQcQNOr/file1caa7e5d6e72</span></span>
+<span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">scripts</span></span>
 <span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; here::i_am("scripts/script.R")</span>
@@ -316,7 +316,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/Rtmp80h5JV/file1add3dcff9c8</span>
+<span class="co">#&gt; here() starts at /tmp/RtmpQcQNOr/file1caa7e5d6e72</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; print("Hello, world!")</span>
 <span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>
@@ -361,7 +361,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer>

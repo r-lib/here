@@ -172,7 +172,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Adelie  Torge…           40.3          18                195        <span style="text-decoration: underline;">3</span>250 fema…</span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: year &lt;dbl&gt;</span></span></code></pre></div>
 <p>This works regardless of where the associated source file lives inside your project. With <code><a href="../reference/here.html">here()</a></code>, the path will always be relative to the top-level project directory.</p>
-<p><code><a href="../reference/here.html">here()</a></code> works very similarly to <code><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path()</a></code> or <code><a href="http://fs.r-lib.org/reference/path.html" class="external-link">fs::path()</a></code>, you can pass path components or entire subpaths:</p>
+<p><code><a href="../reference/here.html">here()</a></code> works very similarly to <code><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path()</a></code> or <code><a href="https://fs.r-lib.org/reference/path.html" class="external-link">fs::path()</a></code>, you can pass path components or entire subpaths:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>
@@ -209,10 +209,10 @@
   <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/RtmpDvKxEC"</span>
+<span class="co">#&gt; [1] "/tmp/Rtmpdxs75X"</span>
 <span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
 <span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/RtmpDvKxEC</span>
+<span class="co">#&gt; - Current working directory: /tmp/Rtmpdxs75X</span>
 <span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
@@ -268,7 +268,7 @@
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "618b5fbf-9d46-4d13-861f-25c6eaec36ed"</span></code></pre></div>
+<span class="co">#&gt; [1] "6d439fcf-b3a1-43d2-8c73-4e1c123cb854"</span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -293,8 +293,8 @@
   <span class="op">)</span>,
   <span class="va">script_path</span>
 <span class="op">)</span>
-<span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpDvKxEC/file1de01552ca9b</span></span>
+<span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/Rtmpdxs75X/file1bc673507ec</span></span>
 <span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">scripts</span></span>
 <span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
@@ -316,7 +316,7 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/RtmpDvKxEC/file1de01552ca9b</span>
+<span class="co">#&gt; here() starts at /tmp/Rtmpdxs75X/file1bc673507ec</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt; print("Hello, world!")</span>
 <span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>

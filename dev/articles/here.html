@@ -103,22 +103,22 @@
 </h2>
 <p>For demonstration, this article uses a data analysis project that lives in <code>/home/runner/work/_temp/Library/here/demo-project</code> on my machine. This is the <em>project root</em>. The path will most likely be different on your machine, the here package helps deal with this situation.</p>
 <p>The project has the following structure:</p>
-<pre><code><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/home/runner/work/_temp/Library/here/demo-project</span></span>
-<span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">analysis</span></span>
-<span class="co">#&gt; │   └── <span style="color: #00BB00;">report.Rmd</span></span>
-<span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">data</span></span>
-<span class="co">#&gt; │   └── penguins.csv</span>
-<span class="co">#&gt; ├── demo-project.Rproj</span>
-<span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">prepare</span></span>
-<span class="co">#&gt;     └── <span style="color: #00BB00;">penguins.R</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/home/runner/work/_temp/Library/here/demo-project</span></span></span>
+<span><span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">analysis</span></span></span>
+<span><span class="co">#&gt; │   └── <span style="color: #00BB00;">report.Rmd</span></span></span>
+<span><span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">data</span></span></span>
+<span><span class="co">#&gt; │   └── penguins.csv</span></span>
+<span><span class="co">#&gt; ├── demo-project.Rproj</span></span>
+<span><span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">prepare</span></span></span>
+<span><span class="co">#&gt;     └── <span style="color: #00BB00;">penguins.R</span></span></span></code></pre>
 <p>You can review the project on <a href="https://github.com/r-lib/here/tree/main/inst/demo-project" class="external-link">GitHub</a> and also download a copy.</p>
 <p>To start working on this project in RStudio, open the <code>demo-project.Rproj</code> file. This ensures that the <a href="https://en.wikipedia.org/wiki/Working_directory" class="external-link">working directory</a> is set to <code>/home/runner/work/_temp/Library/here/demo-project</code>, the project root. Opening only the <code>.R</code> or the <code>.Rmd</code> file may be insufficient!</p>
 <p>Other development environments may have a different notion of a project. Either way, it is important that the working directory is set to the project root or a subdirectory of that path. You can check with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="va">project_path</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="va">project_path</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></span></code></pre></div>
 <p>(See <code><a href="../articles/rmarkdown.html">vignette("rmarkdown")</a></code> for an example where the working directory is set to a subdirectory on start.)</p>
 <div class="section level3">
 <h3 id="declare-the-location-of-the-current-script">Declare the location of the current script<a class="anchor" aria-label="anchor" href="#declare-the-location-of-the-current-script"></a>
@@ -132,24 +132,24 @@
 </ul>
 <p>The first argument to <code><a href="../reference/i_am.html">here::i_am()</a></code> should be the path to the current file, relative to the project root. The <code>penguins.R</code> script uses:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
-<span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></span></code></pre></div>
 <p><code><a href="../reference/i_am.html">here::i_am()</a></code> displays the top-level directory of the current project. Because the project has a <code>prepare/</code> directory in its root that contains <code>penguins.R</code>, it is correctly inferred as the project root.</p>
 <p>After <code><a href="../reference/i_am.html">here::i_am()</a></code>, insert <code><a href="https://here.r-lib.org/">library(here)</a></code> to make the <code><a href="../reference/here.html">here()</a></code> function available:<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span></code></pre></div>
 <p>The top-level directory is also returned from the <code><a href="../reference/here.html">here()</a></code> function:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></span></code></pre></div>
 <p>One important distinction from the working directory is that this remains stable even if the working directory is changed:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="st">"analysis"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/analysis"</span>
-<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="st">".."</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="st">"analysis"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/analysis"</span></span>
+<span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="st">".."</span><span class="op">)</span></span></code></pre></div>
 <p>(I suggest to steer clear from ever changing the working directory. This may not always be feasible, in particular if the working directory is changed by code that you do not control.)</p>
 </div>
 <div class="section level3">
@@ -157,63 +157,63 @@
 </h3>
 <p>You can build a path relative to the top-level directory in order to build the full path to a file:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span>
-<span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span>
-  <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>,
-  col_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>.default <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/parse_guess.html" class="external-link">col_guess</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
-  n_max <span class="op">=</span> <span class="fl">3</span>
-<span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 8</span></span>
-<span class="co">#&gt;   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Adelie  Torge…           39.1          18.7              181        <span style="text-decoration: underline;">3</span>750 male </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Adelie  Torge…           39.5          17.4              186        <span style="text-decoration: underline;">3</span>800 fema…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Adelie  Torge…           40.3          18                195        <span style="text-decoration: underline;">3</span>250 fema…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: year &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></span>
+<span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>,</span>
+<span>  col_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>.default <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/parse_guess.html" class="external-link">col_guess</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  n_max <span class="op">=</span> <span class="fl">3</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 8</span></span></span>
+<span><span class="co">#&gt;   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Adelie  Torgersen           39.1          18.7         181    <span style="text-decoration: underline;">3</span>750 male   <span style="text-decoration: underline;">2</span>007</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Adelie  Torgersen           39.5          17.4         186    <span style="text-decoration: underline;">3</span>800 fema…  <span style="text-decoration: underline;">2</span>007</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Adelie  Torgersen           40.3          18           195    <span style="text-decoration: underline;">3</span>250 fema…  <span style="text-decoration: underline;">2</span>007</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</span></span></span></code></pre></div>
 <p>This works regardless of where the associated source file lives inside your project. With <code><a href="../reference/here.html">here()</a></code>, the path will always be relative to the top-level project directory.</p>
 <p><code><a href="../reference/here.html">here()</a></code> works very similarly to <code><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path()</a></code> or <code><a href="https://fs.r-lib.org/reference/path.html" class="external-link">fs::path()</a></code>, you can pass path components or entire subpaths:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></span></code></pre></div>
 <p>As seen above, <code><a href="../reference/here.html">here()</a></code> returns absolute paths (starting with <code>/</code>, <code>&lt;drive letter&gt;:\</code> or <code>\\</code>). This makes it safe to pass these paths to other functions, even if the working directory is changed along the way.</p>
 <p>As of version 1.0.0, absolute paths passed to <code><a href="../reference/here.html">here()</a></code> are returned unchanged. This means that you can safely use both absolute and project-relative paths in <code><a href="../reference/here.html">here()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data"</span>
-<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span>, <span class="st">"penguins.csv"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">data_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data"</span></span>
+<span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="va">data_path</span>, <span class="st">"penguins.csv"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="situation-report">Situation report<a class="anchor" aria-label="anchor" href="#situation-report"></a>
 </h3>
 <p>The <code><a href="../reference/dr_here.html">dr_here()</a></code> function explains the reasoning behind choosing the project root:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/dr_here.html">dr_here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project.</span>
-<span class="co">#&gt; - This directory contains a file "prepare/penguins.R"</span>
-<span class="co">#&gt; - Initial working directory: /home/runner/work/_temp/Library/here/demo-project</span>
-<span class="co">#&gt; - Current working directory: /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/dr_here.html">dr_here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project.</span></span>
+<span><span class="co">#&gt; - This directory contains a file "prepare/penguins.R"</span></span>
+<span><span class="co">#&gt; - Initial working directory: /home/runner/work/_temp/Library/here/demo-project</span></span>
+<span><span class="co">#&gt; - Current working directory: /home/runner/work/_temp/Library/here/demo-project</span></span></code></pre></div>
 <p>The <code>show_reason</code> argument can be set to <code>FALSE</code> to reduce the output to one line:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/dr_here.html">dr_here</a></span><span class="op">(</span>show_reason <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/dr_here.html">dr_here</a></span><span class="op">(</span>show_reason <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="what-if-the-working-directory-is-wrong">What if the working directory is wrong?<a class="anchor" aria-label="anchor" href="#what-if-the-working-directory-is-wrong"></a>
 </h3>
 <p>The declaration of the active file via <code><a href="../reference/i_am.html">here::i_am()</a></code> also protects against accidentally running the script from a working directory outside of your project. The example below calls <code><a href="../reference/i_am.html">here::i_am()</a></code> from the temporary directory, which is clearly outside our project:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_dir.html" class="external-link">with_dir</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-  <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span>
-<span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/tmp/RtmptTZDvd"</span>
-<span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
-<span class="co">#&gt; - Path in project: prepare/penguins.R</span>
-<span class="co">#&gt; - Current working directory: /tmp/RtmptTZDvd</span>
-<span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_dir.html" class="external-link">with_dir</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpKntPH7"</span></span>
+<span><span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span></span>
+<span><span class="co">#&gt; - Path in project: prepare/penguins.R</span></span>
+<span><span class="co">#&gt; - Current working directory: /tmp/RtmpKntPH7</span></span>
+<span><span class="co">#&gt; Please open the project associated with this file and try again.</span></span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -225,35 +225,35 @@
 </h3>
 <p>Other packages also export a <code><a href="../reference/here.html">here()</a></code> function. Loading these packages after loading here masks our <code><a href="../reference/here.html">here()</a></code> function:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'plyr'</span>
-<span class="co">#&gt; The following object is masked from 'package:here':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     here</span>
-<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Error in here(): argument "f" is missing, with no default</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'plyr'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:here':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     here</span></span>
+<span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in here(): argument "f" is missing, with no default</span></span></code></pre></div>
 <p>One way to work around this problem is to use <code><a href="../reference/here.html">here::here()</a></code>:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></span></code></pre></div>
 <p>The conflicted package offers an alternative: it detects that <code><a href="../reference/here.html">here()</a></code> is exported from more than one package and allows you to use neither until you indicate a preference.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://conflicted.r-lib.org" class="external-link">conflicted</a></span><span class="op">)</span>
-<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> [conflicted] <span style="color: #0000BB;">`here`</span> found in 2 packages.</span>
-<span class="co">#&gt; Either pick the one you want with `::` </span>
-<span class="co">#&gt; * <span style="color: #0000BB;">plyr::here</span></span>
-<span class="co">#&gt; * <span style="color: #0000BB;">here::here</span></span>
-<span class="co">#&gt; Or declare a preference with `conflict_prefer()`</span>
-<span class="co">#&gt; * conflict_prefer("here", "plyr")</span>
-<span class="co">#&gt; * conflict_prefer("here", "here")</span>
-
-<span class="fu">conflicted</span><span class="fu">::</span><span class="fu"><a href="https://conflicted.r-lib.org/reference/conflict_prefer.html" class="external-link">conflict_prefer</a></span><span class="op">(</span><span class="st">"here"</span>, <span class="st">"here"</span><span class="op">)</span>
-<span class="co">#&gt; [conflicted] Will prefer <span style="color: #0000BB;">here::here</span> over any other package</span>
-<span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://conflicted.r-lib.org" class="external-link">conflicted</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> [conflicted] <span style="color: #0000BB;">`here`</span> found in 2 packages.</span></span>
+<span><span class="co">#&gt; Either pick the one you want with `::` </span></span>
+<span><span class="co">#&gt; * <span style="color: #0000BB;">plyr::here</span></span></span>
+<span><span class="co">#&gt; * <span style="color: #0000BB;">here::here</span></span></span>
+<span><span class="co">#&gt; Or declare a preference with `conflict_prefer()`</span></span>
+<span><span class="co">#&gt; * conflict_prefer("here", "plyr")</span></span>
+<span><span class="co">#&gt; * conflict_prefer("here", "here")</span></span>
+<span></span>
+<span><span class="fu">conflicted</span><span class="fu">::</span><span class="fu"><a href="https://conflicted.r-lib.org/reference/conflict_prefer.html" class="external-link">conflict_prefer</a></span><span class="op">(</span><span class="st">"here"</span>, <span class="st">"here"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [conflicted] Will prefer <span style="color: #0000BB;">here::here</span> over any other package</span></span>
+<span><span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="specify-a-unique-identifier">Specify a unique identifier<a class="anchor" aria-label="anchor" href="#specify-a-unique-identifier"></a>
@@ -268,8 +268,8 @@
 </ul>
 <p>Use <code><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">uuid::UUIDgenerate()</a></code> to create universally unique identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "fe74f12a-a9e6-4a4b-91d4-30875d409e3e"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "3a12761d-87ec-44b6-b10a-66ba3e60cf2e"</span></span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique across your files! In the future, a helper function will assist with installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code> calls in your scripts and reports.</p>
 </div>
 </div>
@@ -282,45 +282,45 @@
 <p>It is advisable to <a href="https://rstats.wtf/save-source.html" class="external-link">start a fresh R session</a> as often as possible, especially before focusing on another project. There still may be legitimate cases when it is desirable to reset the project root.</p>
 <p>To start, let’s create a temporary project for demonstration:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">temp_project_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="va">scripts_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp_project_path</span>, <span class="st">"scripts"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">scripts_path</span><span class="op">)</span>
-<span class="va">script_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">scripts_path</span>, <span class="st">"script.R"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-    <span class="st">'here::i_am("scripts/script.R")'</span>,
-    <span class="st">'print("Hello, world!")'</span>
-  <span class="op">)</span>,
-  <span class="va">script_path</span>
-<span class="op">)</span>
-<span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmptTZDvd/file1a24966ef58</span></span>
-<span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">scripts</span></span>
-<span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span>
-<span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; print("Hello, world!")</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">temp_project_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span></span>
+<span><span class="va">scripts_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">temp_project_path</span>, <span class="st">"scripts"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">scripts_path</span><span class="op">)</span></span>
+<span><span class="va">script_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">scripts_path</span>, <span class="st">"script.R"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">'here::i_am("scripts/script.R")'</span>,</span>
+<span>    <span class="st">'print("Hello, world!")'</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="va">script_path</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpKntPH7/file2014496965a8</span></span></span>
+<span><span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">scripts</span></span></span>
+<span><span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; here::i_am("scripts/script.R")</span></span>
+<span><span class="co">#&gt; print("Hello, world!")</span></span></code></pre></div>
 <p>The <code>script.R</code> file contains a call to <code><a href="../reference/i_am.html">here::i_am()</a></code> to declare its location. Running it from the current working directory will fail:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span>
-<span class="co">#&gt; - Path in project: scripts/script.R</span>
-<span class="co">#&gt; - Current working directory: /home/runner/work/_temp/Library/here/demo-project</span>
-<span class="co">#&gt; Please open the project associated with this file and try again.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span></span>
+<span><span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span></span>
+<span><span class="co">#&gt; - Path in project: scripts/script.R</span></span>
+<span><span class="co">#&gt; - Current working directory: /home/runner/work/_temp/Library/here/demo-project</span></span>
+<span><span class="co">#&gt; Please open the project associated with this file and try again.</span></span></code></pre></div>
 <p>To reset the project root mid-session, change the working directory with <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd()</a></code>. Now, the subsequent call to <code><a href="../reference/i_am.html">here::i_am()</a></code> from within <code>script.R</code> works:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">setwd</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span>
-<span class="co">#&gt; here() starts at /tmp/RtmptTZDvd/file1a24966ef58</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; &gt; print("Hello, world!")</span>
-<span class="co">#&gt; [1] "Hello, world!"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span></span>
+<span><span class="co">#&gt; here() starts at /tmp/RtmpKntPH7/file2014496965a8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; &gt; print("Hello, world!")</span></span>
+<span><span class="co">#&gt; [1] "Hello, world!"</span></span></code></pre></div>
 <p>To reiterate: a fresh session is almost always the better, cleaner, safer, and more robust solution. Use this approach only as a last resort.</p>
 </div>
 <div class="section level3">
@@ -329,9 +329,9 @@
 <p>The here package has a very simple and restricted interface, by design. The underlying logic is provided by the much more powerful rprojroot package. If the default behavior of here does not suit your workflow for one reason or another, the rprojroot package may be a better alternative. It is also recommended to import rprojroot and not here from other packages.</p>
 <p>The following example shows how to find an RStudio project starting from a directory:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rprojroot.r-lib.org/" class="external-link">rprojroot</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rprojroot.r-lib.org/reference/find_root.html" class="external-link">find_root</a></span><span class="op">(</span><span class="va">is_rstudio_project</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">project_path</span>, <span class="st">"analysis"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rprojroot.r-lib.org/" class="external-link">rprojroot</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rprojroot.r-lib.org/reference/find_root.html" class="external-link">find_root</a></span><span class="op">(</span><span class="va">is_rstudio_project</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">project_path</span>, <span class="st">"analysis"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/_temp/Library/here/demo-project"</span></span></code></pre></div>
 <p>Arbitrary criteria can be defined. See <code><a href="https://rprojroot.r-lib.org/articles/rprojroot.html" class="external-link">vignette("rprojroot", package = "rprojroot")</a></code> for an introduction.</p>
 </div>
 </div>
@@ -362,7 +362,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

@@ -1,3 +1,10 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# here 1.0.1.9001 (2022-12-24)
+
+- Merge cran-1.0.1.
+
+
 # here 1.0.1.9000 (2020-12-13)
 
 - Adapt to testthat 3.0.1.

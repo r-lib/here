@@ -1,6 +1,6 @@
 #' Find your files
 #'
-#' `here()` uses a reasonable heuristics to find your project's files, based on
+#' `here()` uses reasonable heuristics to find your project's files, based on
 #' the current working directory at the time when the package is loaded.
 #' Use it as a drop-in replacement for [file.path()], it will always locate the
 #' files relative to your project root.

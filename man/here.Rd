@@ -13,7 +13,7 @@ Each argument should be a string containing one or more
 path components separated by a forward slash \code{"/"}.}
 }
 \description{
-\code{here()} uses a reasonable heuristics to find your project's files, based on
+\code{here()} uses reasonable heuristics to find your project's files, based on
 the current working directory at the time when the package is loaded.
 Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}}, it will always locate the
 files relative to your project root.

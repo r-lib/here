@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# here 1.0.1.9003 (2023-02-07)
+
+## Chore
+
+- Change maintainer e-mail.
+
+## Documentation
+
+- Fixed "heuristics" typo (@t-gummer, #91).
+
+
 # here 1.0.1.9002 (2022-12-30)
 
 - Internal changes only.

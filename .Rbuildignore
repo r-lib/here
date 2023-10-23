@@ -16,4 +16,3 @@
 ^codecov\.yml$
 ^report\.html$
 ^CRAN-RELEASE$
-^dev$

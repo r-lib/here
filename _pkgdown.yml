@@ -7,6 +7,7 @@ reference:
 - title: Locate files
   contents:
   - here
+  - there
 - title: Diagnostics
   contents:
   - dr_here

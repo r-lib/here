@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9008 (2024-01-01)
+
+## Documentation
+
+- Fix link to "What they forgot" chapter (@Masterxilo, #101).
+
+
 # here 1.0.1.9007 (2023-10-10)
 
 - Internal changes only.

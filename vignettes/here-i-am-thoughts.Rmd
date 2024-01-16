@@ -1,0 +1,126 @@
+---
+title: "here-i-am-thoughts"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(here)
+```
+
+Notes from Jenny getting acquainted with the changes in here v1.0.1
+
+Based on reading:
+
+  * <https://here.r-lib.org/articles/here.html>
+  * The here v1.0.0 blog post that is a draft PR:
+    <https://github.com/tidyverse/tidyverse.org/pull/480>
+  * The issues closed by this PR:
+    <https://github.com/r-lib/here/pull/55>
+
+## What problems are addressed by v1.0.1?
+
+My impression is that v1.0.1 addresses two problems identified by users:
+
+1. Code written in a project-oriented style (specifically, file paths relative to project root) being executed by a different user who doesn't adhere to the project-oriented "contract".
+1. Difficulty of changing the current project root, i.e. the base for paths built with `here()`.
+
+I could easily make peace with not solving either of these problems, even though that's rather tough love.
+To play devil's advocate, both of these sort of feel like people using here in a way that's goes against its design philosphy and then expecting things to work anyway.
+I will actually engage with the problems below, but can't help but mention that "wontfix" seems like a reasonable response.
+
+## Safety
+
+Should we guard against this scenario?
+
+> User A is disciplined about using a project-oriented workflow: they allocate a dedicated R process (and probably RStudio instance) to each project and frequently start fresh R sessions inside the project. They build safe and portable file paths.
+>
+> Their colleague User B is not a consistent practitioner of project-oriented workflow and often initiates work by clicking on an individual `.R` or `.Rmd` file. Depending on the ambient context, this can lead to the file being opened for work outside of its project, with who-knows-what as working directory, or opened for work inside an entirely different project. When User B executes User A's code, the file paths don't work because the implicit expectation of working directory is not met.
+
+*Duncan Garmonsay described this really concretely in [the thread for issue #27](https://github.com/r-lib/here/issues/27#issuecomment-726268146)*
+
+Guarding against this seems to be a matter of what kind of error one throws.
+User B's behaviour is always going to cause headaches when they work with User A's code.
+The only question is who throws the error, when (early vs. late), and what it says.
+
+I believe `here::i_am()` is meant to deal with this situation.
+
+This guarantees that here throws the error, very early, with a message that makes explicit reference to unmet expectation around the project and working directory.
+
+I find two aspects of `here::i_am()` uncomfortable:
+
+First discomfort: the need to specify the host file's path within the project.
+That feels somewhat off-target or unnecessary to me.
+The problem is working with the script from no project or from the wrong project, so why not go after that problem specifically?
+
+If a script is moved within the project, its `here::i_am()` line also need updating.
+`here::i_am()` seems to undermine one of the big wins of here in the first place.
+If you're going to live this way, why not just write all of your paths relative to the script files using one or more `..`?
+
+`here::i_am()` also feels redundant or in tension with the usual project-root-defining logic, i.e. looking for `.Rproj`, `.git/`, `.here`, etc.
+I think those "absolute", project-level facts make more sense as the project-root-defining feature than a `here::i_am()` declaration.
+Seems to also violate a "single source of truth" principle.
+If project root is determined by the usual rprojroot criteria, there is one definitive project root.
+If it's determined by `here:i_am()` calls, there's nothing to keep the implied
+project root from having multiple inconsistent definitions.
+
+Second discomfort: the `uuid` feels like a super geeky concept relative to the low-tech, user-friendly simplicity of here in general.
+
+Here's a proposal for other ways to solve the problem of "User B doing weird stuff with User A's code":
+
+* Create a function like `assert_here()` (so basically what I proposed in #27).
+  Instead of the absolute identification and safety of `uuid`, we settle for
+  a slightly more ambiguous, slightly less safe project name.
+  But I think the gain in usability justifies tolerating a bit more slop.
+  Or maybe it could even be `assert_here(name =, uuid =)` where `name` is the
+  most common way to (approximately) specify the project but it's still possible
+  to be more rigorous and use a `uuid`.
+* Add a `mustWork` type of argument to `here()` (in the sense of what it means
+  in `normalizePath()`) and/or a `here()` variant that has `mustWork = TRUE`
+  behaviour.
+
+In my mind, these two measures make it possible for a motivated User A to create code that will fail better for User B, but staying with the current here vibe.
+This accomodates users who want more safety without really compromising the experience for people who are happy with here the way it is.
+
+Sidebar 1:
+The advise to call `here::i_am()`, then attach here with `library(here)` seems odd, i.e. goes against common patterns of package use.
+There's also a footnote that says it is no longer advised to attach the package via `library(here)`, which seems to contradict code in the article.
+
+Sidebar 2:
+If something like `uuid` stays, I'd recommend using "adjective-animal" identifiers such as those offered by the [ids package](https://reside-ic.github.io/ids/).
+People will actually see these ids and might need to compare them or retain them in their head for a little while.
+
+## Resetting the project root
+
+Should we help people re-define what `here()` resolves to in the middle of an R session where it's already been resolved once?
+
+I'm semi-sympathetic with the desire to have some explicit gesture for this.
+I'm really opposed to doing this in any sort of implicit or automagic way, i.e. based on `setwd()`.
+
+Overall, I still basically don't understand the workstyle this addresses, i.e. it feels like these users are using here but without actually buying into projects?
+
+If there is to be a function for explicitly re-resolving the project root, this
+feels very similar to `usethis::proj_activate(path)`.
+This activates the project at `path` in RStudio, if in RStudio, where the exact behaviour varies according to desktop (new instance) or server (relaunch current instance).
+Both of those obviously result in a freshly started R session, with working directory set to project root.
+If not in RStudio, both the usethis active project and the current working directory are set to `path`, in the existing R session.
+
+I silly name for such a function would be `here_we_go_again()`.
+I strongly feel like -- if this capability exists -- it should be something one has to explicitly execute.
+
+## Other miscellaneous notes I made
+
+Re: conflicts with other packages. I'd be tempted to mention that plyr is a legacy package and is not recommended for use in new code (or existing code that's being kept "current").
+
+In this section, is the `setwd()` meant to be visible?
+
+> Other development environments may have a different notion of a project. Either way, it is important that the working directory is set to the project root or a subdirectory of that path. You can check with:
+
+``` r
+setwd(project_path)
+```

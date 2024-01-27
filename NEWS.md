@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9011 (2024-01-27)
+
+## Chore
+
+- Add Aviator configuration.
+
+## Uncategorized
+
+- Merge pull request #103 from jack-davison/patch-1.
+
+  fix broken link in `here.Rmd` vignette
+
+
 # here 1.0.1.9010 (2024-01-24)
 
 - Internal changes only.

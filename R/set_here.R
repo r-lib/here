@@ -44,3 +44,5 @@ set_here <- function(path = ".", verbose = TRUE) {
 }
 
 is_here <- has_file(".here")
+
+is_vscode_project <- has_dir(".vscode")

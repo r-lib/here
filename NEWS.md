@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9015 (2024-08-02)
+
+## Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-lib/here/actions/runs/10200110394
+
+## Continuous integration
+
+- Import from actions-sync, check carefully.
+
+
 # here 1.0.1.9014 (2024-07-02)
 
 - Internal changes only.

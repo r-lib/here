@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9016 (2024-08-06)
+
+## Continuous integration
+
+- Import from actions-sync, check carefully.
+
+
 # here 1.0.1.9015 (2024-08-02)
 
 ## Chore

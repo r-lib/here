@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9017 (2024-08-10)
+
+## Continuous integration
+
+- Use v2 instead of master.
+
+
 # here 1.0.1.9016 (2024-08-06)
 
 ## Continuous integration

@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9022 (2024-11-10)
+
+## Continuous integration
+
+  - Latest changes (#111).
+
+
 # here 1.0.1.9021 (2024-10-28)
 
 ## Continuous integration

@@ -75,6 +75,12 @@ runs:
         echo "_R_CHECK_CRAN_INCOMING_USE_ASPELL_=true" | tee -a $GITHUB_ENV
       shell: bash
 
+    - name: Remove pkg-config@0.29.2
+      if: runner.os == 'macOS'
+      run: |
+        brew uninstall pkg-config@0.29.2 || true
+      shell: bash
+
     - uses: r-lib/actions/setup-pandoc@v2
 
     - uses: r-lib/actions/setup-r@v2
@@ -95,7 +101,7 @@ runs:
       env:
         GITHUB_PAT: ${{ inputs.token }}
       with:
-        pak-version: devel
+        pak-version: stable
         needs: ${{ inputs.needs }}
         packages: ${{ inputs.packages }}
         extra-packages: ${{ inputs.extra-packages }} ${{ ( matrix.config.covr && 'any::covr' ) || '' }} ${{ steps.get-extra.outputs.packages }}

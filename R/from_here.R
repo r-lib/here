@@ -13,6 +13,8 @@
 #' @param .root
 #'   The path to the parent directory. Defaults to project root (`here()`).
 #'
+#' @importFrom fs path_rel 
+#'
 #' @export
 #'
 #' @examples

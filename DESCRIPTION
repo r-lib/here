@@ -21,11 +21,11 @@ License: MIT + file LICENSE
 URL: https://here.r-lib.org/, https://github.com/r-lib/here
 BugReports: https://github.com/r-lib/here/issues
 Imports: 
-    rprojroot (>= 2.0.2)
+    rprojroot (>= 2.0.2), 
+    fs
 Suggests: 
     conflicted,
     covr,
-    fs,
     knitr,
     palmerpenguins,
     plyr,

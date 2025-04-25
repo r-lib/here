@@ -1,5 +1,24 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9026 (2025-04-25)
+
+## Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-lib/here/actions/runs/14636203620
+
+## Continuous integration
+
+- Explain (#119).
+
+- Add xml2 for covr, print testthat results (#118).
+
+- Fix (#117).
+
+- Sync (#116).
+
+
 # here 1.0.1.9025 (2024-12-09)
 
 ## Continuous integration

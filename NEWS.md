@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9027 (2025-04-26)
+
+## Continuous integration
+
+- Correct installation of xml2 (#120).
+
+
 # here 1.0.1.9026 (2025-04-25)
 
 ## Chore

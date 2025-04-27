@@ -4,7 +4,7 @@ pkgdown_sha: 2f04495db2502e7a621ffcb38d823c30a952b84a
 articles:
   here: here.html
   rmarkdown: rmarkdown.html
-last_built: 2025-04-27T10:53Z
+last_built: 2025-04-27T15:47Z
 urls:
   reference: https://here.r-lib.org/reference
   article: https://here.r-lib.org/articles

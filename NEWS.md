@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9029 (2025-04-30)
+
+## Continuous integration
+
+- Permissions, better tests for missing suggests, lints (#123).
+
+
 # here 1.0.1.9028 (2025-04-28)
 
 ## Continuous integration

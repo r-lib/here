@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9030 (2025-05-04)
+
+## Continuous integration
+
+- Enhance permissions for workflow (#124).
+
+
 # here 1.0.1.9029 (2025-04-30)
 
 ## Continuous integration

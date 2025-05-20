@@ -1,24 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://here.r-lib.org//index.html</loc>
-  </url>
-  <url>
-    <loc>https://here.r-lib.org//reference/dr_here.html</loc>
-  </url>
-  <url>
-    <loc>https://here.r-lib.org//reference/here.html</loc>
-  </url>
-  <url>
-    <loc>https://here.r-lib.org//reference/i_am.html</loc>
-  </url>
-  <url>
-    <loc>https://here.r-lib.org//reference/set_here.html</loc>
-  </url>
-  <url>
-    <loc>https://here.r-lib.org//articles/here.html</loc>
-  </url>
-  <url>
-    <loc>https://here.r-lib.org//articles/rmarkdown.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://here.r-lib.org/404.html</loc></url>
+<url><loc>https://here.r-lib.org/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://here.r-lib.org/LICENSE-text.html</loc></url>
+<url><loc>https://here.r-lib.org/LICENSE.html</loc></url>
+<url><loc>https://here.r-lib.org/TODO.html</loc></url>
+<url><loc>https://here.r-lib.org/articles/here.html</loc></url>
+<url><loc>https://here.r-lib.org/articles/index.html</loc></url>
+<url><loc>https://here.r-lib.org/articles/rmarkdown.html</loc></url>
+<url><loc>https://here.r-lib.org/authors.html</loc></url>
+<url><loc>https://here.r-lib.org/index.html</loc></url>
+<url><loc>https://here.r-lib.org/news/index.html</loc></url>
+<url><loc>https://here.r-lib.org/reference/dr_here.html</loc></url>
+<url><loc>https://here.r-lib.org/reference/here.html</loc></url>
+<url><loc>https://here.r-lib.org/reference/i_am.html</loc></url>
+<url><loc>https://here.r-lib.org/reference/index.html</loc></url>
+<url><loc>https://here.r-lib.org/reference/set_here.html</loc></url>
 </urlset>
+

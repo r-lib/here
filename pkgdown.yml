@@ -1,11 +1,10 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1.9000
-pkgdown_sha: 6094ac3dd80a1f3f1d4e2f47d0ed4716d51362b0
+pandoc: 3.1.11
+pkgdown: 2.1.3.9000
+pkgdown_sha: f950aed41af49c732ba7884d0806c3641a7b94b3
 articles:
   here: here.html
   rmarkdown: rmarkdown.html
-last_built: 2020-12-13T07:02Z
+last_built: 2025-05-20T20:03Z
 urls:
-  reference: https://here.r-lib.org//reference
-  article: https://here.r-lib.org//articles
-
+  reference: https://here.r-lib.org/reference
+  article: https://here.r-lib.org/articles

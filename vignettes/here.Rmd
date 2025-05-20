@@ -21,7 +21,7 @@ The here package enables easy file referencing by using the top-level directory 
 This is in contrast to using `setwd()`, which is fragile and dependent on the way you order your files on your computer.
 Read more about project-oriented workflows:
 
-- What They Forgot to Teach You About R: ["Project-oriented workflow"](https://rstats.wtf/project-oriented-workflow.html) chapter by Jenny Bryan and Jim Hester
+- What They Forgot to Teach You About R: ["Project-oriented workflow"](https://rstats.wtf/projects.html) chapter by Jenny Bryan and Jim Hester
 
 - ["Project-oriented workflow"](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) blog post by Jenny Bryan
 
@@ -39,7 +39,7 @@ The project has the following structure:
 fs::dir_tree(project_path)
 ```
 
-You can review the project on [GitHub](https://github.com/r-lib/here/tree/master/inst/demo-project) and also download a copy.
+You can review the project on [GitHub](https://github.com/r-lib/here/tree/main/inst/demo-project) and also download a copy.
 
 To start working on this project in RStudio, open the `demo-project.Rproj` file.
 This ensures that the [working directory](https://en.wikipedia.org/wiki/Working_directory) is set to `` `r project_path` ``, the project root.

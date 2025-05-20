@@ -2,86 +2,129 @@
 # Can't be run as part of commits
 on:
   schedule:
-    - cron:  '0 1 * * *'
+    - cron: "0 5 * * *" # 05:00 UTC every day only run on main branch
+  push:
+    branches:
+      - "cran-*"
+    tags:
+      - "v*"
 
 name: rcc dev
 
 jobs:
-  R-CMD-check:
-    runs-on: ${{ matrix.config.os }}
+  matrix:
+    runs-on: ubuntu-22.04
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
 
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    name: Collect deps
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/rate-limit
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - id: set-matrix
+        uses: ./.github/workflows/dep-matrix
+
+  check-matrix:
+    runs-on: ubuntu-22.04
+    needs: matrix
+
+    name: Check deps
+
+    steps:
+      - name: Install json2yaml
+        run: |
+          sudo npm install -g json2yaml
+
+      - name: Check matrix definition
+        run: |
+          matrix='${{ needs.matrix.outputs.matrix }}'
+          echo $matrix
+          echo $matrix | jq .
+          echo $matrix | json2yaml
+
+  R-CMD-check-base:
+    runs-on: ubuntu-22.04
+
+    name: base
 
     # Begin custom: services
     # End custom: services
 
     strategy:
       fail-fast: false
-      matrix:
-        config:
-          - {os: ubuntu-18.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"}
-
-    env:
-      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
-      RSPM: ${{ matrix.config.rspm }}
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      # prevent rgl issues because no X11 display is available
-      RGL_USE_NULL: true
-      # Begin custom: env vars
-      # End custom: env vars
 
     steps:
-      - name: Check rate limits
-        run: |
-          curl -s --header "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/rate_limit
-        shell: bash
+      - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/custom/before-install
+        if: hashFiles('.github/workflows/custom/before-install/action.yml') != ''
 
-      - uses: r-lib/actions/setup-r@v1
+      - uses: ./.github/workflows/install
         with:
-          r-version: ${{ matrix.config.r }}
+          cache-version: rcc-dev-base-1
+          needs: build, check
+          extra-packages: "any::rcmdcheck any::remotes ."
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: r-lib/actions/setup-pandoc@v1
-
-      - name: Install remotes
+      - name: Session info
         run: |
-          if (!requireNamespace("curl", quietly = TRUE)) install.packages("curl")
-          if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+          options(width = 100)
+          if (!requireNamespace("sessioninfo", quietly = TRUE)) install.packages("sessioninfo")
+          pkgs <- installed.packages()[, "Package"]
+          sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
-      - name: Prepare cache keys
-        if: runner.os != 'Windows'
-        id: date
-        run: echo "::set-output name=date::$(date -Ihours)"
+      - uses: ./.github/workflows/custom/after-install
+        if: hashFiles('.github/workflows/custom/after-install/action.yml') != ''
 
-      - name: Cache R packages
-        if: runner.os != 'Windows'
-        uses: actions/cache@v2
+      - uses: ./.github/workflows/update-snapshots
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+
+      - uses: ./.github/workflows/check
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ matrix.config.os }}-r-dev-${{ matrix.config.r }}-${{steps.date.outputs.date}}
-          restore-keys: ${{ matrix.config.os }}-r-dev-${{ matrix.config.r }}-
+          results: ${{ matrix.package }}
 
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
+  R-CMD-check-dev:
+    needs:
+      - matrix
+      - R-CMD-check-base
+
+    runs-on: ubuntu-22.04
+
+    name: 'rcc-dev: ${{ matrix.package }}'
+
+    # Begin custom: services
+    # End custom: services
+
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJson(needs.matrix.outputs.matrix)}}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/custom/before-install
+        if: hashFiles('.github/workflows/custom/before-install/action.yml') != ''
+
+      - uses: ./.github/workflows/install
+        with:
+          cache-version: rcc-dev-${{ matrix.package }}-1
+          needs: build, check
+          extra-packages: "any::rcmdcheck any::remotes ."
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dev version of ${{ matrix.package }}
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          while read -r cmd
-          do
-            eval sudo $cmd
-          done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "16.04"))')
-
-      # Begin custom: before install
-      # End custom: before install
-
-      - name: Install dependencies
-        run: |
-          if (!requireNamespace("curl", quietly = TRUE)) install.packages("curl")
-          install.packages("https://github.com/krlmlr/remotes/archive/f-rate-limit-gh.tar.gz", repos = NULL)
-          deps <- remotes::dev_package_deps(dependencies = TRUE)
-          update(deps)
-          lapply(setNames(nm = deps$package), function(x) try(remotes::install_dev(x)))
-          remotes::install_cran("rcmdcheck")
+          remotes::install_dev("${{ matrix.package }}", "https://cloud.r-project.org", upgrade = "always")
         shell: Rscript {0}
 
       - name: Session info
@@ -92,35 +135,12 @@ jobs:
           sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
-      # Begin custom: after install
-      # End custom: after install
+      - uses: ./.github/workflows/custom/after-install
+        if: hashFiles('.github/workflows/custom/after-install/action.yml') != ''
 
-      - name: Check
-        env:
-          _R_CHECK_CRAN_INCOMING_: false
-          _R_CHECK_SYSTEM_CLOCK_: false
-          _R_CHECK_FUTURE_FILE_TIMESTAMPS_: false
-        run: |
-          error_on <- "note"
-          # Begin custom: rcmdcheck error_on
-          # End custom: rcmdcheck error_on
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = error_on, check_dir = "check")
-        shell: Rscript {0}
+      - uses: ./.github/workflows/update-snapshots
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
 
-      - name: Show test output
-        if: always()
-        run: find check -name '*.Rout*' -exec head -n 1000000 '{}' \; || true
-        shell: bash
-
-      - name: Upload check results
-        if: failure()
-        uses: actions/upload-artifact@main
+      - uses: ./.github/workflows/check
         with:
-          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
-          path: check
-
-      - name: Check rate limits
-        if: always()
-        run: |
-          curl -s --header "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/rate_limit
-        shell: bash
+          results: ${{ matrix.package }}

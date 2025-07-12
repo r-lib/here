@@ -14,7 +14,7 @@ Directory where to create \code{.here} file, defaults to the current directory.}
 Verbose output, defaults to \code{TRUE}.}
 }
 \description{
-\ifelse{html}{\out{<a href='https://www.tidyverse.org/lifecycle/#superseded'><img src='figures/lifecycle-superseded.svg' alt='Superseded lifecycle'></a>}}{\strong{Superseded}}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
 }
 \details{
 \code{set_here()} creates an empty file named \code{.here}, by default

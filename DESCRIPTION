@@ -1,12 +1,12 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 1.0.1.9000
-Date: 2020-12-13
+Version: 1.0.1.9030
+Date: 2025-05-04
 Authors@R: 
     c(person(given = "Kirill",
              family = "M\u00fcller",
              role = c("aut", "cre"),
-             email = "krlmlr+r@mailbox.org",
+             email = "kirill@cynkra.com",
              comment = c(ORCID = "0000-0002-1416-3412")),
       person(given = "Jennifer",
              family = "Bryan",
@@ -39,5 +39,5 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1.9000
+RoxygenNote: 7.3.2.9000
 Config/testthat/edition: 3

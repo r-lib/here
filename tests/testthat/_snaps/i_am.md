@@ -12,8 +12,9 @@
 
     Code
       here::i_am("prepare/penguins.R", uuid = "115147ca-fedd-42ca-8650-2cb3dad0aebc")
-    Error <simpleError>
-      Could not find associated project in working directory or any parent directory.
+    Condition
+      Error:
+      ! Could not find associated project in working directory or any parent directory.
       - Path in project: prepare/penguins.R
       - File must contain: 115147ca-fedd-42ca-8650-2cb3dad0aebc
       - Current working directory: <working directory>

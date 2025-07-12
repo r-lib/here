@@ -1,5 +1,12 @@
 url: https://here.r-lib.org/
 
+template:
+  bootstrap: 5
+  package: tidytemplate
+  includes:
+    in_header: |
+      <script defer data-domain="here.r-lib.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+
 reference:
 - title: Setup
   contents:

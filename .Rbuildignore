@@ -15,4 +15,5 @@
 ^TODO\.md$
 ^codecov\.yml$
 ^report\.html$
+^index\.md$
 ^CRAN-RELEASE$

@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9031 (2025-07-13)
+
+- Merge branch 'docs'.
+
+
 # here 1.0.1.9030 (2025-05-04)
 
 ## Continuous integration

@@ -42,3 +42,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2.9000
 Config/testthat/edition: 3
 Config/Needs/website: tidyverse/tidytemplate
+Remotes:
+    r-lib/rprojroot@swap-single-quotes-for-double

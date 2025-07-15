@@ -51,13 +51,13 @@ until a directory with at least one of the following conditions is found:
 \item contains a file matching \verb{[.]Rproj$} with contents matching \verb{^Version: } in the first line
 \item contains a directory \code{.vscode}
 \item contains a file \verb{_quarto.yml}
-\item contains a file \code{renv.lock} with contents matching "\code{Packages}:\\s*\{`
+\item contains a file \code{renv.lock} with contents matching "\code{Packages}:\s*\{`
 \item contains a file \code{DESCRIPTION} with contents matching \verb{^Package: }
 \item contains a file \code{remake.yml}
 \item contains a file \code{.projectile}
 \item contains a directory \code{.git}
 \item contains a file \code{.git} with contents matching \verb{^gitdir: }
-\item contains a directory \code{.svn}
+\item contains a directory `.svn"
 }
 
 In either case, \code{here()} appends its arguments as path components

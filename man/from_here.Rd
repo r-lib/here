@@ -16,7 +16,7 @@ from_here(.path, .root = here::here())
 to a parent directory (by default, the project root).
 }
 \examples{
-  from_here()
+  from_here("an_example.csv")
   \dontrun{
     myfilepath <- here("some", "path", "below", "your", "project", "root.txt")
     >> "parent/path/some/path/below/your/project/root.txt"

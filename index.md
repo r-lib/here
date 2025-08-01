@@ -1,59 +1,7 @@
----
-output:
-  github_document:
-    html_preview: false
----
 
 <!-- README.md and index.md are generated from README.Rmd. Please edit that file. -->
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
 
-pkgload::load_all()
-
-set.seed(20230702)
-
-clean_output <- function(x, options) {
-  # Side effect
-  usethis::use_build_ignore("index.md")
-
-  x <- gsub("0x[0-9a-f]+", "0xdeadbeef", x)
-  x <- gsub("dataframe_[0-9]*_[0-9]*", "      dataframe_42_42      ", x)
-  x <- gsub("[0-9]*\\.___row_number ASC", "42.___row_number ASC", x)
-
-  index <- x
-  index <- gsub("─", "-", index)
-  index <- strsplit(paste(index, collapse = "\n"), "\n---\n")[[1]][[2]]
-  writeLines(index, "index.md")
-
-  x <- gsub('(`vignette[(]"([^"]+)"[)]`)', "[\\1](https://rprojroot.r-lib.org/articles/\\2.html)", x)
-  x <- fansi::strip_sgr(x)
-  x
-}
-
-options(
-  cli.num_colors = 256,
-  cli.width = 71,
-  width = 71,
-  pillar.bold = TRUE,
-  pillar.max_title_chars = 5,
-  pillar.min_title_chars = 5,
-  pillar.max_footer_lines = 12,
-  conflicts.policy = list(warn = FALSE)
-)
-
-local({
-  hook_source <- knitr::knit_hooks$get("document")
-  knitr::knit_hooks$set(document = clean_output)
-})
-
-rlang::local_interactive(FALSE)
-```
 
 # here
 
@@ -70,7 +18,8 @@ In contrast to using `setwd()`, which is fragile and dependent on the way you or
 ## Installation
 
 Install the released version of here from CRAN:
-```{r, eval = FALSE}
+
+``` r
 install.packages("here")
 ```
 
@@ -79,15 +28,20 @@ install.packages("here")
 
 The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
 
-```{r}
+
+``` r
 here::i_am("README.Rmd")
+#> here() starts at /Users/kirill/git/R/r-lib/here
 here()
+#> [1] "/Users/kirill/git/R/r-lib/here"
 ```
 
 You can build a path relative to the top-level directory in order to read or write a file:
 
-```{r}
+
+``` r
 here("inst", "demo-project", "data", "penguins.csv")
+#> [1] "/Users/kirill/git/R/r-lib/here/inst/demo-project/data/penguins.csv"
 readr::write_csv(palmerpenguins::penguins, here("inst", "demo-project", "data", "penguins.csv"))
 ```
 
@@ -97,8 +51,3 @@ See the included [demo project](https://github.com/r-lib/here/tree/main/inst/dem
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)
 *Illustration by [Allison Horst](https://github.com/allisonhorst)*
 
----
-
-## Code of Conduct
-
-Please note that the here project is released with a [Contributor Code of Conduct](https://here.r-lib.org/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

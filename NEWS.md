@@ -1,5 +1,66 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9032 (2025-08-01)
+
+## Continuous integration
+
+- Format with air, check detritus, better handling of `extra-packages` (#133).
+
+
+# here 1.0.1.9031 (2025-07-13)
+
+- Merge branch 'docs'.
+
+
+# here 1.0.1.9030 (2025-05-04)
+
+## Continuous integration
+
+- Enhance permissions for workflow (#124).
+
+
+# here 1.0.1.9029 (2025-04-30)
+
+## Continuous integration
+
+- Permissions, better tests for missing suggests, lints (#123).
+
+
+# here 1.0.1.9028 (2025-04-28)
+
+## Continuous integration
+
+- Only fail covr builds if token is given (#122).
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false` (#121).
+
+
+# here 1.0.1.9027 (2025-04-26)
+
+## Continuous integration
+
+- Correct installation of xml2 (#120).
+
+
+# here 1.0.1.9026 (2025-04-25)
+
+## Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-lib/here/actions/runs/14636203620
+
+## Continuous integration
+
+- Explain (#119).
+
+- Add xml2 for covr, print testthat results (#118).
+
+- Fix (#117).
+
+- Sync (#116).
+
+
 # here 1.0.1.9025 (2024-12-09)
 
 ## Continuous integration

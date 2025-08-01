@@ -1,7 +1,7 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 1.0.1.9025
-Date: 2024-12-09
+Version: 1.0.1.9032
+Date: 2025-08-01
 Authors@R: 
     c(person(given = "Kirill",
              family = "M\u00fcller",
@@ -41,3 +41,4 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2.9000
 Config/testthat/edition: 3
+Config/Needs/website: tidyverse/tidytemplate

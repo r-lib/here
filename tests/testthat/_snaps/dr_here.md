@@ -24,7 +24,7 @@
       - This directory and its parents do not satisfy any of the following criteria:
         - contains a file `.here`
         - contains a file matching `[.]Rproj$` with contents matching `^Version: ` in the first line
-        - contains a directory `.vscode`
+        - contains a file `.vscode/settings.json`
         - contains a file `_quarto.yml`
         - contains a file `renv.lock` with contents matching `"Packages":\s*\{`
         - contains a file `DESCRIPTION` with contents matching `^Package: `

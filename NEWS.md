@@ -1,5 +1,19 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9033 (2025-08-05)
+
+## Continuous integration
+
+- Cleanup and fix macOS (#136).
+
+
+# here 1.0.1.9032 (2025-08-01)
+
+## Continuous integration
+
+- Format with air, check detritus, better handling of `extra-packages` (#133).
+
+
 # here 1.0.1.9031 (2025-07-13)
 
 - Merge branch 'docs'.

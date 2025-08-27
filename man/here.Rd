@@ -49,7 +49,7 @@ until a directory with at least one of the following conditions is found:
 \itemize{
 \item contains a file \code{.here}
 \item contains a file matching \verb{[.]Rproj$} with contents matching \verb{^Version: } in the first line
-\item contains a directory \code{.vscode}
+\item contains a file \code{.vscode/settings.json}
 \item contains a file \verb{_quarto.yml}
 \item contains a file \code{renv.lock} with contents matching \verb{"Packages":\\s*\\\{}
 \item contains a file \code{DESCRIPTION} with contents matching \verb{^Package: }

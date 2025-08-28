@@ -20,9 +20,9 @@ Description: Constructs paths to your project's files.
 License: MIT + file LICENSE
 URL: https://here.r-lib.org/, https://github.com/r-lib/here
 BugReports: https://github.com/r-lib/here/issues
-Imports: 
-    rprojroot (>= 2.0.2)
-Suggests: 
+Imports:
+    rprojroot (>= 2.1.0)
+Suggests:
     conflicted,
     covr,
     fs,
@@ -35,7 +35,7 @@ Suggests:
     testthat,
     uuid,
     withr
-VignetteBuilder: 
+VignetteBuilder:
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

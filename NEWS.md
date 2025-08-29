@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.1.9034 (2025-08-29)
+
+## Features
+
+- Discover VS Code, Quarto and renv projects (#128, #130).
+
+
 # here 1.0.1.9033 (2025-08-05)
 
 ## Continuous integration

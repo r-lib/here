@@ -6,12 +6,12 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![rcc](https://github.com/r-lib/here/workflows/rcc/badge.svg)](https://github.com/r-lib/here/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/here/branch/main/graph/badge.svg)](https://codecov.io/gh/r-lib/here?branch=main)
+coverage](https://codecov.io/gh/r-lib/here/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/here?branch=main)
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing in

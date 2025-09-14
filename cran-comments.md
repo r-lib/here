@@ -1,15 +1,7 @@
-here 1.0.1: Compatibility with testthat 3.0.1
+here 1.0.2
 
 ## Cran Repository Policy
 
-- [x] Reviewed CRP last edited 2020-10-29.
+- [x] Reviewed CRP last edited 2024-08-27.
 
-## R CMD check results
-
-- [x] Checked locally, R 4.0.3
-- [x] Checked on CI system, R 4.0.3
-- [x] Checked on win-builder, R devel
-
-## Current CRAN check results
-
-- [x] Checked on 2020-12-13, no problems found.
+See changes at https://github.com/eddelbuettel/crp/compare/master@%7B2020-10-29%7D...master@%7B2024-08-27%7D

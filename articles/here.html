@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">here</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@
       <h1>here</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/docs/vignettes/here.Rmd" class="external-link"><code>vignettes/here.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-lib/here/blob/cran-1.0.2/vignettes/here.Rmd" class="external-link"><code>vignettes/here.Rmd</code></a></small>
       <div class="d-none name"><code>here.Rmd</code></div>
     </div>
 
@@ -221,7 +221,7 @@ choosing the project root:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/dr_here.html">dr_here</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; here() starts at /home/runner/work/_temp/Library/here/demo-project.</span></span>
-<span><span class="co">#&gt; - This directory contains a file "prepare/penguins.R"</span></span>
+<span><span class="co">#&gt; - This directory contains a file 'prepare/penguins.R'</span></span>
 <span><span class="co">#&gt; - Initial working directory: /home/runner/work/_temp/Library/here/demo-project</span></span>
 <span><span class="co">#&gt; - Current working directory: /home/runner/work/_temp/Library/here/demo-project</span></span></code></pre></div>
 <p>The <code>show_reason</code> argument can be set to
@@ -243,10 +243,10 @@ outside our project:</p>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="../reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"prepare/penguins.R"</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpPDcQ88"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpptAXLi"</span></span>
 <span><span class="co">#&gt; Error: Could not find associated project in working directory or any parent directory.</span></span>
 <span><span class="co">#&gt; - Path in project: prepare/penguins.R</span></span>
-<span><span class="co">#&gt; - Current working directory: /tmp/RtmpPDcQ88</span></span>
+<span><span class="co">#&gt; - Current working directory: /tmp/RtmpptAXLi</span></span>
 <span><span class="co">#&gt; Please open the project associated with this file and try again.</span></span></code></pre></div>
 <p>This can also happen when a file has been renamed or moved without
 updating the <code><a href="../reference/i_am.html">here::i_am()</a></code> call. In the future, a helper
@@ -323,7 +323,7 @@ matched</li>
 identifiers:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "adedfaf1-b91f-4b99-ad0a-a633f24de424"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "aa5f9f35-ff3a-4877-8596-9f431b9583ea"</span></span></code></pre></div>
 <p>Ensure that the <code>uuid</code> arguments are actually unique
 across your files! In the future, a helper function will assist with
 installing and updating suitably formatted <code><a href="../reference/i_am.html">here::i_am()</a></code>
@@ -355,7 +355,7 @@ project root.</p>
 <span>  <span class="va">script_path</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">temp_project_path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpPDcQ88/file299b78f023d6</span></span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpptAXLi/file2f9256d961b9</span></span></span>
 <span><span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">scripts</span></span></span>
 <span><span class="co">#&gt;     └── <span style="color: #00BB00;">script.R</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">script_path</span><span class="op">)</span><span class="op">)</span></span>
@@ -381,7 +381,7 @@ with <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">set
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="va">script_path</span>, echo <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; &gt; here::i_am("scripts/script.R")</span></span>
-<span><span class="co">#&gt; here() starts at /tmp/RtmpPDcQ88/file299b78f023d6</span></span>
+<span><span class="co">#&gt; here() starts at /tmp/RtmpptAXLi/file2f9256d961b9</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; &gt; print("Hello, world!")</span></span>
 <span><span class="co">#&gt; [1] "Hello, world!"</span></span></code></pre></div>
@@ -419,7 +419,7 @@ introduction.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by <a href="http://krlmlr.info" class="external-link">Kirill Müller</a>.</p>
+  <p>Developed by <a href="https://krlmlr.info" class="external-link">Kirill Müller</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

@@ -236,7 +236,7 @@ In the future, a helper function will assist with installing and updating suitab
 
 ### Change project root
 
-It is advisable to [start a fresh R session](https://rstats.wtf/save-source.html) as often as possible, especially before focusing on another project.
+It is advisable to [start a fresh R session](https://rstats.wtf/source-and-blank-slates) as often as possible, especially before focusing on another project.
 There still may be legitimate cases when it is desirable to reset the project root.
 
 To start, let's create a temporary project for demonstration:

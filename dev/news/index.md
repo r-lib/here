@@ -1,5 +1,11 @@
 # Changelog
 
+## here 1.0.2.9001 (2025-11-08)
+
+### Continuous integration
+
+- Sync ([\#154](https://github.com/r-lib/here/issues/154)).
+
 ## here 1.0.2.9000 (2025-09-15)
 
 ### fledge

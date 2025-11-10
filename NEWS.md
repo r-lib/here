@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9002 (2025-11-10)
+
+## Continuous integration
+
+- Use workflows for fledge (#156).
+
+
 # here 1.0.2.9001 (2025-11-08)
 
 ## Continuous integration

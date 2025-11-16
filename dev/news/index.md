@@ -1,5 +1,12 @@
 # Changelog
 
+## here 1.0.2.9003 (2025-11-12)
+
+### Continuous integration
+
+- Fix reviewdog and add commenting workflow
+  ([\#158](https://github.com/r-lib/here/issues/158)).
+
 ## here 1.0.2.9002 (2025-11-10)
 
 ### Continuous integration

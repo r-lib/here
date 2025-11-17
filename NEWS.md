@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9004 (2025-11-17)
+
+## Continuous integration
+
+- Install binaries from r-universe for dev workflow (#161).
+
+
 # here 1.0.2.9003 (2025-11-12)
 
 ## Continuous integration

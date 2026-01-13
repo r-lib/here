@@ -216,10 +216,11 @@ withr::with_dir(tempdir(), {
   print(getwd())
   here::i_am("prepare/penguins.R")
 })
-#> [1] "/tmp/RtmprHTlTz"
-#> Error: Could not find associated project in working directory or any parent directory.
+#> [1] "/tmp/RtmpgHrWFq"
+#> Error:
+#> ! Could not find associated project in working directory or any parent directory.
 #> - Path in project: prepare/penguins.R
-#> - Current working directory: /tmp/RtmprHTlTz
+#> - Current working directory: /tmp/RtmpgHrWFq
 #> Please open the project associated with this file and try again.
 ```
 
@@ -248,7 +249,8 @@ library(plyr)
 #> 
 #>     here
 here()
-#> Error in here(): argument "f" is missing, with no default
+#> Error in `here()`:
+#> ! argument "f" is missing, with no default
 ```
 
 One way to work around this problem is to use
@@ -314,7 +316,7 @@ to create universally unique identifiers:
 
 ``` r
 uuid::UUIDgenerate()
-#> [1] "7306fa68-562c-46cb-a1b5-963b938aebd0"
+#> [1] "b25dc80c-7dd3-4c31-9a3a-411da3e1af60"
 ```
 
 Ensure that the `uuid` arguments are actually unique across your files!
@@ -348,7 +350,7 @@ writeLines(
   script_path
 )
 fs::dir_tree(temp_project_path)
-#> /tmp/RtmprHTlTz/file26ef4a594fc5
+#> /tmp/RtmpgHrWFq/file293520e48438
 #> └── scripts
 #>     └── script.R
 writeLines(readLines(script_path))
@@ -365,7 +367,8 @@ fail:
 source(script_path, echo = TRUE)
 #> 
 #> > here::i_am("scripts/script.R")
-#> Error: Could not find associated project in working directory or any parent directory.
+#> Error:
+#> ! Could not find associated project in working directory or any parent directory.
 #> - Path in project: scripts/script.R
 #> - Current working directory: /home/runner/work/_temp/Library/here/demo-project
 #> Please open the project associated with this file and try again.
@@ -384,7 +387,7 @@ setwd(temp_project_path)
 source(script_path, echo = TRUE)
 #> 
 #> > here::i_am("scripts/script.R")
-#> here() starts at /tmp/RtmprHTlTz/file26ef4a594fc5
+#> here() starts at /tmp/RtmpgHrWFq/file293520e48438
 #> 
 #> > print("Hello, world!")
 #> [1] "Hello, world!"

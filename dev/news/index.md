@@ -1,5 +1,12 @@
 # Changelog
 
+## here 1.0.2.9004 (2025-11-17)
+
+### Continuous integration
+
+- Install binaries from r-universe for dev workflow
+  ([\#161](https://github.com/r-lib/here/issues/161)).
+
 ## here 1.0.2.9003 (2025-11-12)
 
 ### Continuous integration

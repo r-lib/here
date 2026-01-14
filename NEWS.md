@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9005 (2026-01-14)
+
+## Continuous integration
+
+- Fix comment (#165).
+
+- Tweaks (#164).
+
+- Test all R versions on branches that start with cran- (#163).
+
+
 # here 1.0.2.9004 (2025-11-17)
 
 ## Continuous integration

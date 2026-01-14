@@ -1,7 +1,7 @@
 Package: here
 Title: A Simpler Way to Find Your Files
-Version: 1.0.2.9004
-Date: 2025-11-17
+Version: 1.0.2.9005
+Date: 2026-01-14
 Authors@R: 
     c(person(given = "Kirill",
              family = "M\u00fcller",

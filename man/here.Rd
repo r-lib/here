@@ -20,7 +20,7 @@ files relative to your project root.
 }
 \details{
 This package is intended for interactive use only.
-Use \code{\link[rprojroot:root_criterion]{rprojroot::has_file()}} or the other functions in
+Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
 the \pkg{rprojroot} package for more control,
 or for package development.
 

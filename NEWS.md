@@ -2,6 +2,12 @@
 
 # here 1.0.2.9006 (2026-03-12)
 
+## Features
+
+- New `use_criteria()` function to customize root-finding criteria, e.g. to exclude Quarto project detection (#136).
+- New `default_criteria()` function to retrieve the default criterion names.
+- New `"here.criteria"` option to configure root-finding criteria before package load.
+
 ## Chore
 
 - Auto-update from GitHub Actions (#167).

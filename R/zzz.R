@@ -1,7 +1,8 @@
 # nocov start
 #' @import rprojroot
 .onLoad <- function(libname, pkgname) {
-  set_root_crit(is_here | is_rstudio_project | is_vscode_project | is_quarto_project | is_renv_project | is_r_package | is_remake_project | is_projectile_project | is_vcs_root)
+  criteria <- getOption("here.criteria", default = default_criteria())
+  set_root_crit(resolve_criteria(criteria))
   do_refresh_here(".")
 }
 # nocov end

@@ -11,6 +11,7 @@ the top-level directory of a project to easily build paths to files.
 Install the released version of here from CRAN:
 
 ``` r
+
 install.packages("here")
 ```
 
@@ -21,6 +22,7 @@ package displays the top-level of the current project on load or any
 time you call [`here()`](https://here.r-lib.org/dev/reference/here.md):
 
 ``` r
+
 here::i_am("README.Rmd")
 #> here() starts at /Users/kirill/git/R/r-lib/here
 here()
@@ -31,6 +33,7 @@ You can build a path relative to the top-level directory in order to
 read or write a file:
 
 ``` r
+
 here("inst", "demo-project", "data", "penguins.csv")
 #> [1] "/Users/kirill/git/R/r-lib/here/inst/demo-project/data/penguins.csv"
 readr::write_csv(palmerpenguins::penguins, here("inst", "demo-project", "data", "penguins.csv"))

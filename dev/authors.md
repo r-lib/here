@@ -14,12 +14,12 @@ Source:
 [`DESCRIPTION`](https://github.com/r-lib/here/blob/main/DESCRIPTION)
 
 Müller K (2026). *here: A Simpler Way to Find Your Files*. R package
-version 1.0.2.9004, <https://here.r-lib.org/>.
+version 1.0.2.9007, <https://here.r-lib.org/>.
 
     @Manual{,
       title = {here: A Simpler Way to Find Your Files},
       author = {Kirill Müller},
       year = {2026},
-      note = {R package version 1.0.2.9004},
+      note = {R package version 1.0.2.9007},
       url = {https://here.r-lib.org/},
     }

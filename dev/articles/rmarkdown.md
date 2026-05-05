@@ -30,10 +30,12 @@ When `report.Rmd` is rendered, the working directory is internally set
 to `<project root>/analysis` by rmarkdown:
 
 ``` r
+
 setwd(file.path(project_path, "analysis"))
 ```
 
 ``` r
+
 getwd()
 #> [1] "/home/runner/work/_temp/Library/here/demo-project/analysis"
 ```
@@ -53,6 +55,7 @@ The here package circumvents this issue by always referring to the
 project root:
 
 ``` r
+
 here::i_am("analysis/report.Rmd")
 #> here() starts at /home/runner/work/_temp/Library/here/demo-project
 ```
@@ -61,6 +64,7 @@ All files accessed by `report.Rmd` should be referred to using
 [`here()`](https://here.r-lib.org/dev/reference/here.md):
 
 ``` r
+
 library(here)
 here("data", "penguins.csv")
 #> [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"

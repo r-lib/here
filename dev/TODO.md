@@ -32,7 +32,7 @@ Update roxygen2
 
 Use `@examplesIf` where appropriate
 
-[`styler::style_pkg()`](https://styler.r-lib.org/reference/style_pkg.html)
+`styler::style_pkg()`
 
 Remove `Collate:`
 

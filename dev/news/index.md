@@ -1,5 +1,30 @@
 # Changelog
 
+## here 1.0.2.9007 (2026-05-04)
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#170](https://github.com/r-lib/here/issues/170)).
+
+## here 1.0.2.9006 (2026-03-12)
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#167](https://github.com/r-lib/here/issues/167)).
+
+## here 1.0.2.9005 (2026-01-14)
+
+### Continuous integration
+
+- Fix comment ([\#165](https://github.com/r-lib/here/issues/165)).
+
+- Tweaks ([\#164](https://github.com/r-lib/here/issues/164)).
+
+- Test all R versions on branches that start with cran-
+  ([\#163](https://github.com/r-lib/here/issues/163)).
+
 ## here 1.0.2.9004 (2025-11-17)
 
 ### Continuous integration

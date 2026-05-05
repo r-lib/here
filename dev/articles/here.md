@@ -51,10 +51,12 @@ Either way, it is important that the working directory is set to the
 project root or a subdirectory of that path. You can check with:
 
 ``` r
+
 setwd(project_path)
 ```
 
 ``` r
+
 getwd()
 #> [1] "/home/runner/work/_temp/Library/here/demo-project"
 ```
@@ -69,13 +71,13 @@ start.)
 The intended use is to add a call to
 [`here::i_am()`](https://here.r-lib.org/dev/reference/i_am.md) at the
 beginning of your script or in the first chunk of your rmarkdown
-report.[¹](#fn1) This achieves the following:
+report.[^1] This achieves the following:
 
 - The location of the current script or report within the project is
   declared
 - The project root is initialized, consistent with the location of the
   current script or report
-- An informative message is emitted.[²](#fn2)
+- An informative message is emitted.[^2]
 
 The first argument to
 [`here::i_am()`](https://here.r-lib.org/dev/reference/i_am.md) should be
@@ -83,6 +85,7 @@ the path to the current file, relative to the project root. The
 `penguins.R` script uses:
 
 ``` r
+
 here::i_am("prepare/penguins.R")
 #> here() starts at /home/runner/work/_temp/Library/here/demo-project
 ```
@@ -95,9 +98,10 @@ correctly inferred as the project root.
 After [`here::i_am()`](https://here.r-lib.org/dev/reference/i_am.md),
 insert [`library(here)`](https://here.r-lib.org/) to make the
 [`here()`](https://here.r-lib.org/dev/reference/here.md) function
-available:[³](#fn3)
+available:[^3]
 
 ``` r
+
 library(here)
 ```
 
@@ -105,6 +109,7 @@ The top-level directory is also returned from the
 [`here()`](https://here.r-lib.org/dev/reference/here.md) function:
 
 ``` r
+
 here()
 #> [1] "/home/runner/work/_temp/Library/here/demo-project"
 ```
@@ -113,6 +118,7 @@ One important distinction from the working directory is that this
 remains stable even if the working directory is changed:
 
 ``` r
+
 setwd("analysis")
 getwd()
 #> [1] "/home/runner/work/_temp/Library/here/demo-project/analysis"
@@ -131,6 +137,7 @@ You can build a path relative to the top-level directory in order to
 build the full path to a file:
 
 ``` r
+
 here("data", "penguins.csv")
 #> [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"
 readr::read_csv(
@@ -158,6 +165,7 @@ similarly to [`file.path()`](https://rdrr.io/r/base/file.path.html) or
 path components or entire subpaths:
 
 ``` r
+
 here("data/penguins.csv")
 #> [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"
 ```
@@ -174,6 +182,7 @@ project-relative paths in
 [`here()`](https://here.r-lib.org/dev/reference/here.md).
 
 ``` r
+
 data_path <- here("data")
 here(data_path)
 #> [1] "/home/runner/work/_temp/Library/here/demo-project/data"
@@ -187,6 +196,7 @@ The [`dr_here()`](https://here.r-lib.org/dev/reference/dr_here.md)
 function explains the reasoning behind choosing the project root:
 
 ``` r
+
 dr_here()
 #> here() starts at /home/runner/work/_temp/Library/here/demo-project.
 #> - This directory contains a file 'prepare/penguins.R'
@@ -198,6 +208,7 @@ The `show_reason` argument can be set to `FALSE` to reduce the output to
 one line:
 
 ``` r
+
 dr_here(show_reason = FALSE)
 #> here() starts at /home/runner/work/_temp/Library/here/demo-project
 ```
@@ -212,15 +223,16 @@ directory outside of your project. The example below calls
 temporary directory, which is clearly outside our project:
 
 ``` r
+
 withr::with_dir(tempdir(), {
   print(getwd())
   here::i_am("prepare/penguins.R")
 })
-#> [1] "/tmp/RtmpsCSuDP"
+#> [1] "/tmp/Rtmp3kwlWj"
 #> Error:
 #> ! Could not find associated project in working directory or any parent directory.
 #> - Path in project: prepare/penguins.R
-#> - Current working directory: /tmp/RtmpsCSuDP
+#> - Current working directory: /tmp/Rtmp3kwlWj
 #> Please open the project associated with this file and try again.
 ```
 
@@ -242,6 +254,7 @@ Loading these packages after loading here masks our
 [`here()`](https://here.r-lib.org/dev/reference/here.md) function:
 
 ``` r
+
 library(plyr)
 #> 
 #> Attaching package: 'plyr'
@@ -257,6 +270,7 @@ One way to work around this problem is to use
 [`here::here()`](https://here.r-lib.org/dev/reference/here.md):
 
 ``` r
+
 here::here()
 #> [1] "/home/runner/work/_temp/Library/here/demo-project"
 ```
@@ -267,6 +281,7 @@ from more than one package and allows you to use neither until you
 indicate a preference.
 
 ``` r
+
 library(conflicted)
 here()
 #> Error:
@@ -315,8 +330,9 @@ Use
 to create universally unique identifiers:
 
 ``` r
+
 uuid::UUIDgenerate()
-#> [1] "5193bddf-d176-4460-b77a-a250e8360e7b"
+#> [1] "653b0f02-e2ae-4fea-aa6c-d5345483ad7d"
 ```
 
 Ensure that the `uuid` arguments are actually unique across your files!
@@ -337,6 +353,7 @@ be legitimate cases when it is desirable to reset the project root.
 To start, let’s create a temporary project for demonstration:
 
 ``` r
+
 temp_project_path <- tempfile()
 dir.create(temp_project_path)
 scripts_path <- file.path(temp_project_path, "scripts")
@@ -350,7 +367,7 @@ writeLines(
   script_path
 )
 fs::dir_tree(temp_project_path)
-#> /tmp/RtmpsCSuDP/file290f1971ec13
+#> /tmp/Rtmp3kwlWj/file27da54fe623
 #> └── scripts
 #>     └── script.R
 writeLines(readLines(script_path))
@@ -364,6 +381,7 @@ declare its location. Running it from the current working directory will
 fail:
 
 ``` r
+
 source(script_path, echo = TRUE)
 #> 
 #> > here::i_am("scripts/script.R")
@@ -380,14 +398,16 @@ to [`here::i_am()`](https://here.r-lib.org/dev/reference/i_am.md) from
 within `script.R` works:
 
 ``` r
+
 setwd(temp_project_path)
 ```
 
 ``` r
+
 source(script_path, echo = TRUE)
 #> 
 #> > here::i_am("scripts/script.R")
-#> here() starts at /tmp/RtmpsCSuDP/file290f1971ec13
+#> here() starts at /tmp/Rtmp3kwlWj/file27da54fe623
 #> 
 #> > print("Hello, world!")
 #> [1] "Hello, world!"
@@ -410,6 +430,7 @@ The following example shows how to find an RStudio project starting from
 a directory:
 
 ``` r
+
 library(rprojroot)
 find_root(is_rstudio_project, file.path(project_path, "analysis"))
 #> [1] "/home/runner/work/_temp/Library/here/demo-project"
@@ -419,17 +440,15 @@ Arbitrary criteria can be defined. See
 [`vignette("rprojroot", package = "rprojroot")`](https://rprojroot.r-lib.org/articles/rprojroot.html)
 for an introduction.
 
-------------------------------------------------------------------------
-
-1.  Prior to version 1.0.0, it was recommended to attach the here
+[^1]: Prior to version 1.0.0, it was recommended to attach the here
     package via [`library(here)`](https://here.r-lib.org/). This still
     works, but is no longer the recommended approach.
 
-2.  [`library(here)`](https://here.r-lib.org/) no longer emits an
+[^2]: [`library(here)`](https://here.r-lib.org/) no longer emits an
     informative message if
     [`here::i_am()`](https://here.r-lib.org/dev/reference/i_am.md) has
     been called before.
 
-3.  [`library(here)`](https://here.r-lib.org/) emits a message that may
-    be confusing if followed by the message from
+[^3]: [`library(here)`](https://here.r-lib.org/) emits a message that
+    may be confusing if followed by the message from
     [`here::i_am()`](https://here.r-lib.org/dev/reference/i_am.md).

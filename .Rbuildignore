@@ -18,3 +18,4 @@
 ^index\.md$
 ^CRAN-RELEASE$
 ^\.aviator/config\.yml$
+^\.ccache$

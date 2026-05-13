@@ -1,5 +1,19 @@
 # Changelog
 
+## here 1.0.2.9008 (2026-05-06)
+
+### Continuous integration
+
+- Cosmetics.
+
+- Bump action versions.
+
+- Install clang-format-21.
+
+- Align fledge workflow.
+
+- Harmonize.
+
 ## here 1.0.2.9007 (2026-05-04)
 
 ### Chore

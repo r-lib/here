@@ -1,5 +1,23 @@
 # Changelog
 
+## here 1.0.2.9009 (2026-05-13)
+
+### Chore
+
+- Add ccache to `.gitignore` and `.Rbuildignore`.
+
+### Continuous integration
+
+- Create snapshot update PR against correct branch.
+
+- Add reference to `/apply-patch` workflow in commit message.
+
+- Clarify rationale for not deploying on schedule.
+
+- Only run fledge on pushes to main.
+
+- Tweak fledge workflow and ccache action.
+
 ## here 1.0.2.9008 (2026-05-06)
 
 ### Continuous integration

@@ -1,5 +1,10 @@
 # Changelog
 
+## here 1.0.2.9010 (2026-05-16)
+
+- Ci: Unify fledge.yaml across cynkratemplate and fledge
+  ([\#86](https://github.com/r-lib/here/issues/86)).
+
 ## here 1.0.2.9009 (2026-05-13)
 
 ### Chore

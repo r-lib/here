@@ -1,5 +1,13 @@
 # Changelog
 
+## here 1.0.2.9012 (2026-07-22)
+
+### Continuous integration
+
+- Run on Ubuntu 26.04.
+
+- Align workflows with template.
+
 ## here 1.0.2.9011 (2026-05-24)
 
 ### Continuous integration

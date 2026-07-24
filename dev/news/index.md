@@ -1,5 +1,18 @@
 # Changelog
 
+## here 1.0.2.9013 (2026-07-24)
+
+### Bug fixes
+
+#### ci
+
+- Emit empty package matrix when there are no (rev)deps.
+
+### Uncategorized
+
+- Ci: Harden `format-suggest` against `pull_request_target` pwn requests
+  ([\#93](https://github.com/r-lib/here/issues/93)).
+
 ## here 1.0.2.9012 (2026-07-22)
 
 ### Continuous integration

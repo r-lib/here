@@ -1,5 +1,11 @@
 # Changelog
 
+## here 1.0.2.9014 (2026-07-25)
+
+### Continuous integration
+
+- Lock down `format-suggest` egress (audit → block).
+
 ## here 1.0.2.9013 (2026-07-24)
 
 ### Bug fixes

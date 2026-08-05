@@ -1,5 +1,13 @@
 # Changelog
 
+## here 1.0.2.9015 (2026-07-28)
+
+- Ci: Apply matrix `env` vars in the workflow, not in custom actions
+  ([\#95](https://github.com/r-lib/here/issues/95)).
+
+- Ci: Link the responsible workflow run in snapshot update PRs
+  ([\#96](https://github.com/r-lib/here/issues/96)).
+
 ## here 1.0.2.9014 (2026-07-25)
 
 ### Continuous integration

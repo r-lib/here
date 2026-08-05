@@ -1,5 +1,20 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9016 (2026-08-05)
+
+## Chore
+
+- Auto-update from GitHub Actions (#184).
+
+## Continuous integration
+
+- Remove unused pr-commands workflow.
+
+## Uncategorized
+
+- Ci: Pass workflow context through the environment, not into script text (#102).
+
+
 # here 1.0.2.9015 (2026-07-28)
 
 - Ci: Apply matrix `env` vars in the workflow, not in custom actions (#95).

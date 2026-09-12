@@ -28,6 +28,13 @@ Install the released version of here from CRAN:
 install.packages("here")
 ```
 
+Or the development version from GitHub with:
+
+``` r
+# install.packages("pak")
+pak::pak("r-lib/here")
+```
+
 ## Usage
 
 The here package creates paths relative to the top-level directory. The

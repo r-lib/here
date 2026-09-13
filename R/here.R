@@ -1,21 +1,21 @@
 #' Find your files
 #'
 #' `here()` uses reasonable heuristics to find your project's files,
-#' based on the current working directory at the time when the package is loaded.
-#' Use it as a drop-in replacement for [file.path()],
-#' it will always locate the files relative to your project root.
+#'  based on the current working directory at the time when the package is loaded.
+#'  Use it as a drop-in replacement for [file.path()],
+#'  it will always locate the files relative to your project root.
 #'
 #' This package is intended for interactive use only.
-#' Use [rprojroot::has_file()] or the other functions in
-#' the \pkg{rprojroot} package for more control,
-#' or for package development.
+#'  Use [rprojroot::has_file()] or the other functions in
+#'  the \pkg{rprojroot} package for more control,
+#'  or for package development.
 #'
 #' If `here()` raises an error or otherwise behaves unexpectedly,
-#' you may have attached \pkg{plyr} or another package
-#' after \pkg{here}.
-#' Correct this using
-#' [the \pkg{conflicted} package](https://conflicted.r-lib.org/),
-#' or use `here::here("data", "df.rda")`.
+#'  you may have attached \pkg{plyr} or another package
+#'  after \pkg{here}.
+#'  Correct this using
+#'  [the \pkg{conflicted} package](https://conflicted.r-lib.org/),
+#'  or use `here::here("data", "df.rda")`.
 #'
 #' @evalRd roxygen2:::markdown(format_root_section())
 #'

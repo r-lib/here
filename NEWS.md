@@ -1,5 +1,20 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9020 (2026-09-13)
+
+## Features
+
+### ci
+
+- Align the `revdep2`, `revdep4` and `revdepx` subsystems with `rigraph`.
+
+## Continuous integration
+
+- Survive an archived CRAN package, cache revdep compiles (@krlmlr, #189).
+
+- Latest changes (#111).
+
+
 # here 1.0.2.9019 (2026-09-05)
 
 ## Bug fixes

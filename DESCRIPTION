@@ -11,7 +11,7 @@ Authors@R:
       person(given = "Jennifer",
              family = "Bryan",
              role = "ctb",
-             email = "jenny@rstudio.com",
+             email = "jenny@posit.co",
              comment = c(ORCID = "0000-0002-6983-2759")))
 Description: Constructs paths to your project's files.
     Declare the relative path of a file within your project with 'i_am()'.

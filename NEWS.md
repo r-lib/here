@@ -1,5 +1,24 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9021 (2026-09-13)
+
+## Chore
+
+- Remove Copilot setup steps.
+
+## Continuous integration
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false` (#121).
+
+- Correct installation of xml2 (#120).
+
+- Explain (#119).
+
+- Fix (#117).
+
+- Avoid failure in fledge workflow if no changes (#114).
+
+
 # here 1.0.2.9020 (2026-09-13)
 
 ## Features

@@ -1,9 +1,9 @@
 #' Find your files
 #'
-#' `here()` uses reasonable heuristics to find your project's files, based on
-#' the current working directory at the time when the package is loaded.
-#' Use it as a drop-in replacement for [file.path()], it will always locate the
-#' files relative to your project root.
+#' `here()` uses reasonable heuristics to find your project's files,
+#' based on the current working directory at the time when the package is loaded.
+#' Use it as a drop-in replacement for [file.path()],
+#' it will always locate the files relative to your project root.
 #'
 #' This package is intended for interactive use only.
 #' Use [rprojroot::has_file()] or the other functions in
@@ -21,8 +21,7 @@
 #'
 #' @param ... `[character]`\cr
 #'   Path components below the project root, can be empty.
-#'   Each argument should be a string containing one or more
-#'   path components separated by a forward slash `"/"`.
+#'   Each argument should be a string containing one or more path components separated by a forward slash `"/"`.
 #' @export
 #' @examples
 #' here()

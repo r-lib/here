@@ -15,7 +15,7 @@ local_project <- function(..., .env = parent.frame()) {
 }
 
 local_here <- function(path, ..., .env = parent.frame()) {
-  old_root <- .root_env
+  old_root <- .root_env$root
   do_refresh_here(path)
   withr::defer(.root_env$root <- old_root, envir = .env)
   invisible()

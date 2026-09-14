@@ -1,0 +1,49 @@
+#' Resets here() root to current or target working directory.
+#'
+#' If no target root directory is specified, the current working directory will be used.
+#' There is no need to restart the session
+#' 
+#' The function is named:
+#'     u_r (as in "here::you_are") in reference to:
+#'        1. everyone:'WHY ISN"T THIS INCLUDED IN THE PACKAGE!?'
+#'           me: 'Well, here you are.'
+#'        
+#'        2. user:'Start here() at my cwd.'
+#'           here:'OK, here you are.' (anastrophe)
+#'
+#'     u_r (as in "here::user_reset") in reference to:
+#'        1. Providing a quick way for a user to reset the root of here().
+#'
+#'     u_r (as in "here::unload_reload") in reference to:
+#'        1. The method used to change the root of here().
+#'
+#' Q: Why use this when there's RStudio projects?
+#' A: There are certain cases where this method is preferable. 
+#'
+#'
+#' @param target_wd `[character(1)]`\cr
+#'   The target root directory to start here() from.
+#'   If no target root directory is specified,
+#'   the current working directory will be used.
+#'
+#' @export
+#' @examples
+#' \dontrun{
+#' setwd("/somewhere") # initial working directory.
+#' here() # 'here starts at /somewhere/'
+#' setwd("/anywhere/else") # change working directory
+#' here::u_r() # 'here starts at /anywhere/else'
+#'
+#' setwd("/somewhere/") # initial working directory.
+#' here() # 'here starts at /somewhere/'
+#' here::u_r("/anywhere/else") # 'here starts at /anywhere/else'
+#' getwd() # "/anywhere/else" 
+#' }
+u_r <- function(target_wd=getwd()){
+    detach("package:here", unload=TRUE)
+    if(target_wd==getwd()){
+        library(here)
+    }
+    setwd(target_wd)
+    library(here)
+}

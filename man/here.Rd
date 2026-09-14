@@ -9,24 +9,24 @@ here(...)
 \arguments{
 \item{...}{\verb{[character]}\cr
 Path components below the project root, can be empty.
-Each argument should be a string containing one or more path components separated by a forward slash \code{"/"}.}
+ Each argument should be a string containing one or more path components separated by a forward slash \code{"/"}.}
 }
 \description{
 \code{here()} uses reasonable heuristics to find your project's files,
 based on the current working directory at the time when the package is loaded.
-Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}},
+ Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}},
 it will always locate the files relative to your project root.
 }
 \details{
 This package is intended for interactive use only.
-Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
+ Use \code{\link[rprojroot:has_file]{rprojroot::has_file()}} or the other functions in
 the \pkg{rprojroot} package for more control,
 or for package development.
 
 If \code{here()} raises an error or otherwise behaves unexpectedly,
 you may have attached \pkg{plyr} or another package
 after \pkg{here}.
-Correct this using
+ Correct this using
 \href{https://conflicted.r-lib.org/}{the \pkg{conflicted} package},
 or use \code{here::here("data", "df.rda")}.
 }
@@ -39,7 +39,7 @@ here("some/path/below/your/project/root.txt")
 }
 \section{Project root}{
 The project root is established with a call to \verb{here::}\code{\link[=i_am]{i_am()}}.
-Although not recommended, it can be changed by calling \code{here::i_am()} again.
+ Although not recommended, it can be changed by calling \code{here::i_am()} again.
 
 In the absence of such a call (e.g. for a new project),
 starting with the current working directory during package load time,
@@ -61,4 +61,4 @@ until a directory with at least one of the following conditions is found:
 
 In either case, \code{here()} appends its arguments as path components
 to the root directory.
-}
+ }

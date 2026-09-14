@@ -18,7 +18,8 @@ project_path <- system.file("demo-project", package = "here")
 ```
 
 The here package enables easy file referencing by using the top-level directory of a file project to easily build file paths.
-This article demonstrates the case where the working directory is set to a subdirectory of the project root, for instance when rendering an R Markdown document that lives in a subdirectory.
+This article demonstrates the case where the working directory is set to a subdirectory of the project root,
+for instance when rendering an R Markdown document that lives in a subdirectory.
 See `vignette("here")` for a more general introduction.
 
 ## rmarkdown starts in a subdirectory
@@ -52,7 +53,9 @@ The report requires the `penguins.csv` file to work.
 
 ## here always uses project-relative paths
 
-To render `report.Rmd`, you would have to ensure the path to `penguins.csv` is relative to the `analysis/` directory - i.e., `../data/penguins.csv`. The chunks would knit properly, but could not be run in the console since the working directory in the console *isn't* `analysis/`.
+To render `report.Rmd`,
+you would have to ensure the path to `penguins.csv` is relative to the `analysis/` directory - i.e., `../data/penguins.csv`.
+The chunks would knit properly, but could not be run in the console since the working directory in the console *isn't* `analysis/`.
 
 The here package circumvents this issue by always referring to the project root:
 

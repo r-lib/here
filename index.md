@@ -9,7 +9,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![rcc](https://github.com/r-lib/here/workflows/rcc/badge.svg)](https://github.com/r-lib/here/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/here)](https://CRAN.R-project.org/package=here)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/here/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/here?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/here/graph/badge.svg)](https://app.codecov.io/gh/r-lib/here/tree/main)
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing in [project-oriented workflows](https://rstats.wtf/projects.html).

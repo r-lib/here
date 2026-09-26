@@ -1,5 +1,40 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# here 1.0.2.9022 (2026-09-26)
+
+## Chore
+
+- Auto-update from GitHub Actions (#145).
+
+- Update `@rstudio.com` author email to `@posit.co` (#191).
+
+## Documentation
+
+- Break lines at meaning boundaries (#199).
+
+- Drop the branch from the coverage badge (#198).
+
+- Harmonize README and pkgdown front page rendering (#193).
+
+- Add a `pak::pak()` development install to the README (#190).
+
+## Testing
+
+- Snapshot updates for R-CMD-check-dev ({"package":"testthat"}) (#141).
+
+- Snapshot updates for rcc-full ({"os":"macos-latest","r":"4.5"}) (#139).
+
+## fledge
+
+- CRAN release v1.0.2 (#149).
+
+- Bump version to 1.0.1.9035 (#146).
+
+- Bump version to 1.0.1.9034 (#144).
+
+- Bump version to 1.0.2.9000 (#150).
+
+
 # here 1.0.2.9021 (2026-09-13)
 
 ## Chore

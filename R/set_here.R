@@ -2,13 +2,11 @@
 #'
 #' `r lifecycle::badge("superseded")`
 #'
-#' `set_here()` creates an empty file named `.here`, by default
-#' in the current directory.
-#' When here encounters such a file, it uses the
-#' directory that contains this file as root.
+#' `set_here()` creates an empty file named `.here`, by default in the current directory.
+#' When here encounters such a file,
+#' it uses the directory that contains this file as root.
 #' This is useful if none of the default criteria apply.
-#' You need to restart the R session so that `here()`
-#' picks up the newly created file.
+#' You need to restart the R session so that `here()` picks up the newly created file.
 #'
 #' @section Life cycle:
 #' `set_here()` should no longer be necessary

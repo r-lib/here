@@ -13,7 +13,8 @@
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing in [project-oriented workflows](https://rstats.wtf/projects.html).
-In contrast to using `setwd()`, which is fragile and dependent on the way you organize your files, here uses the top-level directory of a project to easily build paths to files.
+In contrast to using `setwd()`, which is fragile and dependent on the way you organize your files,
+here uses the top-level directory of a project to easily build paths to files.
 
 ## Installation
 
@@ -32,7 +33,8 @@ pak::pak("r-lib/here")
 
 ## Usage
 
-The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call `here()`:
+The here package creates paths relative to the top-level directory.
+The package displays the top-level of the current project on load or any time you call `here()`:
 
 ``` r
 here::i_am("README.Rmd")
@@ -49,7 +51,8 @@ here("inst", "demo-project", "data", "penguins.csv")
 readr::write_csv(palmerpenguins::penguins, here("inst", "demo-project", "data", "penguins.csv"))
 ```
 
-These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories.
+These relative paths work regardless of where the associated source file lives inside your project,
+like analysis projects with data and reports in different subdirectories.
 See the included [demo project](https://github.com/r-lib/here/tree/main/inst/demo-project) for an example.
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png)

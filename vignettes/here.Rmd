@@ -166,7 +166,8 @@ dr_here(show_reason = FALSE)
 
 ### What if the working directory is wrong?
 
-The declaration of the active file via `here::i_am()` also protects against accidentally running the script from a working directory outside of your project.
+The declaration of the active file via `here::i_am()` also protects against accidentally running the script
+from a working directory outside of your project.
 The example below calls `here::i_am()` from the temporary directory, which is clearly outside our project:
 
 ```{r error = TRUE}
@@ -177,7 +178,8 @@ withr::with_dir(tempdir(), {
 ```
 
 This can also happen when a file has been renamed or moved without updating the `here::i_am()` call.
-In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls in your scripts and reports.
+In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls
+in your scripts and reports.
 
 
 ## Extra safety
@@ -198,7 +200,8 @@ One way to work around this problem is to use `here::here()`:
 here::here()
 ```
 
-The conflicted package offers an alternative: it detects that `here()` is exported from more than one package and allows you to use neither until you indicate a preference.
+The conflicted package offers an alternative:
+it detects that `here()` is exported from more than one package and allows you to use neither until you indicate a preference.
 
 ```{r error = TRUE}
 library(conflicted)
@@ -213,7 +216,8 @@ here()
 
 To eliminate potential confusion, `here::i_am()` accepts a `uuid` argument.
 The idea is that each script and report calls `here::i_am()` very early (in the first 100 lines) with a universally unique identifier.
-Even if a file location is reused across projects (e.g. two projects contain a "prepare/data.R" file), the files can be identified correctly if the `uuid` argument in the `here::i_am()` call is different.
+Even if a file location is reused across projects (e.g. two projects contain a "prepare/data.R" file),
+the files can be identified correctly if the `uuid` argument in the `here::i_am()` call is different.
 
 If a `uuid` argument is passed to `here::i_am()`:
 
@@ -229,14 +233,16 @@ uuid::UUIDgenerate()
 ```
 
 Ensure that the `uuid` arguments are actually unique across your files!
-In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls in your scripts and reports.
+In the future, a helper function will assist with installing and updating suitably formatted `here::i_am()` calls
+in your scripts and reports.
 
 
 ## Beyond here
 
 ### Change project root
 
-It is advisable to [start a fresh R session](https://rstats.wtf/source-and-blank-slates) as often as possible, especially before focusing on another project.
+It is advisable to [start a fresh R session](https://rstats.wtf/source-and-blank-slates) as often as possible,
+especially before focusing on another project.
 There still may be legitimate cases when it is desirable to reset the project root.
 
 To start, let's create a temporary project for demonstration:

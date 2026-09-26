@@ -9,14 +9,13 @@ here(...)
 \arguments{
 \item{...}{\verb{[character]}\cr
 Path components below the project root, can be empty.
-Each argument should be a string containing one or more
-path components separated by a forward slash \code{"/"}.}
+Each argument should be a string containing one or more path components separated by a forward slash \code{"/"}.}
 }
 \description{
-\code{here()} uses reasonable heuristics to find your project's files, based on
-the current working directory at the time when the package is loaded.
-Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}}, it will always locate the
-files relative to your project root.
+\code{here()} uses reasonable heuristics to find your project's files,
+based on the current working directory at the time when the package is loaded.
+Use it as a drop-in replacement for \code{\link[=file.path]{file.path()}},
+it will always locate the files relative to your project root.
 }
 \details{
 This package is intended for interactive use only.

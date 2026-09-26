@@ -1,7 +1,5 @@
 ---
-output:
-  github_document:
-    html_preview: false
+output: cynkratemplate::readme_document
 ---
 
 <!-- README.md and index.md are generated from README.Rmd. Please edit that file. -->
@@ -19,20 +17,16 @@ pkgload::load_all()
 set.seed(20230702)
 
 clean_output <- function(x, options) {
-  # Side effect
-  usethis::use_build_ignore("index.md")
 
+  # here() prints the project root, which is wherever the package happens
+  # to be checked out: /home/runner/work/here/here on CI, something else
+  # on every maintainer's machine. Pin it, so a local render and a CI
+  # render agree.
+  x <- gsub(here::here(), "/home/here", x, fixed = TRUE)
   x <- gsub("0x[0-9a-f]+", "0xdeadbeef", x)
   x <- gsub("dataframe_[0-9]*_[0-9]*", "      dataframe_42_42      ", x)
   x <- gsub("[0-9]*\\.___row_number ASC", "42.___row_number ASC", x)
 
-  index <- x
-  index <- gsub("─", "-", index)
-  index <- strsplit(paste(index, collapse = "\n"), "\n---\n")[[1]][[2]]
-  writeLines(index, "index.md")
-
-  x <- gsub('(`vignette[(]"([^"]+)"[)]`)', "[\\1](https://rprojroot.r-lib.org/articles/\\2.html)", x)
-  x <- fansi::strip_sgr(x)
   x
 }
 

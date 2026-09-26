@@ -1,5 +1,26 @@
 # Changelog
 
+## here 1.0.2.9021 (2026-09-13)
+
+### Chore
+
+- Remove Copilot setup steps.
+
+### Continuous integration
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false`
+  ([\#121](https://github.com/r-lib/here/issues/121)).
+
+- Correct installation of xml2
+  ([\#120](https://github.com/r-lib/here/issues/120)).
+
+- Explain ([\#119](https://github.com/r-lib/here/issues/119)).
+
+- Fix ([\#117](https://github.com/r-lib/here/issues/117)).
+
+- Avoid failure in fledge workflow if no changes
+  ([\#114](https://github.com/r-lib/here/issues/114)).
+
 ## here 1.0.2.9020 (2026-09-13)
 
 ### Features

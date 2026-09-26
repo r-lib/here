@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="index.html">here</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.2.9020</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.2.9021</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,20 +68,24 @@
 <p>Install the released version of here from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span></span></code></pre></div>
+<p>Or the development version from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"r-lib/here"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p>The here package creates paths relative to the top-level directory. The package displays the top-level of the current project on load or any time you call <code><a href="reference/here.html">here()</a></code>:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"README.Rmd"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; here() starts at /Users/kirill/git/R/r-lib/here</span></span>
-<span><span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/Users/kirill/git/R/r-lib/here"</span></span></code></pre></div>
-<p>You can build a path relative to the top-level directory in order to read or write a file:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"README.Rmd"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; here() starts at /home/here</span></span>
+<span><span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/here"</span></span></code></pre></div>
+<p>You can build a path relative to the top-level directory in order to read or write a file:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="st">"inst"</span>, <span class="st">"demo-project"</span>, <span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/Users/kirill/git/R/r-lib/here/inst/demo-project/data/penguins.csv"</span></span>
+<span><span class="co">#&gt; [1] "/home/here/inst/demo-project/data/penguins.csv"</span></span>
 <span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html" class="external-link">write_csv</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, <span class="fu"><a href="reference/here.html">here</a></span><span class="op">(</span><span class="st">"inst"</span>, <span class="st">"demo-project"</span>, <span class="st">"data"</span>, <span class="st">"penguins.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>These relative paths work regardless of where the associated source file lives inside your project, like analysis projects with data and reports in different subdirectories. See the included <a href="https://github.com/r-lib/here/tree/main/inst/demo-project" class="external-link">demo project</a> for an example.</p>
 <p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png"><em>Illustration by <a href="https://github.com/allisonhorst" class="external-link">Allison Horst</a></em></p>
@@ -130,10 +134,10 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/r-lib/here/actions" class="external-link"><img src="https://github.com/r-lib/here/workflows/rcc/badge.svg" alt="rcc"></a></li>
 <li><a href="https://CRAN.R-project.org/package=here" class="external-link"><img src="https://www.r-pkg.org/badges/version/here" alt="CRAN status"></a></li>
-<li><a href="https://codecov.io/gh/r-lib/here?branch=main" class="external-link"><img src="https://codecov.io/gh/r-lib/here/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://app.codecov.io/gh/r-lib/here/tree/main" class="external-link"><img src="https://codecov.io/gh/r-lib/here/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 

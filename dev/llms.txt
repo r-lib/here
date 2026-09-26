@@ -15,6 +15,14 @@ Install the released version of here from CRAN:
 install.packages("here")
 ```
 
+Or the development version from GitHub with:
+
+``` r
+
+# install.packages("pak")
+pak::pak("r-lib/here")
+```
+
 ## Usage
 
 The here package creates paths relative to the top-level directory. The
@@ -24,9 +32,9 @@ time you call [`here()`](https://here.r-lib.org/dev/reference/here.md):
 ``` r
 
 here::i_am("README.Rmd")
-#> here() starts at /Users/kirill/git/R/r-lib/here
+#> here() starts at /home/here
 here()
-#> [1] "/Users/kirill/git/R/r-lib/here"
+#> [1] "/home/here"
 ```
 
 You can build a path relative to the top-level directory in order to
@@ -35,7 +43,7 @@ read or write a file:
 ``` r
 
 here("inst", "demo-project", "data", "penguins.csv")
-#> [1] "/Users/kirill/git/R/r-lib/here/inst/demo-project/data/penguins.csv"
+#> [1] "/home/here/inst/demo-project/data/penguins.csv"
 readr::write_csv(palmerpenguins::penguins, here("inst", "demo-project", "data", "penguins.csv"))
 ```
 

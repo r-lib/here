@@ -9,7 +9,7 @@ i_am(path, ..., uuid = NULL)
 \arguments{
 \item{path}{\verb{[character(1)]}\cr
 The path to the current script or report, relative to the project root.
-Passing an absolute path raises an error.}
+ Passing an absolute path raises an error.}
 
 \item{...}{Must be empty, reserved for future use.}
 
@@ -17,7 +17,7 @@ Passing an absolute path raises an error.}
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 If not \code{NULL}, a unique string that is matched against the first 100 lines of the file.
-Use \code{\link[uuid:UUIDgenerate]{uuid::UUIDgenerate()}} to create a unique string that can be used as a \code{uuid} argument.}
+ Use \code{\link[uuid:UUIDgenerate]{uuid::UUIDgenerate()}} to create a unique string that can be used as a \code{uuid} argument.}
 }
 \value{
 This function is called for its side effects.
@@ -25,22 +25,22 @@ This function is called for its side effects.
 \description{
 Add a call to \code{here::i_am("<project-relative path>.<ext>")} at the top of your R script
 or in the first chunk of your rmarkdown document.
-This ensures that the project root is set up correctly:
+ This ensures that the project root is set up correctly:
 subsequent calls to \code{here()} will refer to the implied project root.
-If the current working directory is outside of the project where the script or report is intended to run,
+ If the current working directory is outside of the project where the script or report is intended to run,
 it will fail with a descriptive message.
 }
 \details{
 Relying on the project root determined with a project file,
 the default for versions prior to 1.0.0,
 only weakly protects against running a script from an arbitrary directory outside the intended project.
-The \code{i_am()} function offers a stronger way to define the project root:
+ The \code{i_am()} function offers a stronger way to define the project root:
 it will ensure that the project root actually contains a file in that location,
 optionally checking for file contents that uniquely identify the file via the \code{nonce} argument.
 
 This function will fail if the script or report is moved within the project.
-Update the \code{i_am()} call to reflect the new location.
-If you use the \code{nonce} argument for extra safety, be sure to change it
+ Update the \code{i_am()} call to reflect the new location.
+ If you use the \code{nonce} argument for extra safety, be sure to change it
 when you save an existing script or report under a new name.
 }
 \examples{

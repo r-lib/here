@@ -12,7 +12,7 @@
 <!-- badges: end -->
 
 The goal of the here package is to enable easy file referencing in [project-oriented workflows](https://rstats.wtf/projects.html).
-In contrast to using `setwd()`, which is fragile and dependent on the way you organize your files,
+In contrast to using [`setwd()`](https://rdrr.io/r/base/getwd.html), which is fragile and dependent on the way you organize your files,
 here uses the top-level directory of a project to easily build paths to files.
 
 ## Installation
@@ -33,7 +33,7 @@ pak::pak("r-lib/here")
 ## Usage
 
 The here package creates paths relative to the top-level directory.
-The package displays the top-level of the current project on load or any time you call `here()`:
+The package displays the top-level of the current project on load or any time you call [`here()`](https://here.r-lib.org/reference/here.html):
 
 ``` r
 here::i_am("README.Rmd")
